@@ -2,7 +2,7 @@
 
 <div align="center">
 
-# **Andika Surya Hermawan**
+# **DikaCode**
 
 ### Full Stack Developer • AI Engineer • Open Source Builder
 
@@ -153,6 +153,10 @@ GitHub:
 npm:
 
 `https://www.npmjs.com/~dikaofc`
+
+telegram:
+
+`https://t.me/dikaacode`
 
 ---
 
