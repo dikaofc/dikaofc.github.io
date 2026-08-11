@@ -94,9 +94,9 @@ export function getRepos(): Promise<GhRepo[]> {
 export const FALLBACK_USER: GhUser = {
   login: "dikaofc",
   name: "Dika",
-  avatar_url: `https://github.com/${USERNAME}.png`,
+  avatar_url: `https://files.catbox.moe/4qmqef.jpg`,
   html_url: `https://github.com/${USERNAME}`,
-  bio: "Builder of AI gateways, automation bots & universal remote systems.",
+  bio: "Builder of Open sourcee projects, AI enthusiast, and software engineer.",
   followers: 0,
   following: 0,
   public_repos: 4,

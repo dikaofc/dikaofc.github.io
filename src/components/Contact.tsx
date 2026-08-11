@@ -47,7 +47,7 @@ export default function Contact() {
             </p>
 
             <a
-              href="mailto:dikaofc@proton.me"
+              href="mailto:dika@obitoglory.tech"
               className="mt-6 inline-flex nb-border-thick bg-ink text-paper font-display text-base md:text-lg px-5 py-3 md:px-6 md:py-4 rounded-lg nb-shadow-lg nb-press"
             >
               KIRIM EMAIL →
