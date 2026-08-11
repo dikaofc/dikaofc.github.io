@@ -49,7 +49,7 @@ export default function Repos({ repos, loading }: Props) {
             </h2>
           </div>
           <p className="font-body font-semibold text-base md:text-lg max-w-md">
-            Semua data ditarik <span className="bg-ink text-paper px-1.5">live</span> dari GitHub API. Klik card buat langsung buka repo.
+            just proyek <span className="bg-ink text-paper px-1.5">iseng</span> ya bang awokawok
           </p>
         </div>
 
@@ -73,13 +73,13 @@ export default function Repos({ repos, loading }: Props) {
         {/* Filters */}
         <div className="nb-border-thick bg-cream rounded-xl p-4 md:p-5 nb-shadow-lg mb-8 flex flex-col md:flex-row gap-3 md:gap-4">
           <div className="flex-1 flex items-center gap-2 nb-border bg-paper rounded-md px-3 py-2">
-            <span className="font-mono font-bold">🔎</span>
+            <span className="font-mono font-bold text-3xl">⌕</span>
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder="Cari repo, deskripsi, topik…"
+              placeholder="search"
               className="w-full bg-transparent outline-none font-body font-semibold placeholder:text-ink/50"
-              aria-label="Cari repositori"
+              aria-label="search project"
             />
             {q && (
               <button onClick={() => setQ("")} className="font-mono text-xs font-bold nb-border bg-cream px-2 py-0.5 rounded">
@@ -112,7 +112,7 @@ export default function Repos({ repos, loading }: Props) {
           <SkeletonGrid />
         ) : all.length === 0 ? (
           <div className="nb-border-thick bg-cream rounded-xl p-8 text-center nb-shadow-lg">
-            <div className="font-display text-2xl mb-2">Nggak ada repo yang cocok 😅</div>
+            <div className="font-display text-2xl mb-2">Nggak ada repo yang cocok</div>
             <p className="font-body font-medium">Coba ganti filter atau reset pencarian.</p>
           </div>
         ) : (
