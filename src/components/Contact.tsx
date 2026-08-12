@@ -1,10 +1,10 @@
 import {
   SiGithub,
-  SiTelegram,
   SiGmail,
 } from "react-icons/si";
-import { Globe2, ArrowUpRight, Globe2Icon } from "lucide-react";
+import { Globe2, ArrowUpRight } from "lucide-react";
 import { PiGithubLogo, PiTelegramLogo } from "react-icons/pi";
+import { useEffect, useState } from "react";
 
 const links = [
   {
@@ -22,7 +22,7 @@ const links = [
     url: "https://obitoglory.tech",
     tone: "bg-orange text-white",
     shadow: "nb-press-orange",
-    icon: Globe2Icon,
+    icon: Globe2,
     number: "02",
   },
   {
@@ -46,6 +46,8 @@ const links = [
 ];
 
 export default function Contact() {
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+
   return (
     <section
       id="contact"
@@ -53,7 +55,7 @@ export default function Contact() {
     >
       {/* Decorative background */}
       <div
-        className="absolute -bottom-24 -left-24 w-64 h-64 bg-orange nb-border-thick rounded-full opacity-20 pointer-events-none"
+        className="absolute -bottom-24 -left-24 w-64 h-64 bg-orange nb-border-thick rounded-full opacity-20 pointer-events-none hover:opacity-30 transition-opacity"
         aria-hidden="true"
       />
 
@@ -64,7 +66,6 @@ export default function Contact() {
 
       <div className="relative max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-24">
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
-
           {/* Contact intro */}
           <div>
             <div className="inline-flex items-center gap-2 nb-border bg-ink text-paper px-3 py-1 rounded-md font-mono text-xs md:text-sm font-bold mb-4 nb-shadow-sm">
@@ -75,10 +76,10 @@ export default function Contact() {
               // KONTAK
             </div>
 
-            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-6">
+            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-6 hover:scale-105 transition-transform">
               MAU
               <br />
-              <span className="inline-block bg-pink text-white nb-border-thick px-3 md:px-4 -rotate-2">
+              <span className="inline-block bg-pink text-white nb-border-thick px-3 md:px-4 -rotate-2 hover:rotate-0 transition-transform">
                 CHAT?
               </span>
             </h2>
@@ -90,7 +91,7 @@ export default function Contact() {
 
             {/* Availability */}
             <div className="mt-6 flex flex-wrap items-center gap-3 font-mono text-xs md:text-sm font-bold">
-              <span className="flex items-center gap-2 nb-border bg-cream px-3 py-2 rounded-lg">
+              <span className="flex items-center gap-2 nb-border bg-cream px-3 py-2 rounded-lg hover:scale-110 transition-transform">
                 <span
                   className="w-2.5 h-2.5 rounded-full bg-green blink"
                   aria-hidden="true"
@@ -106,7 +107,7 @@ export default function Contact() {
             {/* Primary email */}
             <a
               href="mailto:dikasukasukaa@gmail.com"
-              className="mt-6 inline-flex items-center gap-3 nb-border-thick bg-ink text-paper font-display text-base md:text-lg px-5 py-3 md:px-6 md:py-4 rounded-lg nb-shadow-lg nb-press"
+              className="mt-6 inline-flex items-center gap-3 nb-border-thick bg-ink text-paper font-display text-base md:text-lg px-5 py-3 md:px-6 md:py-4 rounded-lg nb-shadow-lg nb-press hover:scale-110 transition-transform"
             >
               <SiGmail
                 className="shrink-0"
@@ -120,13 +121,14 @@ export default function Contact() {
                 size={21}
                 strokeWidth={2.5}
                 aria-hidden="true"
+                className="hover:rotate-45 transition-transform"
               />
             </a>
           </div>
 
           {/* Contact links */}
           <div className="grid gap-4">
-            {links.map((link) => {
+            {links.map((link, idx) => {
               const Icon = link.icon;
               const isExternal = link.url.startsWith("http");
 
@@ -136,18 +138,22 @@ export default function Contact() {
                   href={link.url}
                   target={isExternal ? "_blank" : undefined}
                   rel={isExternal ? "noopener noreferrer" : undefined}
-                  className={`group relative overflow-hidden nb-border-thick ${link.tone} ${link.shadow} rounded-xl px-4 py-4 md:px-5 md:py-5 nb-shadow-lg flex items-center gap-4 transition-transform duration-150 hover:-translate-y-1 active:translate-y-0`}
+                  onMouseEnter={() => setHoveredIdx(idx)}
+                  onMouseLeave={() => setHoveredIdx(null)}
+                  className={`group relative overflow-hidden nb-border-thick ${link.tone} ${link.shadow} rounded-xl px-4 py-4 md:px-5 md:py-5 nb-shadow-lg flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
+                    hoveredIdx === idx ? 'scale-105' : ''
+                  }`}
                 >
                   {/* Number */}
                   <div className="shrink-0">
-                    <div className="w-11 h-11 md:w-12 md:h-12 nb-border bg-paper text-ink rounded-lg grid place-items-center font-mono font-bold text-xs md:text-sm">
+                    <div className="w-11 h-11 md:w-12 md:h-12 nb-border bg-paper text-ink rounded-lg grid place-items-center font-mono font-bold text-xs md:text-sm group-hover:scale-125 transition-transform">
                       {link.number}
                     </div>
                   </div>
 
                   {/* Brand logo */}
                   <div className="shrink-0">
-                    <div className="w-11 h-11 md:w-12 md:h-12 nb-border rounded-full grid place-items-center">
+                    <div className="w-11 h-11 md:w-12 md:h-12 nb-border rounded-full grid place-items-center group-hover:rotate-12 transition-transform">
                       <Icon
                         size={22}
                         strokeWidth={2.5}
@@ -162,7 +168,7 @@ export default function Contact() {
                       {link.label}
                     </div>
 
-                    <div className="font-display text-lg md:text-2xl leading-tight truncate">
+                    <div className="font-display text-lg md:text-2xl leading-tight truncate group-hover:translate-x-1 transition-transform">
                       {link.handle}
                     </div>
                   </div>
@@ -178,7 +184,7 @@ export default function Contact() {
 
                   {/* Decorative corner */}
                   <div
-                    className="absolute -right-8 -top-8 w-20 h-20 rounded-full border-[4px] border-current opacity-10 pointer-events-none"
+                    className="absolute -right-8 -top-8 w-20 h-20 rounded-full border-[4px] border-current opacity-10 pointer-events-none group-hover:opacity-30 transition-opacity"
                     aria-hidden="true"
                   />
                 </a>
@@ -188,12 +194,12 @@ export default function Contact() {
         </div>
 
         {/* Bottom strip */}
-        <div className="mt-12 md:mt-16 pt-5 border-t-[3px] border-ink flex flex-col md:flex-row md:items-center md:justify-between gap-3 font-mono text-xs md:text-sm font-bold">
+        <div className="mt-12 md:mt-16 pt-5 border-t-[3px] border-ink flex flex-col md:flex-row md:items-center md:justify-between gap-3 font-mono text-xs md:text-sm font-bold hover:opacity-80 transition-opacity">
           <span className="opacity-60">
             LET&apos;S BUILD SOMETHING USEFUL.
           </span>
 
-          <span className="nb-border bg-orange text-ink px-3 py-1 rounded">
+          <span className="nb-border bg-orange text-ink px-3 py-1 rounded hover:scale-110 transition-transform">
             DikaCode | Kendal
           </span>
         </div>

@@ -44,8 +44,8 @@ export default function Repos({ repos, loading }: Props) {
             <div className="inline-block nb-border bg-ink text-paper px-3 py-1 rounded-md font-mono text-xs md:text-sm font-bold mb-3 nb-shadow-sm">
               // REPOSITORIES
             </div>
-            <h2 className="font-display text-5xl md:text-7xl leading-none">
-              PROYEK<br /><span className="bg-orange nb-border-thick px-3 inline-block -rotate-1">GW</span>
+            <h2 className="font-display text-5xl md:text-7xl leading-none hover:scale-105 transition-transform">
+              PROYEK<br /><span className="bg-orange nb-border-thick px-3 inline-block -rotate-1 hover:rotate-0 transition-transform">GW</span>
             </h2>
           </div>
           <p className="font-body font-semibold text-base md:text-lg max-w-md">
@@ -55,7 +55,7 @@ export default function Repos({ repos, loading }: Props) {
 
         {/* Pinned */}
         <div className="mb-12">
-          <h3 className="font-display text-2xl md:text-3xl mb-5 flex items-center gap-3">
+          <h3 className="font-display text-2xl md:text-3xl mb-5 flex items-center gap-3 hover:translate-x-2 transition-transform duration-300">
             <span className="w-4 h-4 bg-orange nb-border rotate-45" />
             Pinned Repositories
           </h3>
@@ -71,18 +71,18 @@ export default function Repos({ repos, loading }: Props) {
         </div>
 
         {/* Filters */}
-        <div className="nb-border-thick bg-cream rounded-xl p-4 md:p-5 nb-shadow-lg mb-8 flex flex-col md:flex-row gap-3 md:gap-4">
-          <div className="flex-1 flex items-center gap-2 nb-border bg-paper rounded-md px-3 py-2">
+        <div className="nb-border-thick bg-cream rounded-xl p-4 md:p-5 nb-shadow-lg mb-8 flex flex-col md:flex-row gap-3 md:gap-4 hover:shadow-[8px_8px_0_#0a0a0a] transition-all">
+          <div className="flex-1 flex items-center gap-2 nb-border bg-paper rounded-md px-3 py-2 hover:bg-cream transition-colors">
             <span className="font-mono font-bold text-3xl">⌕</span>
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="search"
-              className="w-full bg-transparent outline-none font-body font-semibold placeholder:text-ink/50"
+              className="w-full bg-transparent outline-none font-body font-semibold placeholder:text-ink/50 focus:bg-blue/5 transition-colors"
               aria-label="search project"
             />
             {q && (
-              <button onClick={() => setQ("")} className="font-mono text-xs font-bold nb-border bg-cream px-2 py-0.5 rounded">
+              <button onClick={() => setQ("")} className="font-mono text-xs font-bold nb-border bg-cream px-2 py-0.5 rounded hover:bg-orange hover:text-white transition-colors">
                 ✕
               </button>
             )}
@@ -92,8 +92,8 @@ export default function Repos({ repos, loading }: Props) {
               <button
                 key={l}
                 onClick={() => setLang(l)}
-                className={`shrink-0 nb-border font-mono text-xs md:text-sm font-bold px-3 py-2 rounded-md nb-shadow-sm nb-press ${
-                  lang === l ? "bg-ink text-paper" : "bg-paper text-ink"
+                className={`shrink-0 nb-border font-mono text-xs md:text-sm font-bold px-3 py-2 rounded-md nb-shadow-sm nb-press transition-all ${
+                  lang === l ? "bg-ink text-paper scale-105" : "bg-paper text-ink hover:bg-cream"
                 }`}
               >
                 {l}
@@ -103,7 +103,7 @@ export default function Repos({ repos, loading }: Props) {
         </div>
 
         {/* All repos */}
-        <h3 className="font-display text-2xl md:text-3xl mb-5 flex items-center gap-3">
+        <h3 className="font-display text-2xl md:text-3xl mb-5 flex items-center gap-3 hover:translate-x-2 transition-transform duration-300">
           <span className="w-4 h-4 bg-blue nb-border" />
           All Repositories <span className="font-mono text-base opacity-60">({all.length})</span>
         </h3>
@@ -111,7 +111,7 @@ export default function Repos({ repos, loading }: Props) {
         {loading ? (
           <SkeletonGrid />
         ) : all.length === 0 ? (
-          <div className="nb-border-thick bg-cream rounded-xl p-8 text-center nb-shadow-lg">
+          <div className="nb-border-thick bg-cream rounded-xl p-8 text-center nb-shadow-lg hover:scale-105 transition-transform">
             <div className="font-display text-2xl mb-2">Nggak ada repo yang cocok</div>
             <p className="font-body font-medium">Coba ganti filter atau reset pencarian.</p>
           </div>
