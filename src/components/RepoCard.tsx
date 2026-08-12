@@ -1,4 +1,4 @@
-import { Github, Star, GitFork } from "lucide-react";
+import { BookOpen, Star, GitFork } from "lucide-react";
 import type { GhRepo } from "../lib/github";
 
 type Props = {
@@ -31,7 +31,7 @@ export default function RepoCard({ repo, pinned }: Props) {
 
         {/* Title */}
         <h3 className="font-display text-xl md:text-2xl leading-tight mb-2 flex items-start gap-2 group-hover:translate-x-1 transition-transform">
-          <Github
+          <BookOpen
             size={24}
             strokeWidth={2.5}
             className="shrink-0 mt-1 group-hover:rotate-12 transition-transform"
