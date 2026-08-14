@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import type { GhRepo } from "../lib/github";
 import RepoCard from "./RepoCard";
 import Reveal from "./Reveal";
+import Mascot from "./Mascot";
 
 const PINNED_NAMES = ["DikaRoute", "dikaofc.github.io", "PentesterBotTelegram", "RemoteUniversalDevice"];
 const FLAGSHIP_NAME = "DikaRoute";
@@ -42,6 +43,8 @@ export default function Repos({ repos, loading }: Props) {
       <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-28">
+        {/* Bug mascot peeking from the top-right */}
+        <Mascot variant="bug" className="-top-3 right-2 md:right-8" />
         {/* Header */}
         <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-14">
           <div>

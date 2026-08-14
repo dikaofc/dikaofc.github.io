@@ -13,6 +13,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import Reveal from "./Reveal";
+import Mascot from "./Mascot";
 
 const stacks = [
   {
@@ -116,6 +117,8 @@ export default function Stack() {
       <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-28">
+        {/* Spark mascot twinkling in the top-right */}
+        <Mascot variant="spark" className="-top-3 right-2 md:right-8" />
         <Reveal className="mb-10 md:mb-14">
           <div className="inline-block nb-border bg-paper text-ink px-3 py-1 rounded-md font-mono text-xs md:text-sm font-bold mb-3 nb-shadow-sm">
             // TECH STACK

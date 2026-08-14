@@ -239,6 +239,11 @@ body {
   0%, 100% { transform: rotate(0deg); }
   50%      { transform: rotate(-22deg); }
 }
+@keyframes mascot-bob { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-5px) rotate(2deg); } }
+@keyframes mascot-hop { 0%,100% { transform: translateY(0); } 35% { transform: translateY(-5px); } 60% { transform: translateY(0); } }
+@keyframes mascot-tail { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(16deg); } }
+@keyframes mascot-antenna { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(-16deg); } }
+@keyframes mascot-twinkle { 0%,100% { transform: scale(1); } 50% { transform: scale(1.12); } }
 
 /* theme-toggle morph icon — sun and moon shapes cross-morph in place */
 .morph-sun,

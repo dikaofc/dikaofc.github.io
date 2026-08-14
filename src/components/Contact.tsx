@@ -2,6 +2,7 @@ import { SiGmail } from "react-icons/si";
 import { Globe2, ArrowUpRight } from "lucide-react";
 import { PiGithubLogo, PiTelegramLogo } from "react-icons/pi";
 import Reveal from "./Reveal";
+import Mascot from "./Mascot";
 
 const links = [
   {
@@ -185,7 +186,9 @@ export default function Contact() {
         </div>
 
         {/* Bottom strip */}
-        <div className="mt-14 md:mt-20 pt-5 border-t-4 border-line flex flex-col md:flex-row md:items-center md:justify-between gap-3 font-mono text-xs md:text-sm font-bold pointer-fine:hover:opacity-80 transition-opacity">
+        <div className="relative mt-14 md:mt-20 pt-5 border-t-4 border-line flex flex-col md:flex-row md:items-center md:justify-between gap-3 font-mono text-xs md:text-sm font-bold pointer-fine:hover:opacity-80 transition-opacity">
+          {/* Cat peeking above the strip */}
+          <Mascot variant="cat" className="-top-12 right-0 md:right-4" />
           <span className="text-mute">
             LET&apos;S BUILD SOMETHING USEFUL.
           </span>

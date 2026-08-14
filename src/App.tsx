@@ -16,7 +16,7 @@ import {
 } from "./lib/github";
 
 const THEME_KEY = "dika-theme";
-const THEME_COLORS = { dark: "#0d0d12", light: "#f2f1ec" } as const;
+const THEME_COLORS = { dark: "#0a0c11", light: "#ffffff" } as const;
 
 /** visitor's choice — "system" follows the OS preference */
 type ThemeChoice = "system" | "light" | "dark";

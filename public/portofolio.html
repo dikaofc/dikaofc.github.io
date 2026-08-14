@@ -67,11 +67,12 @@
         }
         [data-theme="light"] {
             color-scheme: light;
-            --c-panel: #f2f1ec;
+            /* ── light — original neo-brutalist: white, black outlines, hard black shadows ── */
+            --c-panel: #ffffff;
             --c-panel-2: #f2f1ec;
             --c-card: #ffffff;
             --c-line: #d6d5de;
-            --c-fog: #101014;
+            --c-fog: #000000;
             --c-mute: #4f4f5c;
             --c-dot: rgba(10, 10, 10, 0.16);
             --c-shadow: #000000;  /* original: hard black offset shadows */
@@ -561,7 +562,7 @@
         }
 
         function themeBg() {
-            return document.documentElement.getAttribute('data-theme') === 'light' ? '#f2f1ec' : '#0a0c11';
+            return document.documentElement.getAttribute('data-theme') === 'light' ? '#ffffff' : '#0a0c11';
         }
 
         function themeFade() {
@@ -590,7 +591,7 @@
                 icon.classList.add('theme-icon-anim');
             }
             if (label) label.textContent = choice === 'system' ? 'Auto' : choice === 'light' ? 'Terang' : 'Gelap';
-            if (meta) meta.setAttribute('content', resolved === 'light' ? '#f2f1ec' : '#0a0c11');
+            if (meta) meta.setAttribute('content', resolved === 'light' ? '#ffffff' : '#0a0c11');
             if (window.__scene) window.__scene.background.set(themeBg());
             themeFade();
         }

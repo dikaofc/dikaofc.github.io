@@ -136,6 +136,8 @@ export default function Hero({ user, loading }: Props) {
         <div className="relative justify-self-center md:justify-self-end">
           {/* Diko the mascot peeking over the card */}
           <Mascot />
+          {/* Cat peeking from the opposite corner */}
+          <Mascot variant="cat" className="-top-9 -left-4 md:-left-8" />
           <div className="nb-border-thick bg-card rounded-2xl p-3 md:p-4 nb-shadow-lg rotate-2 max-w-[240px] md:max-w-[300px] pointer-fine:hover:rotate-0 transition-transform duration-300 group cursor-pointer">
             <img
               src={user?.avatar_url ?? CATBOX_AVATAR_URL}
