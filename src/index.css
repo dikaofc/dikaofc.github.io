@@ -1,18 +1,69 @@
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════════════════
+   THEME TOKENS — flip automatically between dark & light via
+   `data-theme` attribute on <html> (set by index.html script +
+   App.tsx toggle, persisted in localStorage).
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  color-scheme: dark;
+  /* ── dark (default) — deep blue-tinted cyberpunk ── */
+  --c-ink: #0a0a0a;                    /* constant ink: text on yellow chips */
+  --c-panel: #0a0c11;                  /* section background (deep navy) */
+  --c-panel-2: #0d1018;                /* alternate section shade (depth rhythm) */
+  --c-card: #12151d;                   /* card surface */
+  --c-line: #222735;                   /* subtle border / divider */
+  --c-fog: #eef0f6;                    /* primary text + strong borders */
+  --c-mute: #a3a9b8;                   /* secondary text (WCAG AA) */
+  --c-dot: rgba(196, 212, 255, 0.16);  /* dots (bluish, calmer) */
+  --c-grid: rgba(196, 212, 255, 0.04); /* grid lines (subtle) */
+  /* ambient glows for body background */
+  --c-glow-cyan: rgba(34, 211, 238, 0.07);
+  --c-glow-violet: rgba(168, 85, 247, 0.05);
+  --c-glow-yellow: rgba(255, 230, 0, 0.04);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  /* ── light — untouched, exactly as the owner likes it ── */
+  --c-ink: #0a0a0a;             /* constant ink: text on yellow chips */
+  --c-panel: #f2f1ec;           /* warm light paper bg */
+  --c-panel-2: #f2f1ec;         /* same as panel → no visual change */
+  --c-card: #ffffff;            /* white cards */
+  --c-line: #d6d5de;            /* subtle border */
+  --c-fog: #101014;             /* near-black primary text + borders */
+  --c-mute: #4f4f5c;            /* secondary text (WCAG AA) */
+  --c-dot: rgba(10, 10, 10, 0.16);
+  --c-grid: rgba(10, 10, 10, 0.06);
+  --c-glow-cyan: transparent;
+  --c-glow-violet: transparent;
+  --c-glow-yellow: transparent;
+}
+
 @theme {
   --font-display: 'Archivo Black', 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Space Grotesk', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
-  --color-ink: #0a0a0a;
-  --color-paper: #ffe600;
+  /* theme-aware surfaces & text */
+  --color-ink: var(--c-ink);
+  --color-panel: var(--c-panel);
+  --color-panel-2: var(--c-panel-2);
+  --color-card: var(--c-card);
+  --color-line: var(--c-line);
+  --color-fog: var(--c-fog);
+  --color-mute: var(--c-mute);
+  --color-cream: var(--c-card);
+
+  /* accents — constant in both themes */
+  --color-paper: #ffe600;    /* yellow signature accent */
   --color-orange: #ff5a1f;
   --color-pink: #ff4d94;
-  --color-blue: #2a7fff;
-  --color-green: #22c55e;
+  --color-blue: #4d94ff;
+  --color-green: #3ddc84;
+  --color-neon: #22d3ee;
   --color-violet: #a855f7;
-  --color-cream: #fff7d6;
 }
 
 * {
@@ -22,80 +73,262 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  background: #ffe600;
-  color: #0a0a0a;
+  background-color: var(--c-panel);
+  /* ambient neon glows — visible only in dark mode (transparent in light) */
+  background-image:
+    radial-gradient(1100px 560px at 85% -10%, var(--c-glow-cyan), transparent 60%),
+    radial-gradient(900px 520px at -10% 35%, var(--c-glow-violet), transparent 60%),
+    radial-gradient(760px 480px at 50% 115%, var(--c-glow-yellow), transparent 60%);
+  background-repeat: no-repeat;
+  color: var(--c-fog);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeSpeed;
+  transition: background-color 300ms ease, color 300ms ease;
 }
 
 .font-display { font-family: 'Archivo Black', 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
 .font-body    { font-family: 'Space Grotesk', system-ui, sans-serif; }
 .font-mono    { font-family: 'JetBrains Mono', monospace; }
 
-/* Neo-brutal hard shadows (no blur) */
-.nb-shadow    { box-shadow: 6px 6px 0 0 #0a0a0a; }
-.nb-shadow-lg { box-shadow: 8px 8px 0 0 #0a0a0a; }
-.nb-shadow-sm { box-shadow: 4px 4px 0 0 #0a0a0a; }
+/* ── Neo-brutal hard shadows — yellow accent, constant ────────── */
+.nb-shadow    { box-shadow: 6px 6px 0 0 #ffe600; }
+.nb-shadow-lg { box-shadow: 8px 8px 0 0 #ffe600; }
+.nb-shadow-sm { box-shadow: 4px 4px 0 0 #ffe600; }
+/* dark mode: quiet small shadows so the yellow pop stays on cards & CTAs */
+:root .nb-shadow-sm { box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.6); }
 .nb-shadow-orange { box-shadow: 6px 6px 0 0 #ff5a1f; }
 .nb-shadow-pink   { box-shadow: 6px 6px 0 0 #ff4d94; }
-.nb-shadow-blue   { box-shadow: 6px 6px 0 0 #2a7fff; }
+.nb-shadow-blue   { box-shadow: 6px 6px 0 0 #4d94ff; }
+.nb-shadow-neon   { box-shadow: 6px 6px 0 0 #22d3ee; }
 
-.nb-border { border: 3px solid #0a0a0a; }
-.nb-border-thick { border: 4px solid #0a0a0a; }
+/* Brutal borders — theme-aware (light in dark mode, dark in light mode) */
+.nb-border { border: 3px solid var(--c-fog); }
+.nb-border-thick { border: 4px solid var(--c-fog); }
+.nb-border-soft { border: 2px solid var(--c-line); }
 
-/* smooth interactive press */
+/* smooth interactive press — yellow shadow grows on hover, glows on active */
 .nb-press {
   transition: transform 120ms cubic-bezier(.2,.9,.3,1), box-shadow 120ms cubic-bezier(.2,.9,.3,1);
   will-change: transform, box-shadow;
 }
-.nb-press:hover  { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 0 #0a0a0a; }
-.nb-press:active { transform: translate(3px,3px);  box-shadow: 2px 2px 0 0 #0a0a0a; }
+.nb-press:active { transform: translate(3px,3px);  box-shadow: 2px 2px 0 0 #ffe600, 0 0 18px rgba(255,230,0,.45); }
 
-.nb-press-orange:hover  { box-shadow: 8px 8px 0 0 #ff5a1f; }
-.nb-press-pink:hover    { box-shadow: 8px 8px 0 0 #ff4d94; }
-.nb-press-blue:hover    { box-shadow: 8px 8px 0 0 #2a7fff; }
-
-/* dotted paper background */
-.dots-bg {
-  background-image: radial-gradient(circle, #0a0a0a 1.2px, transparent 1.2px);
-  background-size: 22px 22px;
+/* Hover effects only on devices that actually hover (mouse/trackpad).
+   On touch, :hover sticks after a tap — without this guard buttons and
+   chips stay translated + shadowed and can push past the screen edge
+   on mobile. :active (press feedback) intentionally stays everywhere. */
+@media (hover: hover) {
+  .nb-press:hover  { transform: translate(-2px,-2px); box-shadow: 10px 10px 0 0 #ffe600; }
+  .nb-press-orange:hover  { box-shadow: 10px 10px 0 0 #ff5a1f; }
+  .nb-press-pink:hover    { box-shadow: 10px 10px 0 0 #ff4d94; }
+  .nb-press-blue:hover    { box-shadow: 10px 10px 0 0 #4d94ff; }
+  .nb-press-neon:hover    { box-shadow: 10px 10px 0 0 #22d3ee; }
 }
 
-/* thick stripe bar */
+/* Keyboard navigation: clear neobrutal focus ring — yellow ring with a
+   theme-aware contrast band so it stays visible on yellow chips, colored
+   buttons and both themes. Shown only when tabbing, never on mouse clicks. */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 3px solid var(--c-paper);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--c-fog), 0 0 14px rgba(255, 230, 0, 0.35);
+}
+
+/* neon glow helpers */
+.glow-neon   { box-shadow: 0 0 0 3px var(--c-ink), 0 0 0 6px rgba(34,211,238,.55), 0 0 30px rgba(34,211,238,.35); }
+.glow-green  { box-shadow: 0 0 0 3px var(--c-ink), 0 0 0 6px rgba(61,220,132,.5),  0 0 30px rgba(61,220,132,.3); }
+.glow-yellow { box-shadow: 0 0 0 3px var(--c-ink), 0 0 0 6px rgba(255,230,0,.5),    0 0 30px rgba(255,230,0,.3); }
+@media (hover: hover) {
+  .card-glow:hover { box-shadow: 0 0 0 3px var(--c-ink), 0 0 0 5px rgba(34,211,238,.55), 0 0 36px rgba(34,211,238,.45); }
+}
+.text-glow-cyan   { text-shadow: 0 0 12px rgba(34,211,238,.8), 0 0 32px rgba(34,211,238,.4); }
+.text-glow-green  { text-shadow: 0 0 12px rgba(61,220,132,.8), 0 0 32px rgba(61,220,132,.4); }
+.text-glow-yellow { text-shadow: 0 0 12px rgba(255,230,0,.7); }
+
+/* dotted / grid backgrounds — theme-aware dots */
+.dots-bg {
+  background-image: radial-gradient(circle, var(--c-dot) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+.grid-bg {
+  background-image:
+    linear-gradient(var(--c-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-grid) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* ambient neon washes on key sections — dark mode only */
+:root .hero-glow {
+  background-image:
+    radial-gradient(640px 340px at 85% 15%, rgba(34, 211, 238, 0.14), transparent 70%),
+    radial-gradient(520px 320px at 5% 55%, rgba(168, 85, 247, 0.09), transparent 70%);
+}
+:root .foot-glow {
+  background-image: radial-gradient(720px 380px at 50% -5%, rgba(255, 230, 0, 0.05), transparent 70%);
+}
+[data-theme="light"] .hero-glow,
+[data-theme="light"] .foot-glow {
+  background-image: none;
+}
+
+/* thick yellow stripe bar (marquee) — constant accent */
 .stripe {
   background-image: repeating-linear-gradient(
     -45deg,
-    #0a0a0a 0 10px,
+    #050507 0 10px,
     #ffe600 10px 20px
   );
 }
 
-::selection { background: #0a0a0a; color: #ffe600; }
-::-webkit-scrollbar { width: 12px; height: 12px; }
-::-webkit-scrollbar-track { background: #ffe600; border-left: 3px solid #0a0a0a; }
-::-webkit-scrollbar-thumb { background: #0a0a0a; border: 2px solid #ffe600; border-radius: 2px; }
+::selection { background: #ffe600; color: #050507; }
 
-/* animations */
+/* hide scrollbars everywhere — scrolling still works (wheel/touch/key) */
+* {
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* legacy Edge / IE */
+}
+*::-webkit-scrollbar {
+  display: none;              /* Chrome / Safari / Opera */
+  width: 0;
+  height: 0;
+}
+
+/* ── Animations ─────────────────────────────────────────────── */
 @keyframes marquee {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(-100%); }
 }
-.marquee { animation: marquee 30s linear infinite; will-change: transform; }
+.marquee { animation: marquee 38s linear infinite; will-change: transform; }
 
-@keyframes blink { 50% { opacity: 0.2; } }
+@keyframes blink { 50% { opacity: 0.15; } }
 .blink { animation: blink 1.2s steps(2) infinite; }
 
-@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+/* mascot "Diko" animations */
+@keyframes mascot-float {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50%      { transform: translateY(-6px) rotate(3deg); }
+}
+@keyframes mascot-blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  94%           { transform: scaleY(0.12); }
+}
+@keyframes mascot-wave {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(-22deg); }
+}
+
+/* theme-toggle morph icon — sun and moon shapes cross-morph in place */
+.morph-sun,
+.morph-moon {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    opacity 0.4s ease,
+    transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+.morph-sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+.morph-sun[data-active="false"] {
+  opacity: 0;
+  transform: rotate(-120deg) scale(0.3);
+}
+.morph-moon {
+  opacity: 0;
+  transform: rotate(120deg) scale(0.3);
+}
+.morph-moon[data-active="true"] {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* animated theme-toggle icon (sun spins into moon) */
+@keyframes theme-spin {
+  0%   { transform: rotate(-180deg) scale(0.4); opacity: 0; }
+  60%  { transform: rotate(20deg) scale(1.15); opacity: 1; }
+  100% { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+.theme-icon-anim {
+  display: inline-block;
+  animation: theme-spin 0.5s cubic-bezier(.2, .9, .3, 1);
+}
+
+/* terminal block cursor for the typewriter */
+.type-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 3px;
+  vertical-align: text-bottom;
+  background: #3ddc84;
+  box-shadow: 0 0 10px rgba(61, 220, 132, 0.7);
+  animation: blink 1.05s steps(2) infinite;
+}
+
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 .float { animation: float 3s ease-in-out infinite; }
 
-/* Added smooth transitions */
+/* glitch hover for primary buttons */
+@keyframes glitch-rgb {
+  0%   { text-shadow: 2px 0 0 rgba(34,211,238,.8), -2px 0 0 rgba(255,90,31,.8); transform: translate(0,0); }
+  20%  { text-shadow: -2px 0 0 rgba(34,211,238,.8), 2px 0 0 rgba(255,90,31,.8); transform: translate(-1px,1px); }
+  40%  { text-shadow: 2px 0 0 rgba(34,211,238,.8), -2px 0 0 rgba(255,90,31,.8); transform: translate(1px,-1px); }
+  60%  { text-shadow: -2px 0 0 rgba(34,211,238,.8), 2px 0 0 rgba(255,90,31,.8); transform: translate(0,0); }
+  80%  { text-shadow: 2px 0 0 rgba(34,211,238,.8), -2px 0 0 rgba(255,90,31,.8); transform: translate(-1px,-1px); }
+  100% { text-shadow: 2px 0 0 rgba(34,211,238,.8), -2px 0 0 rgba(255,90,31,.8); transform: translate(0,0); }
+}
+@media (hover: hover) {
+  .glitch:hover { animation: glitch-rgb .35s steps(2) infinite; }
+}
+
+/* scanline sweep — featured cards */
+@keyframes scanline-sweep {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(400%); }
+}
+.scanlines { position: relative; overflow: hidden; }
+.scanlines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 3px,
+    rgba(34,211,238,.08) 3px 4px
+  );
+}
+.scanlines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 30%;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(34,211,238,.35), transparent);
+  animation: scanline-sweep 3.2s linear infinite;
+}
+
+/* neon pulse for live/status dots */
+@keyframes pulse-glow {
+  0%,100% { box-shadow: 0 0 0 0 rgba(61,220,132,.6); }
+  50%     { box-shadow: 0 0 0 6px rgba(61,220,132,0); }
+}
+.pulse-glow { animation: pulse-glow 2s ease-out infinite; }
+
 .transition-trans-all { transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0s !important; transition-duration: 0s !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
 }

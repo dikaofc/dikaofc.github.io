@@ -1,18 +1,15 @@
-import {
-  SiGithub,
-  SiGmail,
-} from "react-icons/si";
+import { SiGmail } from "react-icons/si";
 import { Globe2, ArrowUpRight } from "lucide-react";
 import { PiGithubLogo, PiTelegramLogo } from "react-icons/pi";
-import { useEffect, useState } from "react";
+import Reveal from "./Reveal";
 
 const links = [
   {
     label: "GitHub",
     handle: "@dikaofc",
     url: "https://github.com/dikaofc",
-    tone: "bg-white text-black",
-    shadow: "nb-black",
+    tone: "bg-card text-fog",
+    shadow: "nb-press-neon",
     icon: PiGithubLogo,
     number: "01",
   },
@@ -46,60 +43,58 @@ const links = [
 ];
 
 export default function Contact() {
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
-
   return (
     <section
       id="contact"
-      className="relative overflow-hidden border-b-[4px] border-ink bg-paper"
+      className="relative overflow-hidden border-b-4 border-fog bg-panel-2 transition-colors duration-300"
     >
       {/* Decorative background */}
       <div
-        className="absolute -bottom-24 -left-24 w-64 h-64 bg-orange nb-border-thick rounded-full opacity-20 pointer-events-none hover:opacity-30 transition-opacity"
+        className="absolute -bottom-24 -left-24 w-64 h-64 bg-orange nb-border-thick rounded-full opacity-15 pointer-events-none hover:opacity-30 transition-opacity"
         aria-hidden="true"
       />
 
       <div
-        className="absolute top-10 right-10 w-20 h-20 border-[4px] border-ink rotate-12 opacity-10 pointer-events-none"
+        className="absolute top-10 right-10 w-20 h-20 border-4 border-fog rotate-12 opacity-10 pointer-events-none"
         aria-hidden="true"
       />
 
-      <div className="relative max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-24">
+      <div className="relative max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-28">
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
           {/* Contact intro */}
-          <div>
-            <div className="inline-flex items-center gap-2 nb-border bg-ink text-paper px-3 py-1 rounded-md font-mono text-xs md:text-sm font-bold mb-4 nb-shadow-sm">
+          <Reveal>
+            <div className="inline-flex items-center gap-2 nb-border bg-paper text-ink px-3 py-1 rounded-md font-mono text-xs md:text-sm font-bold mb-4 nb-shadow-sm">
               <span
-                className="w-2 h-2 rounded-full bg-green blink"
+                className="w-2 h-2 rounded-full bg-green blink pulse-glow"
                 aria-hidden="true"
               />
               // KONTAK
             </div>
 
-            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-6 hover:scale-105 transition-transform">
+            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-6 text-fog pointer-fine:hover:scale-105 transition-transform">
               MAU
               <br />
-              <span className="inline-block bg-pink text-white nb-border-thick px-3 md:px-4 -rotate-2 hover:rotate-0 transition-transform">
+              <span className="inline-block bg-pink text-white nb-border-thick px-3 md:px-4 -rotate-2 pointer-fine:hover:rotate-0 transition-transform">
                 CHAT?
               </span>
             </h2>
 
-            <p className="font-body font-semibold text-base md:text-lg max-w-md leading-snug">
+            <p className="font-body font-semibold text-base md:text-lg max-w-md leading-snug text-mute">
               open for collab, project custom, atau sekadar diskusi soal ai,
               bug, atau projek iseng. pilih channel yang paling cocok.
             </p>
 
             {/* Availability */}
             <div className="mt-6 flex flex-wrap items-center gap-3 font-mono text-xs md:text-sm font-bold">
-              <span className="flex items-center gap-2 nb-border bg-cream px-3 py-2 rounded-lg hover:scale-110 transition-transform">
+              <span className="flex items-center gap-2 nb-border bg-card text-fog px-3 py-2 rounded-lg pointer-fine:hover:scale-110 active:scale-95 transition-transform">
                 <span
-                  className="w-2.5 h-2.5 rounded-full bg-green blink"
+                  className="w-2.5 h-2.5 rounded-full bg-green blink pulse-glow"
                   aria-hidden="true"
                 />
                 TERSEDIA
               </span>
 
-              <span className="opacity-60">
+              <span className="text-mute">
                 ON 24 JAM
               </span>
             </div>
@@ -107,7 +102,7 @@ export default function Contact() {
             {/* Primary email */}
             <a
               href="mailto:dikasukasukaa@gmail.com"
-              className="mt-6 inline-flex items-center gap-3 nb-border-thick bg-ink text-paper font-display text-base md:text-lg px-5 py-3 md:px-6 md:py-4 rounded-lg nb-shadow-lg nb-press hover:scale-110 transition-transform"
+              className="glitch mt-6 inline-flex items-center gap-3 nb-border-thick bg-paper text-ink font-display text-base md:text-lg px-5 py-3 md:px-6 md:py-4 rounded-lg nb-shadow-lg nb-press pointer-fine:hover:scale-110 active:scale-95 transition-transform"
             >
               <SiGmail
                 className="shrink-0"
@@ -124,11 +119,11 @@ export default function Contact() {
                 className="hover:rotate-45 transition-transform"
               />
             </a>
-          </div>
+          </Reveal>
 
           {/* Contact links */}
-          <div className="grid gap-4">
-            {links.map((link, idx) => {
+          <Reveal delay={120} className="grid gap-4">
+            {links.map((link) => {
               const Icon = link.icon;
               const isExternal = link.url.startsWith("http");
 
@@ -138,15 +133,11 @@ export default function Contact() {
                   href={link.url}
                   target={isExternal ? "_blank" : undefined}
                   rel={isExternal ? "noopener noreferrer" : undefined}
-                  onMouseEnter={() => setHoveredIdx(idx)}
-                  onMouseLeave={() => setHoveredIdx(null)}
-                  className={`group relative overflow-hidden nb-border-thick ${link.tone} ${link.shadow} rounded-xl px-4 py-4 md:px-5 md:py-5 nb-shadow-lg flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
-                    hoveredIdx === idx ? 'scale-105' : ''
-                  }`}
+                  className={`group relative overflow-hidden nb-border-thick ${link.tone} ${link.shadow} rounded-xl px-4 py-4 md:px-5 md:py-5 nb-shadow-lg flex items-center gap-4 transition-all duration-300 pointer-fine:hover:scale-[1.03] active:scale-[0.98]`}
                 >
                   {/* Number */}
                   <div className="shrink-0">
-                    <div className="w-11 h-11 md:w-12 md:h-12 nb-border bg-paper text-ink rounded-lg grid place-items-center font-mono font-bold text-xs md:text-sm group-hover:scale-125 transition-transform">
+                    <div className="w-11 h-11 md:w-12 md:h-12 nb-border bg-paper text-ink rounded-lg grid place-items-center font-mono font-bold text-xs md:text-sm pointer-fine:group-hover:scale-125 transition-transform">
                       {link.number}
                     </div>
                   </div>
@@ -164,11 +155,11 @@ export default function Contact() {
 
                   {/* Text */}
                   <div className="min-w-0 flex-1">
-                    <div className="font-mono text-[10px] md:text-xs font-bold uppercase opacity-70 tracking-wider">
+                    <div className="font-mono text-[10px] md:text-xs font-bold uppercase text-mute tracking-wider">
                       {link.label}
                     </div>
 
-                    <div className="font-display text-lg md:text-2xl leading-tight truncate group-hover:translate-x-1 transition-transform">
+                    <div className="font-display text-lg md:text-2xl leading-tight truncate group-hover:translate-x-1 transition-transform text-fog">
                       {link.handle}
                     </div>
                   </div>
@@ -184,22 +175,22 @@ export default function Contact() {
 
                   {/* Decorative corner */}
                   <div
-                    className="absolute -right-8 -top-8 w-20 h-20 rounded-full border-[4px] border-current opacity-10 pointer-events-none group-hover:opacity-30 transition-opacity"
+                    className="absolute -right-8 -top-8 w-20 h-20 rounded-full border-4 border-current opacity-10 pointer-events-none group-hover:opacity-30 transition-opacity"
                     aria-hidden="true"
                   />
                 </a>
               );
             })}
-          </div>
+          </Reveal>
         </div>
 
         {/* Bottom strip */}
-        <div className="mt-12 md:mt-16 pt-5 border-t-[3px] border-ink flex flex-col md:flex-row md:items-center md:justify-between gap-3 font-mono text-xs md:text-sm font-bold hover:opacity-80 transition-opacity">
-          <span className="opacity-60">
+        <div className="mt-14 md:mt-20 pt-5 border-t-4 border-line flex flex-col md:flex-row md:items-center md:justify-between gap-3 font-mono text-xs md:text-sm font-bold pointer-fine:hover:opacity-80 transition-opacity">
+          <span className="text-mute">
             LET&apos;S BUILD SOMETHING USEFUL.
           </span>
 
-          <span className="nb-border bg-orange text-ink px-3 py-1 rounded hover:scale-110 transition-transform">
+          <span className="nb-border bg-orange text-white px-3 py-1 rounded pointer-fine:hover:scale-110 active:scale-95 transition-transform">
             DikaCode | Kendal
           </span>
         </div>

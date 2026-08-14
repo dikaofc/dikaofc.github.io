@@ -16,4 +16,11 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
+  build: {
+    rollupOptions: {
+      // Keep parallel fs operations low so builds succeed on
+      // low-file-descriptor environments (e.g. Termux).
+      maxParallelFileOps: 4,
+    },
+  },
 });
