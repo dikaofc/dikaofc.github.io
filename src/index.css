@@ -22,23 +22,33 @@
   --c-glow-cyan: rgba(34, 211, 238, 0.07);
   --c-glow-violet: rgba(168, 85, 247, 0.05);
   --c-glow-yellow: rgba(255, 230, 0, 0.04);
+  --c-shadow: #ffe600;              /* brutal offset shadow color (yellow dark / black light) */
+  /* ── brutal shadow tuning — change the base, everything scales ── */
+  --c-shadow-offset: 6px;                          /* base thickness (try 4 / 6 / 8) */
+  --c-shadow-offset-sm: calc(var(--c-shadow-offset) * 2 / 3);    /* ≈4px chips/small */
+  --c-shadow-offset-lg: calc(var(--c-shadow-offset) * 4 / 3);    /* ≈8px large cards */
+  --c-shadow-offset-hover: calc(var(--c-shadow-offset) * 5 / 3); /* ≈10px hover grow */
+  --c-shadow-offset-press: calc(var(--c-shadow-offset) / 3);     /* ≈2px press/quiet */
 }
 
 [data-theme="light"] {
   color-scheme: light;
-  /* ── light — untouched, exactly as the owner likes it ── */
+  /* ── light — original neo-brutalist: white, black outlines, hard black shadows ── */
   --c-ink: #0a0a0a;             /* constant ink: text on yellow chips */
-  --c-panel: #f2f1ec;           /* warm light paper bg */
-  --c-panel-2: #f2f1ec;         /* same as panel → no visual change */
+  --c-panel: #ffffff;           /* crisp clean white bg */
+  --c-panel-2: #f2f1ec;         /* subtle off-white section rhythm */
   --c-card: #ffffff;            /* white cards */
-  --c-line: #d6d5de;            /* subtle border */
-  --c-fog: #101014;             /* near-black primary text + borders */
+  --c-line: #d6d5de;            /* subtle divider */
+  --c-fog: #000000;             /* stark black text + thick black borders */
   --c-mute: #4f4f5c;            /* secondary text (WCAG AA) */
   --c-dot: rgba(10, 10, 10, 0.16);
   --c-grid: rgba(10, 10, 10, 0.06);
   --c-glow-cyan: transparent;
   --c-glow-violet: transparent;
   --c-glow-yellow: transparent;
+  /* original accents: saweria yellow + hard black offset shadows */
+  --color-paper: #FFDE4D;
+  --c-shadow: #000000;
 }
 
 @theme {
@@ -97,11 +107,13 @@ body {
 .font-mono    { font-family: 'JetBrains Mono', monospace; }
 
 /* ── Neo-brutal hard shadows — yellow accent, constant ────────── */
-.nb-shadow    { box-shadow: 6px 6px 0 0 #ffe600; }
-.nb-shadow-lg { box-shadow: 8px 8px 0 0 #ffe600; }
-.nb-shadow-sm { box-shadow: 4px 4px 0 0 #ffe600; }
+.nb-shadow    { box-shadow: var(--c-shadow-offset) var(--c-shadow-offset) 0 0 var(--c-shadow); }
+.nb-shadow-lg { box-shadow: var(--c-shadow-offset-lg) var(--c-shadow-offset-lg) 0 0 var(--c-shadow); }
+.nb-shadow-sm { box-shadow: var(--c-shadow-offset-sm) var(--c-shadow-offset-sm) 0 0 var(--c-shadow); }
 /* dark mode: quiet small shadows so the yellow pop stays on cards & CTAs */
-:root .nb-shadow-sm { box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.6); }
+:root .nb-shadow-sm { box-shadow: var(--c-shadow-offset-press) var(--c-shadow-offset-press) 0 0 rgba(0, 0, 0, 0.6); }
+/* light mode: original chunky hard black offset shadows */
+[data-theme="light"] .nb-shadow-sm { box-shadow: var(--c-shadow-offset-sm) var(--c-shadow-offset-sm) 0 0 #000000; }
 .nb-shadow-orange { box-shadow: 6px 6px 0 0 #ff5a1f; }
 .nb-shadow-pink   { box-shadow: 6px 6px 0 0 #ff4d94; }
 .nb-shadow-blue   { box-shadow: 6px 6px 0 0 #4d94ff; }
@@ -117,25 +129,30 @@ body {
   transition: transform 120ms cubic-bezier(.2,.9,.3,1), box-shadow 120ms cubic-bezier(.2,.9,.3,1);
   will-change: transform, box-shadow;
 }
-.nb-press:active { transform: translate(3px,3px);  box-shadow: 2px 2px 0 0 #ffe600, 0 0 18px rgba(255,230,0,.45); }
+.nb-press:active { transform: translate(3px,3px);  box-shadow: var(--c-shadow-offset-press) var(--c-shadow-offset-press) 0 0 var(--c-shadow), 0 0 18px rgba(255,230,0,.45); }
 
 /* Hover effects only on devices that actually hover (mouse/trackpad).
    On touch, :hover sticks after a tap — without this guard buttons and
    chips stay translated + shadowed and can push past the screen edge
    on mobile. :active (press feedback) intentionally stays everywhere. */
 @media (hover: hover) {
-  .nb-press:hover  { transform: translate(-2px,-2px); box-shadow: 10px 10px 0 0 #ffe600; }
-  .nb-press-orange:hover  { box-shadow: 10px 10px 0 0 #ff5a1f; }
-  .nb-press-pink:hover    { box-shadow: 10px 10px 0 0 #ff4d94; }
-  .nb-press-blue:hover    { box-shadow: 10px 10px 0 0 #4d94ff; }
-  .nb-press-neon:hover    { box-shadow: 10px 10px 0 0 #22d3ee; }
+  .nb-press:hover  { transform: translate(-2px,-2px); box-shadow: var(--c-shadow-offset-hover) var(--c-shadow-offset-hover) 0 0 var(--c-shadow); }
+  .nb-press-orange:hover  { box-shadow: var(--c-shadow-offset-hover) var(--c-shadow-offset-hover) 0 0 #ff5a1f; }
+  .nb-press-pink:hover    { box-shadow: var(--c-shadow-offset-hover) var(--c-shadow-offset-hover) 0 0 #ff4d94; }
+  .nb-press-blue:hover    { box-shadow: var(--c-shadow-offset-hover) var(--c-shadow-offset-hover) 0 0 #4d94ff; }
+  .nb-press-neon:hover    { box-shadow: var(--c-shadow-offset-hover) var(--c-shadow-offset-hover) 0 0 #22d3ee; }
+  /* light: every brutal hover shadow turns black (original look) */
+  [data-theme="light"] .nb-press-orange:hover,
+  [data-theme="light"] .nb-press-pink:hover,
+  [data-theme="light"] .nb-press-blue:hover,
+  [data-theme="light"] .nb-press-neon:hover { box-shadow: var(--c-shadow-offset-hover) var(--c-shadow-offset-hover) 0 0 #000000; }
 }
 
 /* Keyboard navigation: clear neobrutal focus ring — yellow ring with a
    theme-aware contrast band so it stays visible on yellow chips, colored
    buttons and both themes. Shown only when tabbing, never on mouse clicks. */
 :where(a, button, input, textarea, select, [tabindex]):focus-visible {
-  outline: 3px solid var(--c-paper);
+  outline: 3px solid var(--color-paper);
   outline-offset: 2px;
   box-shadow: 0 0 0 2px var(--c-fog), 0 0 14px rgba(255, 230, 0, 0.35);
 }

@@ -161,7 +161,7 @@ export default function Stack() {
           {services.map((s, i) => (
             <div
               key={s.title}
-              className="nb-border-thick bg-card rounded-2xl p-5 md:p-7 nb-shadow-lg nb-press relative overflow-hidden group h-full pointer-fine:hover:shadow-[10px_10px_0_#ffe600] pointer-fine:hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+              className="nb-border-thick bg-card rounded-2xl p-5 md:p-7 nb-shadow-lg nb-press relative overflow-hidden group h-full pointer-fine:hover:shadow-[var(--c-shadow-offset-hover)_var(--c-shadow-offset-hover)_0_var(--c-shadow)] pointer-fine:hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
               style={{
                 animation: `slideInUp 0.6s ease-out ${i * 100}ms both`,
               }}

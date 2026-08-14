@@ -40,8 +40,8 @@
                         mute: 'var(--c-mute)'
                     },
                     boxShadow: {
-                        brutal: '6px 6px 0px 0px #FFD700',
-                        brutalHover: '2px 2px 0px 0px #FFD700',
+                        brutal: 'var(--c-shadow-offset) var(--c-shadow-offset) 0px 0px var(--c-shadow)',
+                        brutalHover: 'var(--c-shadow-offset-press) var(--c-shadow-offset-press) 0px 0px var(--c-shadow)',
                     }
                 }
             }
@@ -57,6 +57,13 @@
             --c-fog: #eef0f6;
             --c-mute: #a3a9b8;
             --c-dot: rgba(196, 212, 255, 0.16);
+            --c-shadow: #FFD700;  /* brutal offset shadow (gold in dark / black in light) */
+            /* ── brutal shadow tuning — change the base, everything scales ── */
+            --c-shadow-offset: 6px;
+            --c-shadow-offset-sm: calc(var(--c-shadow-offset) * 2 / 3);
+            --c-shadow-offset-lg: calc(var(--c-shadow-offset) * 4 / 3);
+            --c-shadow-offset-hover: calc(var(--c-shadow-offset) * 5 / 3);
+            --c-shadow-offset-press: calc(var(--c-shadow-offset) / 3);
         }
         [data-theme="light"] {
             color-scheme: light;
@@ -67,6 +74,7 @@
             --c-fog: #101014;
             --c-mute: #4f4f5c;
             --c-dot: rgba(10, 10, 10, 0.16);
+            --c-shadow: #000000;  /* original: hard black offset shadows */
         }
         /* hide scrollbars everywhere — scrolling still works */
         * {
@@ -93,13 +101,13 @@
         
         .neobrutalism {
             border: 3px solid var(--c-fog);
-            box-shadow: 6px 6px 0px 0px #FFD700;
+            box-shadow: var(--c-shadow-offset) var(--c-shadow-offset) 0px 0px var(--c-shadow);
             transition: all 0.15s ease-in-out;
         }
         
         .neobrutalism:hover {
             transform: translate(2px, 2px);
-            box-shadow: 4px 4px 0px 0px #FFD700;
+            box-shadow: var(--c-shadow-offset-sm) var(--c-shadow-offset-sm) 0px 0px var(--c-shadow);
         }
         
         .neobrutalism:active {
@@ -138,7 +146,7 @@
             height: 300px;
             border: 3px solid var(--c-fog);
             background-color: var(--c-card);
-            box-shadow: 6px 6px 0px 0px #FFD700;
+            box-shadow: var(--c-shadow-offset) var(--c-shadow-offset) 0px 0px var(--c-shadow);
             border-radius: 8px;
             overflow: hidden;
             position: relative;
@@ -305,7 +313,7 @@
         </section>
 
         <section class="mb-16 animate-fade-in" style="animation-delay: 0.4s;">
-            <div class="neobrutalism bg-black text-white rounded-xl p-8 relative overflow-hidden hover:shadow-[12px_12px_0_#FFD700] transition-all">
+            <div class="neobrutalism bg-black text-white rounded-xl p-8 relative overflow-hidden hover:shadow-[calc(var(--c-shadow-offset)_*_2)_calc(var(--c-shadow-offset)_*_2)_0_var(--c-shadow)] transition-all">
                 <i class="ph-duotone ph-linux-logo absolute -bottom-10 -right-10 text-9xl text-gray-800 opacity-50"></i>
                 <h2 class="text-3xl font-black uppercase mb-4 flex items-center gap-2 text-saweria">
                     <i class="ph-bold ph-terminal-window"></i> System Engineering

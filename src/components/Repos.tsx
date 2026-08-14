@@ -84,7 +84,7 @@ export default function Repos({ repos, loading }: Props) {
         </Reveal>
 
         {/* Filters */}
-        <div className="nb-border-thick bg-card rounded-xl p-4 md:p-5 nb-shadow-lg mb-10 flex flex-col md:flex-row gap-3 md:gap-4 hover:shadow-[8px_8px_0_#ffe600] transition-all">
+        <div className="nb-border-thick bg-card rounded-xl p-4 md:p-5 nb-shadow-lg mb-10 flex flex-col md:flex-row gap-3 md:gap-4 hover:shadow-[var(--c-shadow-offset-lg)_var(--c-shadow-offset-lg)_0_var(--c-shadow)] transition-all">
           <div className="flex-1 flex items-center gap-2 nb-border bg-panel rounded-md px-3 py-2 hover:bg-card transition-colors">
             <span className="font-mono font-bold text-3xl text-fog">⌕</span>
             <input

@@ -22,7 +22,7 @@ export default function RepoCard({ repo, pinned, featured }: Props) {
       className={cn(
         "group relative block w-full min-w-0 max-w-full h-full overflow-hidden nb-border-thick bg-card rounded-2xl p-5 md:p-6 nb-shadow-lg active:scale-[0.98] pointer-fine:hover:scale-[1.03] transition-all duration-300",
         featured && "sm:col-span-2 lg:col-span-2 scanlines card-glow",
-        !featured && "pointer-fine:hover:shadow-[10px_10px_0_#ffe600]"
+        !featured && "pointer-fine:hover:shadow-[var(--c-shadow-offset-hover)_var(--c-shadow-offset-hover)_0_var(--c-shadow)]"
       )}
     >
       {/* Animated bg gradient on hover */}
