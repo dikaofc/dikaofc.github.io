@@ -1,5 +1,13 @@
 # 🚀 dikaofc.github.io — Portfolio Neo-Brutalist
 
+[![Deploy Status](https://github.com/dikaofc/dikaofc.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/dikaofc/dikaofc.github.io/actions/workflows/deploy.yml)
+[![GitHub Pages](https://img.shields.io/github/deployments/dikaofc/dikaofc.github.io/github-pages?label=Pages&logo=github&color=%23ffe600&labelColor=%230a0c11)](https://github.com/dikaofc/dikaofc.github.io/deployments)
+[![React](https://img.shields.io/badge/React-19.2.6-61DAFB?logo=react&logoColor=white)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Vite](https://img.shields.io/badge/Vite-7.3.2-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1.17-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![Three.js](https://img.shields.io/badge/Three.js-0.185.1-000000?logo=three.js&logoColor=white)](https://threejs.org)
+
 Portfolio website pribadi dengan visual **Cyberpunk × Neo-Brutalism** — dibangun dengan **Vite + React 19 + TypeScript + Tailwind CSS v4 + Three.js**.
 
 > **Live:** [dikaofc.github.io](https://dikaofc.github.io) · [Halaman 3D](https://dikaofc.github.io/portofolio.html)
