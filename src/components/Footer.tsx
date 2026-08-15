@@ -1,4 +1,19 @@
-export default function Footer() {
+export type FooterLink = { href: string; label: string };
+
+const DEFAULT_LINKS: FooterLink[] = [
+  { href: "#home", label: "Home" },
+  { href: "#repos", label: "Repositories" },
+  { href: "#stack", label: "Tech Stack" },
+  { href: "/tentang", label: "Tentang" },
+  { href: "/layanan", label: "Layanan" },
+  { href: "/proyek", label: "Proyek" },
+  { href: "/harga", label: "Harga" },
+  { href: "/testimoni", label: "Testimoni" },
+  { href: "/faq", label: "FAQ" },
+  { href: "#contact", label: "Kontak" },
+];
+
+export default function Footer({ links = DEFAULT_LINKS }: { links?: FooterLink[] }) {
   return (
     <footer className="bg-panel text-fog foot-glow transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 md:px-8 py-12 md:py-16 grid md:grid-cols-3 gap-10">
@@ -15,12 +30,15 @@ export default function Footer() {
         <div>
           <div className="font-display text-lg mb-3">NAVIGASI</div>
           <ul className="grid gap-2 font-body font-semibold text-fog">
-            <li><a href="#home" className="hover:text-paper transition-colors">→ Home</a></li>
-            <li><a href="#repos" className="hover:text-paper transition-colors">→ Repositories</a></li>
-            <li><a href="#stack" className="hover:text-paper transition-colors">→ Tech Stack</a></li>
-            <li><a href="#contact" className="hover:text-paper transition-colors">→ Kontak</a></li>
+            {links.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className="hover:text-paper transition-colors">
+                  → {l.label}
+                </a>
+              </li>
+            ))}
             <li>
-              <a href="/portofolio.html" className="hover:text-paper transition-colors">
+              <a href="/portofolio" className="hover:text-paper transition-colors">
                 → 3D Version <span className="font-mono text-xs text-neon">✦</span>
               </a>
             </li>

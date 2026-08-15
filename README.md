@@ -7,10 +7,11 @@
 [![Vite](https://img.shields.io/badge/Vite-7.3.2-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1.17-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Three.js](https://img.shields.io/badge/Three.js-0.185.1-000000?logo=three.js&logoColor=white)](https://threejs.org)
+[![License](https://img.shields.io/github/license/dikaofc/dikaofc.github.io?color=%23FFDE4D&labelColor=%230a0c11)](https://github.com/dikaofc/dikaofc.github.io/blob/main/LICENSE)
 
 Portfolio website pribadi dengan visual **Cyberpunk × Neo-Brutalism** — dibangun dengan **Vite + React 19 + TypeScript + Tailwind CSS v4 + Three.js**.
 
-> **Live:** [dikaofc.github.io](https://dikaofc.github.io) · [Halaman 3D](https://dikaofc.github.io/portofolio.html)
+> **Live:** [dikaofc.github.io](https://dikaofc.github.io) · [Layanan](https://dikaofc.github.io/layanan) · [Halaman 3D](https://dikaofc.github.io/portofolio)
 
 ---
 
@@ -20,6 +21,8 @@ Portfolio website pribadi dengan visual **Cyberpunk × Neo-Brutalism** — diban
 - [🛠️ Tech Stack](#️-tech-stack)
 - [🚀 Cara Menjalankan](#-cara-menjalankan)
 - [🎛️ Cara Tuning `--c-shadow-offset`](#️-cara-tuning---c-shadow-offset)
+- [📄 Halaman](#-halaman)
+- [📸 Screenshot](#-screenshot)
 - [📁 Struktur Project](#-struktur-project)
 - [🌓 Theme System](#-theme-system)
 - [🐾 Mascot Family](#-mascot-family)
@@ -37,7 +40,12 @@ Portfolio website pribadi dengan visual **Cyberpunk × Neo-Brutalism** — diban
 | ⌨️ | **Typewriter** | Bio hero mengetik khas terminal dengan block cursor hijau |
 | 🐾 | **Mascot Family** | "Diko & friends" (Robot, Cat, Bug, Spark) — 100% CSS shapes, `aria-hidden`, mati saat `prefers-reduced-motion` |
 | 🎯 | **Featured Repo** | DikaRoute tampil menonjol dengan scanline sweep + neon glow |
-| 🖼️ | **Halaman 3D Kedua** | `portofolio.html` (3D logo SMK drag-to-rotate) — theme konsisten & sinkron dengan main site |
+| 🖼️ | **Halaman 3D Kedua** | `/portofolio` (3D logo SMK drag-to-rotate) — theme konsisten & sinkron dengan main site |
+| 📄 | **Multi-Page (13 halaman)** | MPA single-file — setiap halaman di-build sendiri via `scripts/build-pages.mjs` + `vite.page.config.ts` (tanpa dependency router) |
+| 🛠️ | **Halaman Layanan** | Glass cards + digital globe 3D (Three.js), benefits, alur kerja, CTA panel futuristic |
+| 🔗 | **Detail Per-Layanan** | `/layanan/{website,bot,tools,perbaikan}` — overview, fitur, alur pengerjaan, deliverables, related services |
+| 💰 | **Halaman Harga** | Paket open jasa (website/bot/tools/maintenance) + nego custom |
+| 📝 | **Halaman FAQ** | Accordion aksesibel (`aria-expanded`) — 8 pertanyaan umum |
 | 🔍 | **Live GitHub Data** | Stats & repos di-fetch realtime dari GitHub API, dengan fallback saat offline |
 | 💧 | **Invisible Watermark** | Teks yang di-copy otomatis disisipkan `— dikacode` |
 | 📱 | **Mobile-First** | Hover di-scope `pointer-fine` (anti sticky-hover Android), scrollbar disembunyikan, ring `:focus-visible` kuning, dukungan `prefers-reduced-motion` |
@@ -54,7 +62,7 @@ Portfolio website pribadi dengan visual **Cyberpunk × Neo-Brutalism** — diban
 | 3D | [Three.js](https://threejs.org) (vanilla, tanpa react-three-fiber) |
 | Icons | lucide-react + react-icons |
 | Utilities | clsx + tailwind-merge (`cn()`) |
-| Build | `vite-plugin-singlefile` → satu file HTML |
+| Build | `vite-plugin-singlefile` **multi-page** → satu file HTML per halaman (`npm run build` = home + `scripts/build-pages.mjs`) |
 | Deploy | GitHub Actions → GitHub Pages |
 
 ---
@@ -73,12 +81,15 @@ git clone https://github.com/dikaofc/dikaofc.github.io.git
 cd dikaofc.github.io
 npm install
 
-npm run dev        # dev server → http://localhost:5173
-npm run build      # production build → dist/
-npm run preview    # preview hasil build
+npm run dev          # dev server → http://localhost:5173 (termasuk /layanan, /tentang, dst.)
+npm run build        # production build → dist/ (home + SEMUA subhalaman)
+npm run build:pages  # build ulang subhalaman saja (tanpa home)
+npm run preview      # preview hasil build
 ```
 
 > Typecheck manual: `npx tsc --noEmit`
+>
+> Menambah halaman baru? Cukup buat `<nama>.html` + `src/main-<nama>.tsx` + `src/pages/<nama>/`, lalu tambahkan nama ke `PAGES` di `scripts/build-pages.mjs`.
 
 ---
 
@@ -91,7 +102,7 @@ Semua shadow neobrutal (kartu, chip, CTA, tombol) diturunkan dari **satu variabe
 --c-shadow-offset: 6px;   /* ← ganti ke 4 / 6 / 8 untuk menebal/menipis */
 ```
 
-Ubah satu baris itu, **semua shadow di seluruh website ikut berubah**. Knob yang sama juga ada di `public/portofolio.html` untuk halaman 3D.
+Ubah satu baris itu, **semua shadow di seluruh website ikut berubah**. Knob yang sama juga ada di `public/portofolio/index.html` untuk halaman 3D.
 
 ### Turunan Otomatis
 
@@ -150,34 +161,84 @@ Semua token didefinisikan di `src/index.css` (`:root` untuk dark, `[data-theme="
 
 ---
 
+## 📄 Halaman
+
+Website ini **multi-page (MPA)** — tiap halaman di-build menjadi satu file HTML single-file yang mandiri (React + CSS ter-inline). Tidak ada router library; navigasi antar-halaman memakai link biasa, jadi semua path jalan tanpa 404 di GitHub Pages.
+
+| Path | Halaman | Isi |
+|------|---------|-----|
+| `/` | Home | Landing portfolio: 3D hero, repos live GitHub, stack, kontak |
+| `/tentang` | Tentang | Profil, fakta, perjalanan, keahlian, motto |
+| `/layanan` | Layanan | 4 layanan (glass cards) + digital globe 3D, benefits, alur kerja, CTA |
+| `/layanan/website` | Detail: Website | Overview, fitur, alur, deliverables, layanan terkait |
+| `/layanan/bot` | Detail: Bot | + platform Telegram / WhatsApp / Discord |
+| `/layanan/tools` | Detail: Tools | |
+| `/layanan/perbaikan` | Detail: Perbaikan | Bug fix, maintenance, optimasi |
+| `/proyek` | Proyek | Showcase proyek unggulan — data live dari GitHub API |
+| `/harga` | Harga | Paket open jasa + nego custom |
+| `/kontak` | Kontak | Semua channel kontak + panel Telegram |
+| `/testimoni` | Testimoni | Empty state "jadilah yang pertama" (siap diisi klien) |
+| `/faq` | FAQ | Accordion pertanyaan umum |
+| `/portofolio` | 3D Version | Halaman 3D statis (logo SMK drag-to-rotate) |
+
+> Semua URL **tanpa ekstensi** — tiap halaman di-build sebagai `<nama>/index.html`, jadi `/layanan` jalan natively di GitHub Pages, Vercel, dan dev server tanpa rewrite.
+
+---
+
+## 📸 Screenshot
+
+Screenshot halaman utama & layanan diambil dari browser lalu disimpan di `docs/screenshots/`.
+
+![Halaman Layanan — DIKACODE](/docs/screenshots/layanan.png)
+
+*`/layanan` — glass cards, digital globe 3D (Three.js), neon cyan, CTA command panel.*
+
+![Halaman Detail Bot — DIKACODE](/docs/screenshots/layanan-bot.png)
+
+*`/layanan/bot` — detail per-layanan: overview, fitur, alur pengerjaan, deliverables.*
+
+> **Cara menambah screenshot:** buka halaman di browser (dev atau live) → screenshot penuh halaman → simpan sebagai `docs/screenshots/<nama>.png` (mis. `layanan.png`). File yang belum ada akan tampil sebagai gambar kosong sampai diisi.
+
+---
+
 ## 📁 Struktur Project
 
 ```
-├── index.html                    # HTML entry + inline theme script (anti-flash)
+├── index.html                    # Entry home + inline theme script (anti-flash)
+├── tentang/ layanan/ proyek/ harga/ kontak/ testimoni/ faq/          # tiap folder berisi index.html → URL /<nama>
+├── layanan/website/ layanan/bot/ layanan/tools/ layanan/perbaikan/   # detail layanan → URL /layanan/<nama>
 ├── public/
-│   ├── portofolio.html           # Halaman 3D kedua (logo SMK 3D + theme toggle)
+│   ├── portofolio/               # Halaman 3D kedua (logo SMK 3D + theme toggle) → /portofolio
+│   ├── 404.html                  # Halaman 404 kustom
 │   └── LOGO-SMK-BHINNEKA-remove-bg-io.png
+├── scripts/
+│   └── build-pages.mjs           # Build SEMUA subhalaman single-file
+├── vite.config.ts                # Build home (singlefile)
+├── vite.page.config.ts           # Build generik subhalaman (env PAGE=…)
 ├── src/
-│   ├── main.tsx                  # React entry
-│   ├── App.tsx                   # Root: theme state, GitHub data, copy-watermark
-│   ├── index.css                 # Design tokens, utilities, keyframes
+│   ├── main.tsx                  # React entry home
+│   ├── main-<page>.tsx           # React entry tiap subhalaman (tentang, layanan, …)
+│   ├── App.tsx                   # Root home: theme, GitHub data, copy-watermark
+│   ├── index.css                 # Design tokens, utilities, keyframes, .cta-panel
+│   ├── hooks/
+│   │   └── useTheme.ts           # Theme state bersama (system/light/dark)
 │   ├── lib/
-│   │   └── github.ts             # GitHub API client + FALLBACK data
+│   │   ├── github.ts             # GitHub API client + FALLBACK data
+│   │   ├── site.ts               # Konstanta kontak + nav/footer links semua halaman
+│   │   └── services.ts           # Single source of truth data 4 layanan
 │   ├── utils/
 │   │   └── cn.ts                 # clsx + tailwind-merge helper
-│   └── components/
-│       ├── Nav.tsx               # Floating glass navbar + theme toggle
-│       ├── Hero.tsx              # Hero (Hero3D, Typewriter, Mascot)
-│       ├── Hero3D.tsx            # 3D logo SMK (Three.js)
-│       ├── Typewriter.tsx        # Terminal typing effect
-│       ├── Mascot.tsx            # Diko & friends (diko/cat/bug/spark)
-│       ├── Repos.tsx             # All repositories + filter bahasa
-│       ├── RepoCard.tsx          # Kartu repo (featured scanline/glow untuk DikaRoute)
-│       ├── Stack.tsx             # Tech stack grid
-│       ├── Contact.tsx           # Social links + CTA
-│       ├── Footer.tsx
-│       ├── Watermark.tsx         # Invisible tiled watermark
-│       └── Reveal.tsx            # Scroll-reveal (IntersectionObserver)
+│   ├── components/
+│   │   ├── Nav.tsx               # Navbar + theme toggle (links configurable)
+│   │   ├── PageShell.tsx         # Layout bersama semua subhalaman
+│   │   ├── PageHero.tsx          # Header futuristic bersama (chip + title + CTA)
+│   │   ├── Hero.tsx / Hero3D.tsx / Typewriter.tsx / Mascot.tsx
+│   │   ├── Repos.tsx / RepoCard.tsx / Stack.tsx / Contact.tsx
+│   │   ├── Footer.tsx / Watermark.tsx / Reveal.tsx
+│   └── pages/
+│       ├── layanan/              # Hero, Services, Benefits, Process, CTA, DigitalCore
+│       ├── service/              # ServiceDetailPage + wrapper per layanan
+│       └── tentang/ proyek/ harga/ kontak/ testimoni/ faq/
 └── .github/workflows/
     └── deploy.yml                # CI/CD → GitHub Pages
 ```
@@ -234,6 +295,6 @@ Push ke `main` memicu `.github/workflows/deploy.yml`:
 
 ---
 
-**Last Updated:** August 14, 2026 · **License:** MIT & Open Source
+**Last Updated:** August 15, 2026 · **License:** MIT & Open Source · **[Cara Berkontribusi](CONTRIBUTING.md)**
 
 ⭐ Star repo ini kalau bermanfaat!

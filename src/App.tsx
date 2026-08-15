@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
+import OpenJasaBanner from "./components/OpenJasaBanner";
 import Repos from "./components/Repos";
 import Stack from "./components/Stack";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Watermark from "./components/Watermark";
+import { useTheme } from "./hooks/useTheme";
 import {
   getUser,
   getRepos,
@@ -15,80 +17,11 @@ import {
   type GhRepo,
 } from "./lib/github";
 
-const THEME_KEY = "dika-theme";
-const THEME_COLORS = { dark: "#0a0c11", light: "#ffffff" } as const;
-
-/** visitor's choice — "system" follows the OS preference */
-type ThemeChoice = "system" | "light" | "dark";
-type ResolvedTheme = "light" | "dark";
-
-function systemPrefersLight(): boolean {
-  return window.matchMedia("(prefers-color-scheme: light)").matches;
-}
-
-function getInitialChoice(): ThemeChoice {
-  try {
-    const saved = localStorage.getItem(THEME_KEY);
-    if (saved === "light" || saved === "dark" || saved === "system") {
-      return saved;
-    }
-  } catch {
-    // ignore storage errors
-  }
-  return "system";
-}
-
 export default function App() {
   const [user, setUser] = useState<GhUser | null>(null);
   const [repos, setRepos] = useState<GhRepo[]>([]);
   const [loading, setLoading] = useState(true);
-  const [choice, setChoice] = useState<ThemeChoice>(getInitialChoice);
-  const [systemPref, setSystemPref] = useState(systemPrefersLight);
-
-  // keep the resolved theme in sync with the OS while in "system" mode
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-color-scheme: light)");
-    const onChange = () => setSystemPref(systemPrefersLight());
-    mq.addEventListener?.("change", onChange);
-    return () => mq.removeEventListener?.("change", onChange);
-  }, []);
-
-  // cross-tab sync: when another tab changes the theme, follow it
-  useEffect(() => {
-    const onStorage = (e: StorageEvent) => {
-      if (e.key !== THEME_KEY) return;
-      const next = e.newValue;
-      if (next === "light" || next === "dark" || next === "system") {
-        setChoice(next);
-      }
-    };
-    window.addEventListener("storage", onStorage);
-    return () => window.removeEventListener("storage", onStorage);
-  }, []);
-
-  // live: while in "system" mode, re-resolve whenever the OS preference changes
-  const theme: ResolvedTheme =
-    choice === "system" ? (systemPref ? "light" : "dark") : choice;
-
-  // apply + persist
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", THEME_COLORS[theme]);
-  }, [theme]);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(THEME_KEY, choice);
-    } catch {
-      // ignore storage errors (private mode etc.)
-    }
-  }, [choice]);
-
-  // cycle: system → light → dark → system
-  const cycleTheme = () => {
-    setChoice((c) => (c === "system" ? "light" : c === "light" ? "dark" : "system"));
-  };
+  const { theme, choice, cycleTheme } = useTheme();
 
   // invisible-style copy watermark: appended when visitors copy text
   useEffect(() => {
@@ -133,6 +66,7 @@ export default function App() {
       <Watermark />
       <Nav theme={theme} choice={choice} onToggle={cycleTheme} />
       <Hero user={user} loading={loading && !user} />
+      <OpenJasaBanner />
       <Repos repos={repos} loading={loading && repos.length === 0} />
       <Stack />
       <Contact />

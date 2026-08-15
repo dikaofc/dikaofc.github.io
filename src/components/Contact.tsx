@@ -1,5 +1,5 @@
 import { SiGmail } from "react-icons/si";
-import { Globe2, ArrowUpRight } from "lucide-react";
+import { Globe2, ArrowUpRight, Wrench } from "lucide-react";
 import { PiGithubLogo, PiTelegramLogo } from "react-icons/pi";
 import Reveal from "./Reveal";
 import Mascot from "./Mascot";
@@ -40,6 +40,15 @@ const links = [
     shadow: "nb-press-pink",
     icon: SiGmail,
     number: "04",
+  },
+  {
+    label: "Layanan",
+    handle: "Open Jasa — Digital Solution",
+    url: "/layanan",
+    tone: "bg-neon text-ink",
+    shadow: "nb-press-neon",
+    icon: Wrench,
+    number: "05",
   },
 ];
 
@@ -82,7 +91,11 @@ export default function Contact() {
 
             <p className="font-body font-semibold text-base md:text-lg max-w-md leading-snug text-mute">
               open for collab, project custom, atau sekadar diskusi soal ai,
-              bug, atau projek iseng. pilih channel yang paling cocok.
+              bug, atau projek iseng. butuh website, bot, atau tools?{" "}
+              <a href="/layanan" className="text-neon underline decoration-neon/50 underline-offset-4 pointer-fine:hover:text-paper transition-colors">
+                cek halaman layanan
+              </a>
+              . pilih channel yang paling cocok.
             </p>
 
             {/* Availability */}

@@ -1,12 +1,7 @@
 import { useState, useEffect } from "react";
 import { Monitor } from "lucide-react";
 
-const links = [
-  { href: "#home", label: "Home" },
-  { href: "#repos", label: "Repos" },
-  { href: "#stack", label: "Stack" },
-  { href: "#contact", label: "Kontak" },
-];
+export type NavLink = { href: string; label: string };
 
 type ThemeChoice = "system" | "light" | "dark";
 
@@ -14,9 +9,21 @@ type Props = {
   theme: "dark" | "light";
   choice: ThemeChoice;
   onToggle: () => void;
+  /** links shown in the bar — defaults to the home page sections */
+  links?: NavLink[];
+  /** where the logo points (home page defaults to the #home anchor) */
+  logoHref?: string;
 };
 
-export default function Nav({ theme, choice, onToggle }: Props) {
+const DEFAULT_LINKS: NavLink[] = [
+  { href: "#home", label: "Home" },
+  { href: "#repos", label: "Repos" },
+  { href: "#stack", label: "Stack" },
+  { href: "#contact", label: "Kontak" },
+  { href: "/layanan", label: "Layanan" },
+];
+
+export default function Nav({ theme, choice, onToggle, links = DEFAULT_LINKS, logoHref = "#home" }: Props) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -75,7 +82,7 @@ export default function Nav({ theme, choice, onToggle }: Props) {
   return (
     <header className={`sticky top-0 z-50 border-b-[3px] border-fog transition-colors duration-200 ${scrolled ? "bg-panel/95 backdrop-blur-sm" : "bg-panel"}`}>
       <div className="max-w-6xl mx-auto px-4 md:px-8 py-3 md:py-4 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2 group">
+        <a href={logoHref} className="flex items-center gap-2 group">
           <span className="nb-border-thick nb-shadow-sm bg-paper text-ink w-9 h-9 md:w-10 md:h-10 rounded-md grid place-items-center font-display text-lg md:text-xl group-hover:-rotate-6 transition-transform">
             D
           </span>
