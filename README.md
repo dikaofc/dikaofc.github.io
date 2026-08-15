@@ -22,6 +22,7 @@ Portfolio website pribadi dengan visual **Cyberpunk × Neo-Brutalism** — diban
 - [🚀 Cara Menjalankan](#-cara-menjalankan)
 - [🎛️ Cara Tuning `--c-shadow-offset`](#️-cara-tuning---c-shadow-offset)
 - [📄 Halaman](#-halaman)
+- [🛠️ Halaman Layanan](#️-halaman-layanan)
 - [📸 Screenshot](#-screenshot)
 - [📁 Struktur Project](#-struktur-project)
 - [🌓 Theme System](#-theme-system)
@@ -185,6 +186,33 @@ Website ini **multi-page (MPA)** — tiap halaman di-build menjadi satu file HTM
 
 ---
 
+## 🛠️ Halaman Layanan
+
+Halaman bisnis utama DIKACODE — visual **futuristic digital agency** (dark navy + glassmorphism + cyan/ice-blue glow + aksen gold tipis). Semua data layanan bersumber dari satu file: `src/lib/services.ts`.
+
+### Alur Section
+
+| # | Section | Konten |
+|---|---------|--------|
+| 1 | **Hero** | `OPEN JASA` + tagline `DIGITAL SOLUTION & CODE`, CTA *Konsultasi Sekarang* / *Lihat Layanan*, dan **digital globe 3D** (wireframe cyan, orbit ring gold, partikel) |
+| 2 | **Layanan DIKACODE** | 4 kartu glass (Website, Bot, Tools, Perbaikan) — icon, ghost number, fitur list, platform chips (Telegram/WhatsApp/Discord), CTA *Pelajari Layanan →* |
+| 3 | **Kenapa DIKACODE?** | 4 benefit: Aman Terpercaya 🛡️, Cepat & Efisien ⚡, Kualitas Terjamin ✔️, Support Responsif 🎧 |
+| 4 | **Alur Kerja** | Timeline 4 langkah: Konsultasi → Perencanaan → Development → Delivery |
+| 5 | **CTA** | Glass command panel dengan pulse glow — `SIAP MEMBANGUN SOLUSI DIGITALMU?` → **@dikaacode** |
+
+### 4 Layanan & Halaman Detailnya
+
+| Layanan | Halaman | Fitur utama |
+|---------|---------|-------------|
+| Jasa Pembuatan Website | `/layanan/website` | Landing page, company profile, portfolio, custom website, responsive, performance optimization |
+| Jasa Pembuatan Bot | `/layanan/bot` | Telegram / WhatsApp / Discord, custom commands, automation, API integration, database, admin system |
+| Jasa Pembuatan Tools | `/layanan/tools` | Custom tools, CLI tools, utility software, workflow automation |
+| Perbaikan & Pengembangan | `/layanan/perbaikan` | Bug fix, error fix, maintenance, optimasi, refactoring |
+
+Setiap halaman detail (`/layanan/<nama>`) berisi: **Overview** (paragraf panjang), **Fitur** grid, **Alur Pengerjaan** timeline, **Cocok Untuk** chips, **Yang Kamu Dapat** (deliverables), **Layanan Terkait**, dan **CTA Telegram** — semua di-render oleh satu komponen bersama `src/pages/service/ServiceDetailPage.tsx`.
+
+---
+
 ## 📸 Screenshot
 
 Screenshot halaman utama & layanan diambil dari browser lalu disimpan di `docs/screenshots/`.
@@ -204,44 +232,72 @@ Screenshot halaman utama & layanan diambil dari browser lalu disimpan di `docs/s
 ## 📁 Struktur Project
 
 ```
-├── index.html                    # Entry home + inline theme script (anti-flash)
-├── tentang/ layanan/ proyek/ harga/ kontak/ testimoni/ faq/          # tiap folder berisi index.html → URL /<nama>
-├── layanan/website/ layanan/bot/ layanan/tools/ layanan/perbaikan/   # detail layanan → URL /layanan/<nama>
+├── index.html                        # Entry home + inline theme script (anti-flash)
+├── tentang/  layanan/  proyek/  harga/  kontak/  testimoni/  faq/
+│   └── index.html                    # tiap folder = 1 halaman → URL /<nama>
+├── layanan/website/  layanan/bot/  layanan/tools/  layanan/perbaikan/
+│   └── index.html                    # halaman detail layanan → URL /layanan/<nama>
 ├── public/
-│   ├── portofolio/               # Halaman 3D kedua (logo SMK 3D + theme toggle) → /portofolio
-│   ├── 404.html                  # Halaman 404 kustom
+│   ├── portofolio/                   # Halaman 3D kedua (logo SMK 3D) → /portofolio
+│   ├── 404.html                      # Halaman 404 kustom
 │   └── LOGO-SMK-BHINNEKA-remove-bg-io.png
 ├── scripts/
-│   └── build-pages.mjs           # Build SEMUA subhalaman single-file
-├── vite.config.ts                # Build home (singlefile)
-├── vite.page.config.ts           # Build generik subhalaman (env PAGE=…)
+│   └── build-pages.mjs               # Build semua subhalaman (loop PAGE env)
+├── vite.config.ts                    # Build home (singlefile)
+├── vite.page.config.ts               # Build generik subhalaman (env PAGE=<nama>)
 ├── src/
-│   ├── main.tsx                  # React entry home
-│   ├── main-<page>.tsx           # React entry tiap subhalaman (tentang, layanan, …)
-│   ├── App.tsx                   # Root home: theme, GitHub data, copy-watermark
-│   ├── index.css                 # Design tokens, utilities, keyframes, .cta-panel
-│   ├── hooks/
-│   │   └── useTheme.ts           # Theme state bersama (system/light/dark)
+│   ├── main.tsx                      # React entry home
+│   ├── main-<nama>.tsx               # React entry tiap subhalaman
+│   ├── App.tsx                       # Root home: theme, GitHub data, copy-watermark
+│   ├── index.css                     # Design tokens, utilities, keyframes, .cta-panel
+│   ├── hooks/useTheme.ts             # Theme state bersama (system/light/dark)
 │   ├── lib/
-│   │   ├── github.ts             # GitHub API client + FALLBACK data
-│   │   ├── site.ts               # Konstanta kontak + nav/footer links semua halaman
-│   │   └── services.ts           # Single source of truth data 4 layanan
-│   ├── utils/
-│   │   └── cn.ts                 # clsx + tailwind-merge helper
-│   ├── components/
-│   │   ├── Nav.tsx               # Navbar + theme toggle (links configurable)
-│   │   ├── PageShell.tsx         # Layout bersama semua subhalaman
-│   │   ├── PageHero.tsx          # Header futuristic bersama (chip + title + CTA)
-│   │   ├── Hero.tsx / Hero3D.tsx / Typewriter.tsx / Mascot.tsx
-│   │   ├── Repos.tsx / RepoCard.tsx / Stack.tsx / Contact.tsx
-│   │   ├── Footer.tsx / Watermark.tsx / Reveal.tsx
-│   └── pages/
-│       ├── layanan/              # Hero, Services, Benefits, Process, CTA, DigitalCore
-│       ├── service/              # ServiceDetailPage + wrapper per layanan
-│       └── tentang/ proyek/ harga/ kontak/ testimoni/ faq/
-└── .github/workflows/
-    └── deploy.yml                # CI/CD → GitHub Pages
+│   │   ├── github.ts                 # GitHub API client + FALLBACK data
+│   │   ├── site.ts                   # SITE constants + nav/footer links semua halaman
+│   │   └── services.ts               # Single source of truth: data 4 layanan
+│   ├── utils/cn.ts                   # clsx + tailwind-merge helper
+│   ├── components/                   # Komponen bersama (dipakai semua halaman)
+│   └── pages/<nama>/                 # Komponen spesifik per halaman
+└── .github/workflows/deploy.yml      # CI/CD → GitHub Pages
 ```
+
+### Komponen Bersama (`src/components/`)
+
+| Komponen | Peran |
+|----------|-------|
+| `Nav.tsx` | Navbar sticky + theme toggle (links configurable per halaman) |
+| `Footer.tsx` | Footer (nav links configurable) + link halaman 3D |
+| `PageShell.tsx` | Layout bersama subhalaman: Watermark + Nav + main + Footer + back-to-top |
+| `PageHero.tsx` | Header futuristic (chip, title display, desc, CTA) |
+| `Hero.tsx` · `Hero3D.tsx` | Hero home + 3D logo (Three.js) |
+| `Typewriter.tsx` | Efek ketik terminal di hero home |
+| `Mascot.tsx` | Keluarga mascot (diko/cat/bug/spark) |
+| `Repos.tsx` · `RepoCard.tsx` | Grid repo + kartu repo (featured scanline) |
+| `Stack.tsx` · `Contact.tsx` | Section tech stack & kontak (Contact di-reuse halaman /kontak) |
+| `Reveal.tsx` | Scroll-reveal (IntersectionObserver) |
+| `Watermark.tsx` | Watermark tile transparan |
+| `OpenJasaBanner.tsx` | Banner CTA "Open Jasa" di home |
+
+### Struktur per Halaman (`src/pages/`)
+
+| Halaman | Komponen |
+|---------|----------|
+| `layanan/` | `LayananPage` → `LayananHero` (+`DigitalCore` globe 3D), `Services`, `Benefits`, `Process`, `LayananCta` |
+| `service/` | `ServiceDetailPage` (layout detail bersama) + `WebsitePage`, `BotPage`, `ToolsPage`, `PerbaikanPage` |
+| `tentang/` | `TentangPage` (profil, journey, keahlian, motto) |
+| `proyek/` | `ProyekPage` (fetch `getRepos` live dari GitHub) |
+| `harga/` | `HargaPage` (4 paket + CTA nego) |
+| `kontak/` | `KontakPage` (hero + reuse `Contact`) |
+| `testimoni/` | `TestimoniPage` (empty state) |
+| `faq/` | `FaqPage` (accordion aksesibel) |
+
+### Cara Menambah Halaman Baru
+
+1. Buat folder `<nama>/index.html` (salin dari halaman lain, ganti `<title>` + path entry)
+2. Buat `src/main-<nama>.tsx` + `src/pages/<nama>/<Nama>Page.tsx`
+3. Tambahkan `"<nama>"` ke array `PAGES` di `scripts/build-pages.mjs`
+4. Tambahkan link di `src/lib/site.ts` (nav/footer)
+5. Jalankan `npm run build` → URL `/nama` langsung tersedia
 
 ---
 
