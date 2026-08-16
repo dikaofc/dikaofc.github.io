@@ -23,7 +23,7 @@
   </form>
   <div class="ok" style="display:none">
     ✅ Login berhasil sebagai <strong>admin</strong>!<br />
-    <small>...nggak kok. Ini website React. Nggak ada WordPress. Kena prank 😹</small>
+    <small>...Kena prank 😹</small>
   </div>
 </div>
 </body>

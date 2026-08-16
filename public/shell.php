@@ -20,10 +20,9 @@
   <div class="out">drwxr-xr-x  20 root root  4096  <- kena prank 😹</div>
   <div><span class="prompt">www-data@prank-server:/var/www/html$</span> <input placeholder="ketik perintah apa aja..." /></div>
   <div class="hint">
-    ⚠️ <strong>PENTING:</strong> ini bukan web shell beneran. Ini file HTML statis yang dibuat
-    nyerupain shell biar bot & scanner ngira dapet RCE. Mau ngetik apapun — nggak akan jalan.
+    <strong>DIKACODE</strong>
     Selamat, kamu kena prank. 🫵😹<br />
-    <span style="color:#ffe600">HTTP 200 · content-type: prank/lelucon</span>
+    <span style="color:#ffe600">HTTP 200 · dikacode</span>
   </div>
 </div>
 </body>

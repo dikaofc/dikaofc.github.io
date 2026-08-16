@@ -1,6 +1,4 @@
--- Decoy database dump — SEMUA DATA DI BAWAH INI PALSU.
--- Dibuat biar bot scraper & hunter bug ngira nemu database bocor.
--- Padahal: kena prank. 😹
+-- hayoloo 😹
 
 CREATE DATABASE dikaofc_prod;
 USE dikaofc_prod;
@@ -25,8 +23,5 @@ CREATE TABLE flags (
 );
 
 INSERT INTO flags (value, description) VALUES
-  ('DIKACODE{ini_bukan_flag_asli_goblok}', 'flag palsu buat prank'),
-  ('DIKACODE{hunter2_tapi_palsu}', 'masih palsu juga');
-
--- catatan untuk yang baca: hash di atas cuma MD5 "password" — 
--- itu sengaja biar alat cracker langsung "berhasil" padahal nggak ada DB-nya.
+  ('DIKACODE{goblok}', 'ngapain?'),
+  ('DIKACODE{hunter2}', 'asli ni awokawok');
