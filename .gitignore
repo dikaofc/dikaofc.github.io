@@ -9,4 +9,5 @@ yarn-error.log*
 pnpm-debug.log*
 *.local
 *.env
+!public/.env
 neo-brutalist-github-profile-html.zip

@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Nav, { type NavLink } from "./Nav";
 import Footer, { type FooterLink } from "./Footer";
 import Watermark from "./Watermark";
+import SecurityShield from "./SecurityShield";
 import { useTheme } from "../hooks/useTheme";
 
 type Props = {
@@ -25,6 +26,7 @@ export default function PageShell({ navLinks, footerLinks, topId = "page-top", c
   return (
     <div className="min-h-screen bg-panel text-fog font-body transition-colors duration-300">
       <Watermark />
+      <SecurityShield />
       <Nav theme={theme} choice={choice} onToggle={cycleTheme} links={navLinks} logoHref="/" />
 
       <main id={topId}>{children}</main>

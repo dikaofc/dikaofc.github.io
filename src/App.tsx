@@ -7,6 +7,7 @@ import Stack from "./components/Stack";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Watermark from "./components/Watermark";
+import SecurityShield from "./components/SecurityShield";
 import { useTheme } from "./hooks/useTheme";
 import {
   getUser,
@@ -64,6 +65,7 @@ export default function App() {
     <div className="min-h-screen bg-panel text-fog font-body transition-colors duration-300">
       {/* invisible tiled watermark (captured in screenshots) */}
       <Watermark />
+      <SecurityShield />
       <Nav theme={theme} choice={choice} onToggle={cycleTheme} />
       <Hero user={user} loading={loading && !user} />
       <OpenJasaBanner />
