@@ -322,7 +322,7 @@ export const FALLBACK_REPOS: GhRepo[] = [
 ];
 
 // Colors per language (GitHub-ish, brutal palette)
-export const LANG_COLORS: Record<string, string> = {
+const LANG_COLORS: Record<string, string> = {
   TypeScript: "#2a7fff",
   JavaScript: "#ffd400",
   Kotlin: "#a855f7",
