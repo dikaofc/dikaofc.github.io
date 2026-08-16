@@ -74,19 +74,14 @@ export default function Hero3D({ className }: Props) {
     let logoBaseX = -5;
     let logoBaseY = 11.5;
 
-    // ── Floating satellites ──
+    // ── Single floating satellite ──
     const satGeo = new THREE.IcosahedronGeometry(1.6, 0);
     const satLineMat = new THREE.LineBasicMaterial({
       color: 0x22d3ee,
       transparent: true,
       opacity: 0.8,
     });
-    const satPos: Array<[number, number, number]> = [
-      [14, 8, -6],
-      [-13, -7, -4],
-      [12, -9, -8],
-      [-15, 9, -10],
-    ];
+    const satPos: Array<[number, number, number]> = [[14, 8, -6]];
     const satDisposables: Array<{
       material: THREE.Material;
       edges: THREE.EdgesGeometry;
@@ -97,14 +92,14 @@ export default function Hero3D({ className }: Props) {
       const edges = new THREE.EdgesGeometry(satGeo);
       mesh.add(new THREE.LineSegments(edges, satLineMat));
       mesh.position.set(x, y, z);
-      mesh.scale.setScalar(i % 2 === 0 ? 1 : 0.7);
+      mesh.scale.setScalar(1);
       scene.add(mesh);
       satDisposables.push({ material: mat, edges });
       return { mesh, baseY: y, speed: 0.4 + i * 0.12, phase: i * 1.7 };
     });
 
-    // ── Particle field ──
-    const COUNT = 220;
+    // ── Subtle particle field ──
+    const COUNT = 80;
     const pGeo = new THREE.BufferGeometry();
     const pPos = new Float32Array(COUNT * 3);
     for (let i = 0; i < COUNT; i++) {
@@ -117,7 +112,7 @@ export default function Hero3D({ className }: Props) {
       color: 0x22d3ee,
       size: 0.22,
       transparent: true,
-      opacity: 0.55,
+      opacity: 0.45,
       sizeAttenuation: true,
       depthWrite: false,
       blending: THREE.AdditiveBlending,

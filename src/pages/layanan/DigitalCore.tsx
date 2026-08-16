@@ -58,33 +58,15 @@ export default function DigitalCore({ className }: Props) {
     const sphere = new THREE.Mesh(sphereGeo, wireMat);
     scene.add(sphere);
 
-    // faint solid core inside the wireframe
-    const coreGeo = new THREE.SphereGeometry(3.05, 28, 18);
-    const coreMat = new THREE.MeshBasicMaterial({
-      color: 0x0d1420,
-      transparent: true,
-      opacity: 0.75,
-    });
-    const core = new THREE.Mesh(coreGeo, coreMat);
-    scene.add(core);
-
-    // ── Orbit rings ──
+    // ── Single orbit ring ──
     const ringMat = new THREE.MeshBasicMaterial({
       color: 0x22d3ee,
       transparent: true,
       opacity: 0.55,
       side: THREE.DoubleSide,
     });
-    const goldMat = new THREE.MeshBasicMaterial({
-      color: 0xffde4d,
-      transparent: true,
-      opacity: 0.4,
-      side: THREE.DoubleSide,
-    });
     const rings = [
       { geo: new THREE.TorusGeometry(4.6, 0.025, 8, 120), rot: { x: Math.PI / 2.15, y: 0.6 }, mat: ringMat, speed: 0.25 },
-      { geo: new THREE.TorusGeometry(5.3, 0.02, 8, 120), rot: { x: Math.PI / 1.6, y: -0.8 }, mat: goldMat, speed: -0.16 },
-      { geo: new THREE.TorusGeometry(4.05, 0.014, 8, 120), rot: { x: Math.PI / 3.2, y: 1.4 }, mat: ringMat, speed: 0.42 },
     ].map((r) => {
       const mesh = new THREE.Mesh(r.geo, r.mat);
       mesh.rotation.set(r.rot.x, r.rot.y, 0);
@@ -92,8 +74,8 @@ export default function DigitalCore({ className }: Props) {
       return { mesh, speed: r.speed };
     });
 
-    // ── Sparse particle field ──
-    const COUNT = 150;
+    // ── Subtle particle field ──
+    const COUNT = 60;
     const pGeo = new THREE.BufferGeometry();
     const pPos = new Float32Array(COUNT * 3);
     for (let i = 0; i < COUNT; i++) {
@@ -106,7 +88,7 @@ export default function DigitalCore({ className }: Props) {
       color: 0x22d3ee,
       size: 0.18,
       transparent: true,
-      opacity: 0.5,
+      opacity: 0.4,
       sizeAttenuation: true,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
@@ -149,7 +131,6 @@ export default function DigitalCore({ className }: Props) {
 
       sphere.rotation.y += dt * 0.18;
       sphere.rotation.x += dt * 0.05;
-      core.rotation.y += dt * 0.08;
 
       for (const r of rings) {
         r.mesh.rotation.z += dt * r.speed;
@@ -173,8 +154,6 @@ export default function DigitalCore({ className }: Props) {
 
       sphereGeo.dispose();
       wireMat.dispose();
-      coreGeo.dispose();
-      coreMat.dispose();
       for (const r of rings) {
         r.mesh.geometry.dispose();
         r.mesh.material.dispose();
