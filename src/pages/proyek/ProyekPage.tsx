@@ -5,8 +5,20 @@ import PageHero from "../../components/PageHero";
 import Reveal from "../../components/Reveal";
 import { SUBPAGE_NAV_LINKS, SUBPAGE_FOOTER_LINKS, SITE } from "../../lib/site";
 import { getRepos, FALLBACK_REPOS, langColor, type GhRepo } from "../../lib/github";
+import { projectSlug } from "../../lib/projects";
 
-const PINNED = ["DikaRoute", "PentesterBotTelegram", "RemoteUniversalDevice", "dikaofc.github.io"];
+const PINNED = [
+  "DikaRoute",
+  "ObitoBuffCLI",
+  "PentesterBotTelegram",
+  "RemoteUniversalDevice",
+  "telegrambot-ai",
+  "dikaofc.github.io",
+  "PentesterBotTelegramWebsite",
+  "WebsiteDikaRoute",
+  "freebuffPatchAndroid",
+  "AgentBuffAndroid",
+];
 
 export default function ProyekPage() {
   const [repos, setRepos] = useState<GhRepo[]>(FALLBACK_REPOS);
@@ -63,12 +75,15 @@ export default function ProyekPage() {
           </Reveal>
 
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-            {featured.map((r, i) => (
+            {featured.map((r, i) => {
+              const slug = projectSlug(r.name);
+              return (
               <Reveal key={r.id} delay={i * 80} className="h-full">
                 <a
-                  href={r.html_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={slug ? `/proyek/${slug}` : r.html_url}
+                  {...(slug
+                    ? {}
+                    : { target: "_blank", rel: "noopener noreferrer" })}
                   className="group relative block h-full overflow-hidden rounded-2xl border border-line bg-card/60 backdrop-blur-md p-6 md:p-7 transition-all duration-300 pointer-fine:hover:-translate-y-1 pointer-fine:hover:border-neon/50"
                 >
                   <span
@@ -120,7 +135,7 @@ export default function ProyekPage() {
                         {r.language}
                       </span>
                     )}
-                    <span className="flex items-center gap-1.5 font-mono text-xs font-bold text-mute ml-auto">
+                    <span className="flex items-center gap-1.5 font-mono text-xs font-bold text-mute">
                       <Star size={14} strokeWidth={2.5} aria-hidden="true" />
                       {r.stargazers_count}
                     </span>
@@ -128,10 +143,16 @@ export default function ProyekPage() {
                       <GitFork size={14} strokeWidth={2.5} aria-hidden="true" />
                       {r.forks_count}
                     </span>
+                    {slug && (
+                      <span className="ml-auto inline-flex items-center gap-1 font-mono text-[11px] font-bold text-neon transition-colors duration-200 group-hover:text-paper">
+                        DETAIL <ArrowUpRight size={12} strokeWidth={2.5} aria-hidden="true" />
+                      </span>
+                    )}
                   </div>
                 </a>
               </Reveal>
-            ))}
+              );
+            })}
           </div>
 
           <Reveal delay={120}>

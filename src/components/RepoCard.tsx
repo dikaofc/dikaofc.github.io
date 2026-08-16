@@ -1,6 +1,7 @@
-import { BookOpen, Star, GitFork, Crown } from "lucide-react";
+import { BookOpen, Star, GitFork, Crown, ArrowUpRight } from "lucide-react";
 import type { GhRepo } from "../lib/github";
 import { langColor, timeAgo } from "../lib/github";
+import { projectSlug } from "../lib/projects";
 import { cn } from "../utils/cn";
 
 type Props = {
@@ -13,12 +14,12 @@ type Props = {
 export default function RepoCard({ repo, pinned, featured }: Props) {
   const isLowStar = repo.stargazers_count < 5;
   const hasDesc = !!repo.description;
+  const slug = projectSlug(repo.name);
 
   return (
     <a
-      href={repo.html_url}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={slug ? `/proyek/${slug}` : repo.html_url}
+      {...(slug ? {} : { target: "_blank", rel: "noopener noreferrer" })}
       className={cn(
         "group relative block w-full min-w-0 max-w-full h-full overflow-hidden nb-border-thick bg-card rounded-2xl p-5 md:p-6 nb-shadow-lg active:scale-[0.98] pointer-fine:hover:scale-[1.03] transition-all duration-300",
         featured && "sm:col-span-2 lg:col-span-2 scanlines card-glow",
@@ -40,6 +41,12 @@ export default function RepoCard({ repo, pinned, featured }: Props) {
             <span className="inline-flex items-center gap-1 nb-border bg-paper text-ink font-mono text-xs font-bold px-2.5 py-1 rounded-md pointer-fine:group-hover:scale-110 transition-transform">
               <Crown size={13} strokeWidth={2.5} aria-hidden="true" />
               FLAGSHIP
+            </span>
+          )}
+          {slug && (
+            <span className="inline-flex items-center gap-1 nb-border bg-neon/15 text-neon font-mono text-xs font-bold px-2.5 py-1 rounded-md pointer-fine:group-hover:scale-110 transition-transform">
+              DETAIL
+              <ArrowUpRight size={12} strokeWidth={2.5} aria-hidden="true" />
             </span>
           )}
           <span className="ml-auto font-mono text-[11px] font-bold text-mute">

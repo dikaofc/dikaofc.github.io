@@ -23,6 +23,16 @@ const PAGES = [
   "layanan/bot",
   "layanan/tools",
   "layanan/perbaikan",
+  "proyek/dikaroute",
+  "proyek/pentesterbot",
+  "proyek/remoteuniversal",
+  "proyek/website",
+  "proyek/obitobuff",
+  "proyek/agentbuff",
+  "proyek/telegrambot-ai",
+  "proyek/pentesterbot-website",
+  "proyek/dikaroute-website",
+  "proyek/freebuff-patch",
 ];
 
 for (const page of PAGES) {

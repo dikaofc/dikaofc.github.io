@@ -42,7 +42,7 @@ Portfolio website pribadi dengan visual **Cyberpunk × Neo-Brutalism** — diban
 | 🐾 | **Mascot Family** | "Diko & friends" (Robot, Cat, Bug, Spark) — 100% CSS shapes, `aria-hidden`, mati saat `prefers-reduced-motion` |
 | 🎯 | **Featured Repo** | DikaRoute tampil menonjol dengan scanline sweep + neon glow |
 | 🖼️ | **Halaman 3D Kedua** | `/portofolio` (3D logo SMK drag-to-rotate) — theme konsisten & sinkron dengan main site |
-| 📄 | **Multi-Page (13 halaman)** | MPA single-file — setiap halaman di-build sendiri via `scripts/build-pages.mjs` + `vite.page.config.ts` (tanpa dependency router) |
+| 📄 | **Multi-Page (23 halaman)** | MPA single-file — setiap halaman di-build sendiri via `scripts/build-pages.mjs` + `vite.page.config.ts` (tanpa dependency router) |
 | 🛠️ | **Halaman Layanan** | Glass cards + digital globe 3D (Three.js), benefits, alur kerja, CTA panel futuristic |
 | 🔗 | **Detail Per-Layanan** | `/layanan/{website,bot,tools,perbaikan}` — overview, fitur, alur pengerjaan, deliverables, related services |
 | 💰 | **Halaman Harga** | Paket open jasa (website/bot/tools/maintenance) + nego custom |
@@ -176,6 +176,16 @@ Website ini **multi-page (MPA)** — tiap halaman di-build menjadi satu file HTM
 | `/layanan/tools` | Detail: Tools | |
 | `/layanan/perbaikan` | Detail: Perbaikan | Bug fix, maintenance, optimasi |
 | `/proyek` | Proyek | Showcase proyek unggulan — data live dari GitHub API |
+| `/proyek/dikaroute` | Detail: DikaRoute | AI gateway multi-provider — routing, fallback, kompresi, caching |
+| `/proyek/pentesterbot` | Detail: PentesterBot | Bot Telegram automation pentesting — recon & vulnerability scanning |
+| `/proyek/remoteuniversal` | Detail: RemoteUniversal | Aplikasi Android universal remote untuk smart TV |
+| `/proyek/website` | Detail: dikaofc.github.io | Portfolio ini sendiri — Vite + React + Tailwind, multi-page |
+| `/proyek/obitobuff` | Detail: ObitoBuff CLI | AI coding agent CLI local-only — sub-agents, file finding, bash, research, code review |
+| `/proyek/agentbuff` | Detail: AgentBuff | AI coding agent untuk Android (Termux) — DikaBuff Agent CLI |
+| `/proyek/telegrambot-ai` | Detail: TelegramBot AI | Userbot Telegram auto-reply AI — belajar gaya bahasa, memori, agent tools |
+| `/proyek/pentesterbot-website` | Detail: PentesterBot Website | Website resmi PentesterBot v2 — Fluid Glass UI + data nyata dari bot |
+| `/proyek/dikaroute-website` | Detail: DikaRoute Website | Website resmi + 8 halaman docs untuk DikaRoute |
+| `/proyek/freebuff-patch` | Detail: Freebuff Patch | Patch & toolkit Freebuff di Android/Termux — no-proot, anti-limit |
 | `/harga` | Harga | Paket open jasa + nego custom |
 | `/kontak` | Kontak | Semua channel kontak + panel Telegram |
 | `/testimoni` | Testimoni | Empty state "jadilah yang pertama" (siap diisi klien) |
@@ -237,6 +247,11 @@ Screenshot halaman utama & layanan diambil dari browser lalu disimpan di `docs/s
 │   └── index.html                    # tiap folder = 1 halaman → URL /<nama>
 ├── layanan/website/  layanan/bot/  layanan/tools/  layanan/perbaikan/
 │   └── index.html                    # halaman detail layanan → URL /layanan/<nama>
+├── proyek/dikaroute/  proyek/pentesterbot/  proyek/remoteuniversal/  proyek/website/
+│   └── index.html                    # halaman detail proyek → URL /proyek/<nama>
+├── proyek/obitobuff/  proyek/agentbuff/  proyek/telegrambot-ai/
+├── proyek/pentesterbot-website/  proyek/dikaroute-website/  proyek/freebuff-patch/
+│   └── index.html                    # halaman detail proyek lain → URL /proyek/<nama>
 ├── public/
 │   ├── portofolio/                   # Halaman 3D kedua (logo SMK 3D) → /portofolio
 │   ├── 404.html                      # Halaman 404 kustom
@@ -285,7 +300,7 @@ Screenshot halaman utama & layanan diambil dari browser lalu disimpan di `docs/s
 | `layanan/` | `LayananPage` → `LayananHero` (+`DigitalCore` globe 3D), `Services`, `Benefits`, `Process`, `LayananCta` |
 | `service/` | `ServiceDetailPage` (layout detail bersama) + `WebsitePage`, `BotPage`, `ToolsPage`, `PerbaikanPage` |
 | `tentang/` | `TentangPage` (profil, journey, keahlian, motto) |
-| `proyek/` | `ProyekPage` (fetch `getRepos` live dari GitHub) |
+| `proyek/` | `ProyekPage` (fetch `getRepos` live dari GitHub) + `ProjectDetailPage` (layout detail bersama untuk 10 proyek) |
 | `harga/` | `HargaPage` (4 paket + CTA nego) |
 | `kontak/` | `KontakPage` (hero + reuse `Contact`) |
 | `testimoni/` | `TestimoniPage` (empty state) |
@@ -351,6 +366,6 @@ Push ke `main` memicu `.github/workflows/deploy.yml`:
 
 ---
 
-**Last Updated:** August 15, 2026 · **License:** MIT & Open Source · **[Cara Berkontribusi](CONTRIBUTING.md)**
+**Last Updated:** August 16, 2026 · **License:** MIT & Open Source · **[Cara Berkontribusi](CONTRIBUTING.md)**
 
 ⭐ Star repo ini kalau bermanfaat!
