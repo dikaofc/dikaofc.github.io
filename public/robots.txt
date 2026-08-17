@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Honeypot / decoy paths — keep crawlers (and scanners) away
+Disallow: /admin
+Disallow: /portofolio
+Disallow: /prank.html
+Disallow: /wp-login.php
+Disallow: /phpinfo.php
+Disallow: /shell.php
+Disallow: /config.php
+
+Sitemap: https://obitoglory.tech/sitemap.xml
