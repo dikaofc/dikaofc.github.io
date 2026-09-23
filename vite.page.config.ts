@@ -17,6 +17,7 @@ const __dirname = path.dirname(__filename);
 const page = process.env.PAGE ?? "layanan";
 
 export default defineConfig({
+  appType: "mpa",
   plugins: [react(), tailwindcss(), viteSingleFile()],
   resolve: {
     alias: {
