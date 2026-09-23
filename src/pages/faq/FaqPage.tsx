@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: "Berapa lama proses pengerjaannya?",
-    a: "Tergantung scope project. Landing page / company profile sekitar 3–7 hari, bot atau tools custom sekitar 1–2 minggu, dan maintenance berjalan sesuai kontrak. Estimasi pasti diberikan sebelum mulai.",
+    a: "Tergantung scope project. Landing page atau company profile sekitar 3 sampai 7 hari, bot atau tools custom sekitar 1 sampai 2 minggu, dan maintenance berjalan sesuai kontrak. Estimasi pasti diberikan sebelum mulai.",
   },
   {
     q: "Bisa minta revisi?",
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     q: "Bisa custom di luar layanan yang ditampilkan?",
-    a: "Bisa. Kebutuhan khusus di luar paket (sistem kompleks, fitur unik, integrasi tertentu) bisa didiskusikan langsung — selama masuk akal, pasti dicariin solusinya.",
+    a: "Bisa. Kebutuhan khusus di luar paket (sistem kompleks, fitur unik, integrasi tertentu) bisa didiskusikan langsung, selama masuk akal, pasti dicariin solusinya.",
   },
   {
     q: "Gimana kalau butuh fitur tambahan setelah project jadi?",
@@ -54,10 +54,7 @@ function FaqItem({
 }) {
   return (
     <div
-      className={cn(
-        "rounded-2xl border bg-card/60 backdrop-blur-md transition-colors duration-300",
-        open ? "border-neon/50" : "border-line"
-      )}
+      className="v-card"
     >
       <button
         type="button"
@@ -65,25 +62,25 @@ function FaqItem({
         aria-expanded={open}
         aria-controls={`faq-panel-${index}`}
         id={`faq-button-${index}`}
-        className="flex w-full items-center justify-between gap-4 px-5 md:px-6 py-4 md:py-5 text-left"
+        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left min-h-[44px]"
       >
         <span className="flex items-center gap-3">
           <span
             className={cn(
-              "font-mono text-xs font-bold transition-colors duration-300",
-              open ? "text-neon" : "text-mute"
+              "font-mono text-xs",
+              open ? "text-accent" : "text-faint"
             )}
           >
             {String(index + 1).padStart(2, "0")}
           </span>
-          <span className="font-display text-sm md:text-base text-fog">{faq.q}</span>
+          <span className="font-display font-semibold text-[15px] text-fog">{faq.q}</span>
         </span>
         <ChevronDown
           size={18}
-          strokeWidth={2.5}
+          strokeWidth={2}
           aria-hidden="true"
           className={cn(
-            "shrink-0 text-neon transition-transform duration-300",
+            "shrink-0 text-faint transition-transform duration-200",
             open && "rotate-180"
           )}
         />
@@ -93,12 +90,12 @@ function FaqItem({
         role="region"
         aria-labelledby={`faq-button-${index}`}
         className={cn(
-          "grid transition-[grid-template-rows] duration-300 ease-out",
+          "grid transition-[grid-template-rows] duration-200 ease-out",
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         )}
       >
         <div className="overflow-hidden">
-          <p className="font-body font-medium text-xs md:text-sm text-mute leading-relaxed px-5 md:px-6 pb-5">
+          <p className="text-sm leading-relaxed text-mute px-5 pb-5">
             {faq.a}
           </p>
         </div>
@@ -113,23 +110,17 @@ export default function FaqPage() {
   return (
     <PageShell navLinks={SUBPAGE_NAV_LINKS} footerLinks={SUBPAGE_FOOTER_LINKS}>
       <PageHero
-        chip="// FAQ"
-        title={
-          <>
-            PERTANYAAN{" "}
-            <span className="inline-block text-neon text-glow-cyan">UMUM</span>
-          </>
-        }
+        chip="FAQ"
+        title="Pertanyaan umum"
         desc="Jawaban singkat untuk pertanyaan yang paling sering ditanyakan seputar jasa DIKACODE."
-        ctas={[{ label: "MASIH BINGUNG? TANYA LANGSUNG", href: SITE.telegram, external: true, primary: true }]}
+        ctas={[{ label: "Masih bingung? Tanya langsung", href: SITE.telegram, external: true, primary: true }]}
       />
 
-      <section className="relative overflow-hidden border-b-4 border-fog bg-panel-2 transition-colors duration-300">
-        <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
-        <div className="relative max-w-3xl mx-auto px-4 md:px-8 py-16 md:py-24">
-          <div className="grid gap-3 md:gap-4">
+      <section className="relative overflow-hidden bg-panel-2 transition-colors duration-200" style={{ borderBottom: "1px solid var(--c-line)" }}>
+        <div className="relative max-w-3xl mx-auto px-4 md:px-8 py-12 md:py-16">
+          <div className="grid gap-2.5">
             {faqs.map((faq, i) => (
-              <Reveal key={faq.q} delay={i * 50}>
+              <Reveal key={faq.q} delay={i * 30}>
                 <FaqItem
                   faq={faq}
                   index={i}
@@ -140,22 +131,22 @@ export default function FaqPage() {
             ))}
           </div>
 
-          <Reveal delay={80}>
-            <div className="mt-10 rounded-2xl border border-line bg-card/60 backdrop-blur-md p-6 md:p-8 text-center">
-              <p className="font-display text-lg md:text-xl text-fog mb-2">
-                PERTANYAANMU <span className="text-paper">BELUM ADA?</span>
-              </p>
-              <p className="font-body font-medium text-sm md:text-base text-mute mb-5">
-                Langsung tanya aja — jawabannya lebih akurat dari tebakan.
+          <Reveal delay={60}>
+            <div className="mt-4 v-card p-6 md:p-8 text-center">
+              <h2 className="font-display font-semibold text-lg md:text-xl text-fog mb-2" style={{ letterSpacing: "-0.02em" }}>
+                Pertanyaanmu belum ada?
+              </h2>
+              <p className="text-sm md:text-[15px] leading-relaxed text-mute mb-5">
+                Langsung tanya aja, jawabannya lebih akurat dari tebakan.
               </p>
               <a
                 href={SITE.telegram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 nb-border-thick bg-neon text-ink font-display text-base md:text-lg px-6 py-3 md:px-8 md:py-4 rounded-lg nb-shadow-lg nb-press pointer-fine:hover:scale-110 active:scale-95 transition-transform"
+                className="btn btn-primary"
               >
-                <Send size={18} strokeWidth={2.5} aria-hidden="true" />
-                CHAT DI TELEGRAM
+                <Send size={16} strokeWidth={2} aria-hidden="true" />
+                Chat di Telegram
               </a>
             </div>
           </Reveal>

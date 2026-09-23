@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 export const THEME_KEY = "dika-theme";
-export const THEME_COLORS = { dark: "#0a0c11", light: "#ffffff" } as const;
+export const THEME_COLORS = { dark: "#000000", light: "#ffffff" } as const;
 
-/** visitor's choice — "system" follows the OS preference */
+/** visitor's choice ,  "system" follows the OS preference */
 export type ThemeChoice = "system" | "light" | "dark";
 export type ResolvedTheme = "light" | "dark";
 
@@ -72,7 +72,7 @@ export function useTheme() {
     }
   }, [choice]);
 
-  // cycle: system → light → dark → system
+  // cycle: system -> light -> dark -> system
   const cycleTheme = () => {
     setChoice((c) => (c === "system" ? "light" : c === "light" ? "dark" : "system"));
   };

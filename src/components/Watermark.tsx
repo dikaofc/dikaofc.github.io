@@ -1,5 +1,5 @@
 /**
- * Invisible-style watermark: a full-page tile of "dikacode ✦" at ~3%
+ * Invisible-style watermark: a full-page tile of "dikacode" at ~3%
  * opacity. Imperceptible while browsing, but present in screenshots.
  * Color follows the theme (text-fog + currentColor) and the layer
  * sits above every section (z-[70]) without blocking interaction.
@@ -23,10 +23,10 @@ export default function Watermark() {
             y="175"
             fontSize="30"
             fontWeight="700"
-            fontFamily="'JetBrains Mono', monospace"
+            fontFamily="'Geist Mono', ui-monospace, monospace"
             fill="currentColor"
           >
-            dikacode ✦
+            dikacode
           </text>
         </pattern>
       </defs>

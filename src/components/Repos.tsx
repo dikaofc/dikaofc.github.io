@@ -2,7 +2,6 @@ import { useMemo, useState } from "react";
 import type { GhRepo } from "../lib/github";
 import RepoCard from "./RepoCard";
 import Reveal from "./Reveal";
-import Mascot from "./Mascot";
 
 const PINNED_NAMES = ["DikaRoute", "dikaofc.github.io", "PentesterBotTelegram", "RemoteUniversalDevice"];
 const FLAGSHIP_NAME = "DikaRoute";
@@ -39,40 +38,24 @@ export default function Repos({ repos, loading }: Props) {
   }, [repos, q, lang]);
 
   return (
-    <section id="repos" className="border-b-4 border-fog bg-panel-2 relative overflow-hidden transition-colors duration-300">
-      <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
-
-      <div className="relative max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-28">
-        {/* Bug mascot peeking from the top-right */}
-        <Mascot variant="bug" className="-top-3 right-2 md:right-8" />
-        {/* Header */}
-        <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-14">
+    <section id="repos" className="bg-panel relative overflow-hidden transition-colors duration-200" style={{ borderBottom: "1px solid var(--c-line)" }}>
+      <div className="relative max-w-6xl mx-auto px-4 md:px-8 section">
+        <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div>
-            <div className="inline-block nb-border bg-paper text-ink px-3 py-1 rounded-md font-mono text-xs md:text-sm font-bold mb-3 nb-shadow-sm">
-              // REPOSITORIES
-            </div>
-            <h2 className="font-display text-5xl md:text-7xl leading-none text-fog pointer-fine:hover:scale-105 transition-transform">
-              PROYEK<br />
-              <span className="bg-orange text-white nb-border-thick px-3 inline-block -rotate-1 hover:rotate-0 transition-transform">
-                GW
-              </span>
-            </h2>
+            <p className="t-mono-label mb-3">Repositories</p>
+            <h2 className="t-h2 text-fog">Proyek gw</h2>
           </div>
-          <p className="font-body font-semibold text-base md:text-lg max-w-md text-mute">
-            just proyek <span className="bg-paper text-ink px-1.5">iseng</span> ya bang awokawok
+          <p className="text-base max-w-md text-mute">
+            Proyek iseng yang dikerjain serius, dari AI gateway sampai aplikasi Android.
           </p>
         </Reveal>
 
-        {/* Pinned — asymmetric: flagship DikaRoute gets 2x width + glow */}
-        <Reveal className="mb-14">
-          <h3 className="font-display text-2xl md:text-3xl mb-6 flex items-center gap-3 text-fog hover:translate-x-2 transition-transform duration-300">
-            <span className="w-4 h-4 bg-paper nb-border rotate-45" />
-            Pinned Repositories
-          </h3>
+        <Reveal className="mb-12">
+          <h3 className="t-h3 text-fog mb-5">Pinned</h3>
           {loading && pinned.length === 0 ? (
             <SkeletonGrid />
           ) : (
-            <div className="grid gap-5 md:gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {pinned.map((r, i) => (
                 <RepoCard
                   key={r.id}
@@ -86,30 +69,30 @@ export default function Repos({ repos, loading }: Props) {
           )}
         </Reveal>
 
-        {/* Filters */}
-        <div className="nb-border-thick bg-card rounded-xl p-4 md:p-5 nb-shadow-lg mb-10 flex flex-col md:flex-row gap-3 md:gap-4 hover:shadow-[var(--c-shadow-offset-lg)_var(--c-shadow-offset-lg)_0_var(--c-shadow)] transition-all">
-          <div className="flex-1 flex items-center gap-2 nb-border bg-panel rounded-md px-3 py-2 hover:bg-card transition-colors">
-            <span className="font-mono font-bold text-3xl text-fog">⌕</span>
+        <div className="v-card p-4 mb-8 flex flex-col md:flex-row gap-3">
+          <div className="flex-1 flex items-center gap-2 rounded-md px-3 py-2" style={{ boxShadow: "0px 0px 0px 1px var(--c-line)" }}>
+            <span className="font-mono font-bold text-lg text-faint" aria-hidden="true">⌕</span>
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder="search"
-              className="w-full bg-transparent outline-none font-body font-semibold text-fog placeholder:text-mute focus:bg-neon/5 transition-colors"
-              aria-label="search project"
+              placeholder="Cari proyek..."
+              className="w-full bg-transparent outline-none text-[15px] text-fog placeholder:text-faint"
+              aria-label="Cari proyek"
             />
             {q && (
-              <button onClick={() => setQ("")} className="font-mono text-xs font-bold nb-border bg-card text-fog px-2 py-0.5 rounded hover:bg-orange hover:text-white transition-colors">
-                ✕
+              <button onClick={() => setQ("")} aria-label="Hapus pencarian" className="font-mono text-xs font-medium text-mute px-2 py-1 rounded hover:text-fog">
+                Hapus
               </button>
             )}
           </div>
-          <div className="flex gap-2 overflow-x-auto -mx-1 px-1 md:overflow-visible">
+          <div className="flex gap-2 overflow-x-auto md:overflow-visible" role="group" aria-label="Filter bahasa">
             {langs.slice(0, 8).map((l) => (
               <button
                 key={l}
                 onClick={() => setLang(l)}
-                className={`shrink-0 nb-border font-mono text-xs md:text-sm font-bold px-3 py-2 rounded-md nb-shadow-sm nb-press transition-all ${
-                  lang === l ? "bg-paper text-ink scale-105" : "bg-panel text-fog hover:bg-card"
+                aria-pressed={lang === l}
+                className={`shrink-0 text-[13px] font-medium px-3 py-2 rounded-md transition-colors min-h-[44px] ${
+                  lang === l ? "bg-cta text-cta-text" : "text-mute hover:text-fog hover:bg-panel-2"
                 }`}
               >
                 {l}
@@ -118,23 +101,21 @@ export default function Repos({ repos, loading }: Props) {
           </div>
         </div>
 
-        {/* All repos */}
         <Reveal delay={80}>
-          <h3 className="font-display text-2xl md:text-3xl mb-6 flex items-center gap-3 text-fog hover:translate-x-2 transition-transform duration-300">
-            <span className="w-4 h-4 bg-neon nb-border" />
-            All Repositories{" "}
-            <span className="font-mono text-base text-mute">({all.length})</span>
+          <h3 className="t-h3 text-fog mb-5">
+            Semua repository{" "}
+            <span className="font-mono text-sm font-normal text-faint">({all.length})</span>
           </h3>
 
           {loading ? (
             <SkeletonGrid />
           ) : all.length === 0 ? (
-            <div className="nb-border-thick bg-card rounded-xl p-8 text-center nb-shadow-lg pointer-fine:hover:scale-105 active:scale-[0.98] transition-transform">
-              <div className="font-display text-2xl mb-2 text-fog">Nggak ada repo yang cocok</div>
-              <p className="font-body font-medium text-mute">Coba ganti filter atau reset pencarian.</p>
+            <div className="v-card p-8 text-center">
+              <div className="t-h3 text-fog mb-2">Nggak ada repo yang cocok</div>
+              <p className="text-sm text-mute">Coba ganti filter atau reset pencarian.</p>
             </div>
           ) : (
-            <div className="grid gap-5 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {all.map((r, i) => (
                 <RepoCard
                   key={r.id}
@@ -153,13 +134,13 @@ export default function Repos({ repos, loading }: Props) {
 
 function SkeletonGrid() {
   return (
-    <div className="grid gap-5 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-hidden="true">
       {Array.from({ length: 6 }).map((_, i) => (
-        <div key={i} className="nb-border-thick bg-card rounded-2xl p-6 nb-shadow-lg h-52 animate-pulse">
-          <div className="h-6 w-1/2 bg-fog/10 rounded mb-3" />
-          <div className="h-4 w-full bg-fog/10 rounded mb-2" />
-          <div className="h-4 w-3/4 bg-fog/10 rounded mb-6" />
-          <div className="h-4 w-1/3 bg-fog/10 rounded" />
+        <div key={i} className="v-card p-6 h-52 animate-pulse">
+          <div className="h-6 w-1/2 rounded bg-panel-2 mb-3" />
+          <div className="h-4 w-full rounded bg-panel-2 mb-2" />
+          <div className="h-4 w-3/4 rounded bg-panel-2 mb-6" />
+          <div className="h-4 w-1/3 rounded bg-panel-2" />
         </div>
       ))}
     </div>

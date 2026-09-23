@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 export type ProjectDetail = {
-  /** page slug, e.g. "dikaroute" → /proyek/dikaroute */
+  /** page slug, e.g. "dikaroute" -> /proyek/dikaroute */
   slug: string;
   /** display name */
   name: string;
@@ -36,9 +36,9 @@ export const PROJECTS: ProjectDetail[] = [
     repo: "https://github.com/dikaofc/DikaRoute",
     icon: Route,
     tagline:
-      "AI gateway ringan dan cepat — multi-provider routing, fallback otomatis, kompresi, dan caching.",
+      "AI gateway ringan dan cepat ,  multi-provider routing, fallback otomatis, kompresi, dan caching.",
     long: [
-      "DikaRoute adalah AI gateway berarsitektur performa yang kompatibel dengan OpenAI. Satu endpoint, banyak provider — request otomatis dirouting ke provider yang tersedia, dan kalau satu provider mati atau rate-limited, sistem langsung fallback ke provider lain tanpa kamu sadari.",
+      "DikaRoute adalah AI gateway berarsitektur performa yang kompatibel dengan OpenAI. Satu endpoint, banyak provider ,  request otomatis dirouting ke provider yang tersedia, dan kalau satu provider mati atau rate-limited, sistem langsung fallback ke provider lain tanpa kamu sadari.",
       "Dibangun dengan fokus performa: respons dikompresi dan di-cache untuk memangkas latensi dan biaya. Cocok dipakai sebagai lapisan di depan berbagai API AI untuk aplikasi, bot, maupun tools internal.",
     ],
     topics: ["ai", "gateway", "openai", "typescript"],
@@ -59,10 +59,10 @@ export const PROJECTS: ProjectDetail[] = [
     repo: "https://github.com/dikaofc/PentesterBotTelegram",
     icon: Shield,
     tagline:
-      "Bot Telegram untuk automation pentesting — recon, perintah, dan workflow vulnerability scanning.",
+      "Bot Telegram untuk automation pentesting ,  recon, perintah, dan workflow vulnerability scanning.",
     long: [
       "PentesterBotTelegram membungkus tools pentesting ke dalam satu bot Telegram yang bisa dijalankan langsung dari chat: perintah recon otomatis, eksekusi tools, sampai workflow vulnerability scanning yang terstruktur.",
-      "Dibuat untuk mempercepat pekerjaan security: alih-alih membuka terminal dan menjalankan banyak perintah manual, semua bisa di-trigger lewat bot — dengan output yang dikirim balik ke chat.",
+      "Dibuat untuk mempercepat pekerjaan security: alih-alih membuka terminal dan menjalankan banyak perintah manual, semua bisa di-trigger lewat bot ,  dengan output yang dikirim balik ke chat.",
     ],
     topics: ["telegram", "pentesting", "bot", "security"],
     highlights: [
@@ -85,7 +85,7 @@ export const PROJECTS: ProjectDetail[] = [
     tagline:
       "Aplikasi Android universal remote untuk mengontrol smart TV dan perangkat pintar lainnya.",
     long: [
-      "RemoteUniversalDevice adalah aplikasi Android native yang mengubah HP menjadi remote universal: kontrol smart TV, perangkat pintar, dan perangkat lain yang kompatibel — tanpa perlu remote fisik tambahan.",
+      "RemoteUniversalDevice adalah aplikasi Android native yang mengubah HP menjadi remote universal: kontrol smart TV, perangkat pintar, dan perangkat lain yang kompatibel ,  tanpa perlu remote fisik tambahan.",
       "Dibangun dengan Kotlin untuk pengalaman native yang ringan dan responsif, dengan antarmuka yang simpel biar gampang dipakai siapa saja.",
     ],
     topics: ["android", "remote", "smart-tv", "kotlin"],
@@ -111,10 +111,10 @@ export const PROJECTS: ProjectDetail[] = [
     repo: "https://github.com/dikaofc/dikaofc.github.io",
     icon: Globe,
     tagline:
-      "Website portfolio ini sendiri — Vite + React + Tailwind, single-file build, dan multi-page.",
+      "Website portfolio ini sendiri ,  Vite + React + Tailwind, single-file build, dan multi-page.",
     long: [
       "Website yang sedang kamu buka ini adalah proyek open source: portfolio DIKACODE dengan visual neo-brutalist × cyberpunk, lengkap dengan halaman layanan, proyek, harga, FAQ, dan halaman 3D.",
-      "Dibangun dengan Vite + React 19 + TypeScript + Tailwind CSS v4 + Three.js. Tiap halaman di-build sebagai satu file HTML single-file, dengan clean URL tanpa ekstensi — semua berjalan di GitHub Pages.",
+      "Dibangun dengan Vite + React 19 + TypeScript + Tailwind CSS v4 + Three.js. Tiap halaman di-build sebagai satu file HTML single-file, dengan clean URL tanpa ekstensi ,  semua berjalan di GitHub Pages.",
     ],
     topics: ["portfolio", "react", "vite", "tailwind"],
     highlights: [
@@ -136,10 +136,10 @@ export const PROJECTS: ProjectDetail[] = [
     repo: "https://github.com/dikaofc/ObitoBuffCLI",
     icon: Terminal,
     tagline:
-      "AI coding agent CLI yang jalan 100% di model kamu sendiri — sub-agents, file finding, editing, bash, research, dan code review.",
+      "AI coding agent CLI yang jalan 100% di model kamu sendiri ,  sub-agents, file finding, editing, bash, research, dan code review.",
     long: [
       "Obitobuff adalah AI coding agent terminal yang powerful: TypeScript monorepo (dibangun dengan Bun) yang punya sub-agents khusus untuk file finding, editing, bash, research, dan code review.",
-      "Fokusnya local-only — seluruhnya berjalan di endpoint OpenAI-compatible milikmu sendiri (Ollama, OmniRoute, 9Route, OpenRouter, LM Studio, vLLM, dan lainnya) lewat obitobuff.config.json. Tanpa backend Obitobuff, tanpa login, tanpa sessions, tanpa iklan.",
+      "Fokusnya local-only ,  seluruhnya berjalan di endpoint OpenAI-compatible milikmu sendiri (Ollama, OmniRoute, 9Route, OpenRouter, LM Studio, vLLM, dan lainnya) lewat obitobuff.config.json. Tanpa backend Obitobuff, tanpa login, tanpa sessions, tanpa iklan.",
     ],
     topics: ["ai", "cli", "agent", "typescript", "bun"],
     highlights: [
@@ -148,7 +148,7 @@ export const PROJECTS: ProjectDetail[] = [
       "Eksekusi bash",
       "Riset web",
       "Code review",
-      "100% local — tanpa backend",
+      "100% local ,  tanpa backend",
       "Install & auto-update dari GitHub",
     ],
     tech: ["TypeScript", "Bun", "OpenAI-compatible API", "Ollama", "OpenRouter", "vLLM"],
@@ -162,9 +162,9 @@ export const PROJECTS: ProjectDetail[] = [
     repo: "https://github.com/dikaofc/AgentBuffAndroid",
     icon: Smartphone,
     tagline:
-      "DikaBuff Agent CLI v0.5.0 — AI coding agent untuk Android yang jalan langsung di Termux.",
+      "DikaBuff Agent CLI v0.5.0 ,  AI coding agent untuk Android yang jalan langsung di Termux.",
     long: [
-      "AgentBuff (DikaBuff Agent CLI) adalah AI coding agent versi Android — dioptimalkan untuk jalan langsung di Termux, dengan command yang ringkas dan hemat resource.",
+      "AgentBuff (DikaBuff Agent CLI) adalah AI coding agent versi Android ,  dioptimalkan untuk jalan langsung di Termux, dengan command yang ringkas dan hemat resource.",
       "Bagian dari ekosistem coding agent DikaCode, AgentBuff membawa kekuatan AI coding agent ke perangkat Android tanpa perlu PC.",
     ],
     topics: ["android", "termux", "ai", "cli"],
@@ -185,9 +185,9 @@ export const PROJECTS: ProjectDetail[] = [
     repo: "https://github.com/dikaofc/telegrambot-ai",
     icon: MessageCircle,
     tagline:
-      "Userbot Telegram yang membalas chat otomatis pakai AI — belajar gaya bahasa kamu, punya memori, dan agent tools.",
+      "Userbot Telegram yang membalas chat otomatis pakai AI ,  belajar gaya bahasa kamu, punya memori, dan agent tools.",
     long: [
-      "telegrambot-ai adalah userbot Telegram (Telethon) yang membalas chat otomatis pakai AI. Ia belajar gaya bahasa kamu — makin sering dipakai makin natural — punya memori jangka panjang, dan bisa transkripsi voice note lalu membalas pakai suara.",
+      "telegrambot-ai adalah userbot Telegram (Telethon) yang membalas chat otomatis pakai AI. Ia belajar gaya bahasa kamu ,  makin sering dipakai makin natural ,  punya memori jangka panjang, dan bisa transkripsi voice note lalu membalas pakai suara.",
       "Multi-provider OpenAI-compatible dengan fallback berurutan + Ollama lokal. Dilengkapi agent tools gratis tanpa API key: waktu WIB, kalkulator aman, pencarian web (DuckDuckGo), cuaca (open-meteo), dan kurs (frankfurter).",
     ],
     topics: ["telegram", "ai", "userbot", "telethon", "python"],
@@ -196,7 +196,7 @@ export const PROJECTS: ProjectDetail[] = [
       "Belajar gaya bahasa (gaul/dry/multibahasa)",
       "Memori jangka panjang via tool-calling",
       "Agent tools gratis tanpa key",
-      "Transkripsi voice note → balas suara",
+      "Transkripsi voice note -> balas suara",
       "Fallback berurutan + Ollama lokal",
     ],
     tech: ["Python", "Telethon", "OpenAI-compatible API", "Ollama"],
@@ -210,9 +210,9 @@ export const PROJECTS: ProjectDetail[] = [
     repo: "https://github.com/dikaofc/PentesterBotTelegramWebsite",
     icon: Layout,
     tagline:
-      "Website resmi PentesterBot v2 — UI Fluid Glass ala iOS dengan data nyata dari source project bot.",
+      "Website resmi PentesterBot v2 ,  UI Fluid Glass ala iOS dengan data nyata dari source project bot.",
     long: [
-      "PentesterBot v2 — Website adalah website resmi untuk agent pentest & bug bounty di Telegram. Dibangun dengan UI Fluid Glass iOS-inspired (React + Vite + TypeScript) plus server Express yang menyajikan data nyata dari source project bot — bukan konten hardcoded.",
+      "PentesterBot v2 ,  Website adalah website resmi untuk agent pentest & bug bounty di Telegram. Dibangun dengan UI Fluid Glass iOS-inspired (React + Vite + TypeScript) plus server Express yang menyajikan data nyata dari source project bot ,  bukan konten hardcoded.",
       "Live di pentesterbot.vercel.app dengan CI + deploy GitHub Pages otomatis.",
     ],
     topics: ["website", "react", "vite", "express", "pentesting"],
@@ -240,9 +240,9 @@ export const PROJECTS: ProjectDetail[] = [
     repo: "https://github.com/dikaofc/WebsiteDikaRoute",
     icon: BookOpen,
     tagline:
-      "Website resmi + dokumentasi lengkap untuk DikaRoute — Unified AI Gateway & Intelligent Model Router.",
+      "Website resmi + dokumentasi lengkap untuk DikaRoute ,  Unified AI Gateway & Intelligent Model Router.",
     long: [
-      "DikaRoute — Website adalah website lengkap untuk DikaRoute (Unified AI Gateway & Intelligent Model Router), dibangun dengan React + TypeScript + Tailwind CSS v4 + Framer Motion di frontend dan Express di backend.",
+      "DikaRoute ,  Website adalah website lengkap untuk DikaRoute (Unified AI Gateway & Intelligent Model Router), dibangun dengan React + TypeScript + Tailwind CSS v4 + Framer Motion di frontend dan Express di backend.",
       "Beranda berisi hero animasi + terminal live, marquee 290+ provider, fitur, pipeline routing, statistik, keamanan, CLI, FAQ, dan CTA. Dokumentasi punya 8 halaman (Quickstart, Arsitektur, API, Konfigurasi, Keamanan, CLI, Docker, Termux) dengan sidebar & TOC.",
     ],
     topics: ["website", "react", "tailwind", "framer-motion", "docs"],
@@ -266,10 +266,10 @@ export const PROJECTS: ProjectDetail[] = [
     repo: "https://github.com/dikaofc/freebuffPatchAndroid",
     icon: Wrench,
     tagline:
-      "Patch & toolkit biar Freebuff (AI coding agent gratis) jalan di Android/Termux — glibc no-proot, hemat context, anti-limit.",
+      "Patch & toolkit biar Freebuff (AI coding agent gratis) jalan di Android/Termux ,  glibc no-proot, hemat context, anti-limit.",
     long: [
       "Freebuff rilis sebagai ELF GNU/glibc. Di Termux tanpa proot, binary-nya gak bisa jalan langsung: interpreter /lib/ld-linux-aarch64.so.1 gak ada, /tmp gak writable, terminal broker gagal, dan TUI rusak.",
-      "freebuffPatchAndroid berisi satu perintah untuk memperbaiki semuanya — glibc no-proot, hemat context, anti-limit — dan menjaganya tetap hidup setelah npm update.",
+      "freebuffPatchAndroid berisi satu perintah untuk memperbaiki semuanya ,  glibc no-proot, hemat context, anti-limit ,  dan menjaganya tetap hidup setelah npm update.",
     ],
     topics: ["android", "termux", "patch", "shell", "toolkit"],
     highlights: [

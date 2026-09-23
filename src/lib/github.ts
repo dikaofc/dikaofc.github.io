@@ -134,7 +134,7 @@ export function getRepos(): Promise<GhRepo[]> {
   );
 }
 
-// Fallback data (Pinned repos from user brief) — used if API fails / rate limited
+// Fallback data (Pinned repos from user brief) ,  used if API fails / rate limited
 export const FALLBACK_USER: GhUser = {
   login: "dikaofc",
   name: "DikaCode",
@@ -223,7 +223,7 @@ export const FALLBACK_REPOS: GhRepo[] = [
     full_name: "dikaofc/ObitoBuffCLI",
     html_url: "https://github.com/dikaofc/ObitoBuffCLI",
     description:
-      "Obitobuff — your AI coding agent, on your own models. Local-only terminal agent with sub-agents, file finding, editing, bash, research, and code review.",
+      "Obitobuff ,  your AI coding agent, on your own models. Local-only terminal agent with sub-agents, file finding, editing, bash, research, and code review.",
     fork: false,
     language: "TypeScript",
     stargazers_count: 0,
@@ -240,7 +240,7 @@ export const FALLBACK_REPOS: GhRepo[] = [
     full_name: "dikaofc/AgentBuffAndroid",
     html_url: "https://github.com/dikaofc/AgentBuffAndroid",
     description:
-      "DikaBuff Agent CLI v0.5.0 — AI coding agent for Android Termux.",
+      "DikaBuff Agent CLI v0.5.0 ,  AI coding agent for Android Termux.",
     fork: false,
     language: "TypeScript",
     stargazers_count: 0,
@@ -257,7 +257,7 @@ export const FALLBACK_REPOS: GhRepo[] = [
     full_name: "dikaofc/telegrambot-ai",
     html_url: "https://github.com/dikaofc/telegrambot-ai",
     description:
-      "Userbot Telegram (Telethon) yang membalas chat otomatis pakai AI — belajar gaya bahasa, punya memori, agent tools, dan transkripsi voice note.",
+      "Userbot Telegram (Telethon) yang membalas chat otomatis pakai AI ,  belajar gaya bahasa, punya memori, agent tools, dan transkripsi voice note.",
     fork: false,
     language: "Python",
     stargazers_count: 0,
@@ -274,7 +274,7 @@ export const FALLBACK_REPOS: GhRepo[] = [
     full_name: "dikaofc/PentesterBotTelegramWebsite",
     html_url: "https://github.com/dikaofc/PentesterBotTelegramWebsite",
     description:
-      "Website resmi PentesterBot v2 — Fluid Glass iOS-inspired UI (React + Vite + TypeScript) dengan data nyata dari source project bot.",
+      "Website resmi PentesterBot v2 ,  Fluid Glass iOS-inspired UI (React + Vite + TypeScript) dengan data nyata dari source project bot.",
     fork: false,
     language: "TypeScript",
     stargazers_count: 0,
@@ -291,7 +291,7 @@ export const FALLBACK_REPOS: GhRepo[] = [
     full_name: "dikaofc/WebsiteDikaRoute",
     html_url: "https://github.com/dikaofc/WebsiteDikaRoute",
     description:
-      "Website lengkap untuk DikaRoute (Unified AI Gateway & Intelligent Model Router) — React + Tailwind CSS v4 + Framer Motion + Express.",
+      "Website lengkap untuk DikaRoute (Unified AI Gateway & Intelligent Model Router) ,  React + Tailwind CSS v4 + Framer Motion + Express.",
     fork: false,
     language: "TypeScript",
     stargazers_count: 0,
@@ -308,7 +308,7 @@ export const FALLBACK_REPOS: GhRepo[] = [
     full_name: "dikaofc/freebuffPatchAndroid",
     html_url: "https://github.com/dikaofc/freebuffPatchAndroid",
     description:
-      "Patch & toolkit biar Freebuff (AI coding agent gratis) jalan di Android/Termux — glibc no-proot, hemat context, anti-limit.",
+      "Patch & toolkit biar Freebuff (AI coding agent gratis) jalan di Android/Termux ,  glibc no-proot, hemat context, anti-limit.",
     fork: false,
     language: "Shell",
     stargazers_count: 0,

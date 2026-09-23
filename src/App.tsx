@@ -24,12 +24,11 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const { theme, choice, cycleTheme } = useTheme();
 
-  // invisible-style copy watermark: appended when visitors copy text
   useEffect(() => {
     const onCopy = (e: ClipboardEvent) => {
       const selection = window.getSelection()?.toString() ?? "";
       if (!selection || selection.length < 30) return;
-      e.clipboardData?.setData("text/plain", `${selection}\n\n— dikacode`);
+      e.clipboardData?.setData("text/plain", `${selection}\n\n- dikacode`);
       e.preventDefault();
     };
     document.addEventListener("copy", onCopy);
@@ -39,7 +38,6 @@ export default function App() {
   useEffect(() => {
     let alive = true;
 
-    // start with fallback for instant paint
     setUser(FALLBACK_USER);
     setRepos(FALLBACK_REPOS);
 
@@ -62,8 +60,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-panel text-fog font-body transition-colors duration-300">
-      {/* invisible tiled watermark (captured in screenshots) */}
+    <div className="min-h-screen bg-panel text-fog font-body transition-colors duration-200">
       <Watermark />
       <SecurityShield />
       <Nav theme={theme} choice={choice} onToggle={cycleTheme} />
@@ -74,11 +71,10 @@ export default function App() {
       <Contact />
       <Footer />
 
-      {/* Back to top */}
       <a
         href="#home"
         aria-label="Kembali ke atas"
-        className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40 nb-border-thick bg-orange text-white w-12 h-12 md:w-14 md:h-14 rounded-full grid place-items-center shadow-[calc(var(--c-shadow-offset)_/_2)_calc(var(--c-shadow-offset)_/_2)_0_var(--c-shadow)] nb-press font-display text-xl pointer-fine:hover:scale-110 active:scale-95 transition-transform"
+        className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40 grid place-items-center w-11 h-11 rounded-full bg-cta text-cta-text text-lg transition-opacity hover:opacity-85"
       >
         ↑
       </a>
