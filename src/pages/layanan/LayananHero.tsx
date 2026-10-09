@@ -13,7 +13,7 @@ export default function LayananHero() {
       <div className="relative max-w-6xl mx-auto px-4 md:px-8 pt-16 pb-12 md:pt-24 md:pb-16">
         <div className="max-w-2xl space-y-5">
           <Reveal>
-            <p className="t-mono-label">Jasa coding · dikerjain manual, bukan template</p>
+            <p className="t-mono-label">Jasa coding · satu orang, satu laptop</p>
           </Reveal>
 
           <Reveal delay={80}>

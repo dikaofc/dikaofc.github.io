@@ -16,17 +16,6 @@ export default function App() {
   const { theme, choice, cycleTheme } = useTheme();
 
   useEffect(() => {
-    const onCopy = (e: ClipboardEvent) => {
-      const selection = window.getSelection()?.toString() ?? "";
-      if (!selection || selection.length < 30) return;
-      e.clipboardData?.setData("text/plain", `${selection}\n\n- dikacode`);
-      e.preventDefault();
-    };
-    document.addEventListener("copy", onCopy);
-    return () => document.removeEventListener("copy", onCopy);
-  }, []);
-
-  useEffect(() => {
     let alive = true;
 
     setUser(FALLBACK_USER);

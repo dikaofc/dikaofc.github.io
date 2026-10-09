@@ -1,3 +1,5 @@
+import VisitorStats from "./VisitorStats";
+
 export type FooterLink = { href: string; label: string };
 
 const DEFAULT_LINKS: FooterLink[] = [
@@ -90,8 +92,8 @@ export default function Footer({ links = DEFAULT_LINKS }: { links?: FooterLink[]
 
       <div style={{ borderTop: "1px solid var(--c-line)" }}>
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 text-xs md:text-sm font-mono text-mute">
-          <div>© {new Date().getFullYear()} dikaofc, Kendal, ID</div>
-          <div>Design, code & copy: Dika, manual, bukan template</div>
+          <div>© {new Date().getFullYear()} DikaCode (DikaOfc / ObitoGlory), Kendal, ID</div>
+          <VisitorStats />
         </div>
       </div>
     </footer>

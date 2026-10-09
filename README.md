@@ -44,7 +44,8 @@ Website portfolio + jasa pribadi **DikaCode (DikaOfc / ObitoGlory)**, dibangun d
 | **Halaman Harga** | Paket open jasa (website/bot/tools/maintenance) + opsi nego custom |
 | **Halaman FAQ** | Accordion aksesibel (`aria-expanded` / `aria-controls`), 8 pertanyaan umum |
 | **Detail Per-Proyek** | `/proyek/<slug>`, 10 halaman detail dari satu sumber data (`src/lib/projects.ts`) |
-| **Watermark Tak Terlihat** | Tile SVG "dikacode" ~3% opacity (masuk screenshot) + teks yang di-copy disisipi `- dikacode` |
+| **Watermark Tak Terlihat** | Tile SVG "dikacode" ~3% opacity (masuk screenshot) |
+| **Statistik Pengunjung** | Counter realtime (pengunjung unik + kunjungan) via Busuanzi di footer, angka asli bukan karangan |
 | **SecurityShield** | Prank DevTools/bot/VPN, lihat [bagian khusus](#fitur-keamanan--anti-scraper) |
 | **Mobile-First & A11y** | Ring `:focus-visible`, hover di-scope `@media (hover: hover)`, dukungan `prefers-reduced-motion`, target sentuh ≥44px |
 
@@ -225,7 +226,8 @@ Selain itu:
 - **Decoy / honeypot** di `public/`: `.env`, `config.php`, `database.sql`, `wp-login.php`, `phpinfo.php`, `shell.php`, `admin/`, `prank.html`, semuanya pura-pura "bocor", isinya lelucon.
 - `vercel.json` me-rewrite path sensitif (`/admin`, `/\.env`, `/wp-login\.php`, dst.) ke `prank.html` dengan status **200**.
 - **Security headers** di `vercel.json`: `X-Content-Type-Options`, `X-Frame-Options: DENY`, `Referrer-Policy`, `Permissions-Policy`, dan `Content-Security-Policy`.
-- **Watermark** tak terlihat (`Watermark.tsx`) + sisipan `- dikacode` saat teks di-copy (`App.tsx`).
+- **Watermark** tak terlihat (`Watermark.tsx`), muncul di screenshot tapi tidak mengganggu saat dibaca.
+- **Statistik pengunjung** via Busuanzi (`VisitorStats.tsx`) di footer: pengunjung unik dan total kunjungan, dihitung dari request nyata.
 - `public/robots.txt` (Disallow honeypot + allowlist crawler AI) + `public/sitemap.xml` (25 URL) + `public/llms.txt`.
 
 > **Batasan jujur:** semua di atas adalah lapisan client-side. `curl`, `wget`, atau HTTrack tidak menjalankan JavaScript, jadi tidak tersentuh trik apapun di sini, HTML/CSS/JS statis pada dasarnya selalu bisa diunduh. Yang benar-benar menghentikan dumper adalah **filter level jaringan**: pasang domain di belakang **Cloudflare gratis** → aktifkan **Bot Fight Mode** + 1–2 **Firewall Rule** (block UA `HTTrack|wget|curl|python-requests|scrapy|aria2|sqlmap|nikto`) + **Rate Limiting** + **ScrapeShield hotlink protection**. Header keamanan `vercel.json` juga bisa dipasang ulang via Cloudflare Transform Rules karena GitHub Pages tidak mengirimnya.
@@ -255,7 +257,7 @@ Selain itu:
 ├── src/
 │   ├── main.tsx                      # React entry home
 │   ├── main-<nama>.tsx               # React entry tiap subhalaman (21 file)
-│   ├── App.tsx                       # Root home: theme, GitHub user, copy-watermark
+│   ├── App.tsx                       # Root home: theme, GitHub user
 │   ├── index.css                     # Design tokens, utilities, keyframes
 │   ├── hooks/useTheme.ts             # Theme state bersama (system/light/dark)
 │   ├── lib/
@@ -282,6 +284,7 @@ Selain itu:
 | `OpenJasaBanner.tsx` | Banner CTA "Open Jasa" di home |
 | `Reveal.tsx` | Scroll-reveal (IntersectionObserver) |
 | `Watermark.tsx` | Watermark tile transparan |
+| `VisitorStats.tsx` | Counter pengunjung realtime (Busuanzi) di footer |
 | `SecurityShield.tsx` | Prank DevTools / bot / VPN |
 
 ### Struktur per Halaman (`src/pages/`)

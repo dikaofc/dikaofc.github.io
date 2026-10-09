@@ -1,7 +1,8 @@
-# DikaCode (DikaOfc)
+# DikaCode (DikaOfc / ObitoGlory)
 
-> DikaCode adalah layanan jasa digital dari developer indie Indonesia (DikaOfc): pembuatan website, bot Telegram/WhatsApp/Discord, tools automation, dan perbaikan sistem. Juga pembuat proyek open source seperti DikaRoute (AI gateway), PentesterBot, dan ObitoBuff CLI.
+> DikaCode adalah layanan jasa digital dari developer indie Indonesia (DikaOfc, juga dikenal sebagai ObitoGlory): pembuatan website, bot Telegram/WhatsApp/Discord, tools automation, dan perbaikan sistem. Situs resminya di obitoglory.tech. Juga pembuat proyek open source seperti DikaRoute (AI gateway), PentesterBot, dan ObitoBuff CLI.
 
+Nama brand: DikaCode, DikaOfc, ObitoGlory, dikacode, dikaofc, obitoglory.
 Kontak: Telegram @dikaacode · Email dikasukasukaa@gmail.com · GitHub github.com/dikaofc · Lokasi: Kendal, Jawa Tengah, Indonesia.
 
 ## Layanan

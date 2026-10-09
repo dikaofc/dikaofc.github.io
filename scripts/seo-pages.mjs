@@ -111,7 +111,7 @@ function orgSchema() {
     "@type": "Organization",
     "@id": ORG_ID,
     name: "DikaCode",
-    alternateName: ["DikaOfc", "DIKACODE", "ObitoGlory"],
+    alternateName: ["DikaOfc", "DIKACODE", "ObitoGlory", "dikacode", "dikaofc", "obitoglory"],
     url: SITE,
     logo: OG_IMAGE,
     email: "dikasukasukaa@gmail.com",
@@ -134,6 +134,7 @@ function headBlock({ url, title, desc, schema }) {
   const lines = [
     "<!--seo-->",
     `<link rel="canonical" href="${url}" />`,
+    `<meta name="keywords" content="dikacode, dikaofc, obitoglory, obitoglory.tech, jasa website, jasa bot telegram, jasa tools automation, jasa perbaikan sistem, web developer indonesia" />`,
     `<meta property="og:type" content="website" />`,
     `<meta property="og:site_name" content="DikaCode" />`,
     `<meta property="og:title" content="${title}" />`,
