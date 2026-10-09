@@ -2,7 +2,7 @@ export type FooterLink = { href: string; label: string };
 
 const DEFAULT_LINKS: FooterLink[] = [
   { href: "#home", label: "Home" },
-  { href: "#repos", label: "Repositories" },
+  { href: "/proyek", label: "Proyek" },
   { href: "#stack", label: "Tech Stack" },
   { href: "/tentang", label: "Tentang" },
   { href: "/layanan", label: "Layanan" },

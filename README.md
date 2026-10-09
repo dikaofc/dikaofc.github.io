@@ -37,7 +37,7 @@ Website portfolio + jasa pribadi **DikaCode (DikaOfc / ObitoGlory)** — dibangu
 |---|-------|--------|
 | 🖥️ | **Hero + Typewriter** | Bio hero diketik gaya terminal (`Typewriter`), plus kartu statistik (repos/followers/following) dari GitHub |
 | 🎛️ | **Theme System** | Auto / Light / Dark — tersimpan di `localStorage`, sinkron antar-tab (event `storage`), menghormati `prefers-color-scheme`, anti-flash (script inline sebelum first paint) |
-| 🔍 | **Live GitHub Data** | Stats & repos di-fetch realtime dari GitHub API dengan cache localStorage (stale-while-revalidate) + `FALLBACK_*` saat offline/rate-limited |
+| 🔍 | **Live GitHub Data** | Stats (hero) & daftar repo (`/proyek`) di-fetch realtime dari GitHub API dengan cache localStorage (stale-while-revalidate) + `FALLBACK_*` saat offline/rate-limited |
 | 📄 | **Multi-Page (22 halaman)** | MPA single-file — tiap halaman di-build sendiri via `scripts/build-pages.mjs` + `vite.page.config.ts` (tanpa router library) |
 | 🧭 | **Clean URLs** | Tiap halaman jadi `<nama>/index.html` → URL `/<nama>` tanpa `.html`, jalan native di GitHub Pages, Vercel, dan dev server |
 | 🛠️ | **Halaman Layanan** | 4 layanan + halaman detail per-layanan (`/layanan/{website,bot,tools,perbaikan}`) |
@@ -115,7 +115,7 @@ Website ini **multi-page (22 halaman)** — tiap halaman di-build menjadi satu f
 
 | Path | Halaman | Isi |
 |------|---------|-----|
-| `/` | Home | Landing: hero + typewriter, banner open jasa, repos live GitHub, stack, kontak |
+| `/` | Home | Landing: hero + typewriter, banner open jasa, stack, kontak (daftar repo pindah ke `/proyek`) |
 | `/tentang` | Tentang | Profil, fakta, perjalanan, keahlian, motto |
 | `/layanan` | Layanan | 4 layanan, benefits, alur kerja, CTA |
 | `/layanan/website` | Detail: Website | Overview, fitur, alur, deliverables, layanan terkait |
@@ -256,7 +256,7 @@ Selain itu:
 ├── src/
 │   ├── main.tsx                      # React entry home
 │   ├── main-<nama>.tsx               # React entry tiap subhalaman (21 file)
-│   ├── App.tsx                       # Root home: theme, GitHub data, copy-watermark
+│   ├── App.tsx                       # Root home: theme, GitHub user, copy-watermark
 │   ├── index.css                     # Design tokens, utilities, keyframes
 │   ├── hooks/useTheme.ts             # Theme state bersama (system/light/dark)
 │   ├── lib/
@@ -279,7 +279,6 @@ Selain itu:
 | `Footer.tsx` | Footer (nav links configurable) + link halaman 3D |
 | `PageHero.tsx` | Header halaman (chip, title display, desc, CTA) + `Reveal` |
 | `Hero.tsx` · `Typewriter.tsx` | Hero home + efek ketik terminal |
-| `Repos.tsx` · `RepoCard.tsx` | Grid repo (pinned + filter/cari) + kartu repo |
 | `Stack.tsx` · `Contact.tsx` | Section tech stack & kontak (Contact di-reuse halaman `/kontak`) |
 | `OpenJasaBanner.tsx` | Banner CTA "Open Jasa" di home |
 | `Reveal.tsx` | Scroll-reveal (IntersectionObserver) |

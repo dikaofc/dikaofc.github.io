@@ -49,7 +49,7 @@ export default function Hero({ user, loading }: Props) {
           </p>
 
           <div className="flex flex-wrap gap-3 pt-1">
-            <a href="#repos" className="btn btn-primary">
+            <a href="/proyek" className="btn btn-primary">
               Lihat proyek
             </a>
             <a

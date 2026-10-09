@@ -2,25 +2,16 @@ import { useEffect, useState } from "react";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import OpenJasaBanner from "./components/OpenJasaBanner";
-import Repos from "./components/Repos";
 import Stack from "./components/Stack";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Watermark from "./components/Watermark";
 import SecurityShield from "./components/SecurityShield";
 import { useTheme } from "./hooks/useTheme";
-import {
-  getUser,
-  getRepos,
-  FALLBACK_USER,
-  FALLBACK_REPOS,
-  type GhUser,
-  type GhRepo,
-} from "./lib/github";
+import { getUser, FALLBACK_USER, type GhUser } from "./lib/github";
 
 export default function App() {
   const [user, setUser] = useState<GhUser | null>(null);
-  const [repos, setRepos] = useState<GhRepo[]>([]);
   const [loading, setLoading] = useState(true);
   const { theme, choice, cycleTheme } = useTheme();
 
@@ -39,14 +30,12 @@ export default function App() {
     let alive = true;
 
     setUser(FALLBACK_USER);
-    setRepos(FALLBACK_REPOS);
 
     (async () => {
       try {
-        const [u, r] = await Promise.all([getUser(), getRepos()]);
+        const u = await getUser();
         if (!alive) return;
         setUser(u);
-        setRepos(r);
       } catch {
         // keep fallback silently
       } finally {
@@ -66,7 +55,6 @@ export default function App() {
       <Nav theme={theme} choice={choice} onToggle={cycleTheme} />
       <Hero user={user} loading={loading && !user} />
       <OpenJasaBanner />
-      <Repos repos={repos} loading={loading && repos.length === 0} />
       <Stack />
       <Contact />
       <Footer />
