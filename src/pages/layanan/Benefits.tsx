@@ -1,25 +1,25 @@
-import { Shield, Zap, BadgeCheck, Headset } from "lucide-react";
+import { MessagesSquare, Wallet, Hammer, Headset } from "lucide-react";
 import Reveal from "../../components/Reveal";
 
 const benefits = [
   {
-    title: "Aman terpercaya",
-    desc: "Pengerjaan aman dan profesional, hasil kerja bisa dipercaya.",
-    icon: Shield,
+    title: "Ngomong langsung sama yang ngoding",
+    desc: "Nggak ada CS, nggak ada admin. Kamu chat, gw yang jawab — dan gw juga yang ngerjain. Miskomunikasi hampir mustahil.",
+    icon: MessagesSquare,
   },
   {
-    title: "Cepat dan efisien",
-    desc: "Pengerjaan cepat tanpa mengorbankan kualitas hasil akhir.",
-    icon: Zap,
+    title: "Harga ditulis di web",
+    desc: "Patokannya ada di halaman /harga, nego di depan. Nggak ada biaya siluman yang tiba-tiba muncul di tengah jalan.",
+    icon: Wallet,
   },
   {
-    title: "Kualitas terjamin",
-    desc: "Kode rapi, diuji, dan dioptimalkan sebelum diserahkan.",
-    icon: BadgeCheck,
+    title: "Dikerjain dari nol",
+    desc: "Bukan template nulled, bukan theme bajakan. Kode ditulis buat project kamu, jadi gampang dirawat dan dikembangkan.",
+    icon: Hammer,
   },
   {
-    title: "Support responsif",
-    desc: "Komunikasi cepat dan tanggap sebelum, saat, dan sesudah project.",
+    title: "Garansi beneran",
+    desc: "Habis serah terima terus ada yang error? Benerinnya gratis dalam masa garansi. Nama gw yang jadi taruhan.",
     icon: Headset,
   },
 ];
@@ -34,7 +34,7 @@ export default function Benefits() {
       <div className="relative max-w-6xl mx-auto px-4 md:px-8 section">
         <Reveal className="mb-8 max-w-xl">
           <p className="t-mono-label mb-3">Kenapa Dikacode</p>
-          <h2 className="t-h2 text-fog">Kenapa Dikacode?</h2>
+          <h2 className="t-h2 text-fog">Kenapa gw, bukan yang lain?</h2>
         </Reveal>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">

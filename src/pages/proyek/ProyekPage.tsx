@@ -44,7 +44,7 @@ export default function ProyekPage() {
       <PageHero
         chip="Proyek Dikacode"
         title="Proyek unggulan"
-        desc="Kumpulan proyek yang dikerjain dengan serius: AI gateway, bot automation, aplikasi Android, sampai portfolio ini sendiri."
+        desc="Kumpulan project yang gw kerjain serius — dan semuanya open source. Gw pakai sendiri sebelum berani nawarin ke orang."
         ctas={[
           { label: "Follow GitHub", href: SITE.github, external: true, primary: true },
           { label: "Lihat layanan", href: "/layanan" },
@@ -58,7 +58,7 @@ export default function ProyekPage() {
             <h2 className="t-h2 text-fog">Yang gw buat</h2>
             {loading && (
               <p className="font-mono text-xs text-faint mt-3">
-                Menyinkronkan data dari GitHub API...
+                Ngambil data terbaru dari GitHub...
               </p>
             )}
           </Reveal>

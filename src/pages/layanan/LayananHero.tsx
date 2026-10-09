@@ -15,7 +15,7 @@ export default function LayananHero() {
       <div className="relative max-w-6xl mx-auto px-4 md:px-8 pt-16 pb-12 md:pt-24 md:pb-16">
         <div className="max-w-2xl space-y-5">
           <Reveal>
-            <p className="t-mono-label">Dikacode, Digital Solution dan Code</p>
+            <p className="t-mono-label">Jasa coding · dikerjain manual, bukan template</p>
           </Reveal>
 
           <Reveal delay={80}>
@@ -24,8 +24,9 @@ export default function LayananHero() {
 
           <Reveal delay={160}>
             <p className="t-lead">
-              Solusi digital terbaik untuk kebutuhanmu. Bangun, kembangkan, dan
-              optimalkan, dari website, bot, tools, hingga perbaikan sistem.
+              Butuh website, bot, atau tools tapi males ribet? Ceritain maumu
+              ke gw, nanti gw yang ngodingin. Harga jelas di depan, revisi
+              sampai cocok.
             </p>
           </Reveal>
 

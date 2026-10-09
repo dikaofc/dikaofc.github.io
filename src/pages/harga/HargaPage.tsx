@@ -84,7 +84,7 @@ export default function HargaPage() {
       <PageHero
         chip="Harga dan paket"
         title="Paket harga"
-        desc="Harga transparan, bisa diskusi, dan menyesuaikan kebutuhan project. Konsultasi dulu gratis, tanpa paksaan."
+        desc="Angka di bawah ini patokan, bukan harga mati. Nego boleh banget — gw lebih suka project jalan daripada gagal gara-gara harga."
         ctas={[
           { label: "Tanya harga", href: SITE.telegram, external: true, primary: true },
           { label: "Lihat layanan", href: "/layanan" },
@@ -147,8 +147,9 @@ export default function HargaPage() {
                 Butuh yang custom?
               </h2>
               <p className="text-[15px] md:text-base leading-relaxed text-mute max-w-xl mx-auto">
-                Harga di atas patokan awal. Kebutuhan di luar paket (fitur khusus, sistem kompleks,
-                project jangka panjang) bisa didiskusikan, hasil akhirnya tetap transparan.
+                Ceritain budget kamu, nanti gw bilang dapat apa aja dengan
+                budget segitu. Kalau nggak masuk, gw bilang langsung — nggak
+                bakal gw akalin biar jadi.
               </p>
               <a
                 href={SITE.telegram}

@@ -16,10 +16,10 @@ export default function LayananCta() {
             <div className="max-w-xl mx-auto space-y-5">
               <p className="t-mono-label">Siap mulai?</p>
               <h2 className="t-h2 text-fog">
-                Siap membangun solusi digitalmu?
+                Punya project? Ceritain aja dulu.
               </h2>
               <p className="t-lead !text-lg">
-                Diskusikan ide, kebutuhan, atau project kamu bersama DIKACODE.
+                Chat gratis, nggak wajib order. Paling banter gw jawab "nggak bisa" — jujur itu gratis.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-1">
                 <a

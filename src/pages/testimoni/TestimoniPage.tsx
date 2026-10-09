@@ -23,12 +23,12 @@ export default function TestimoniPage() {
               </span>
 
               <h2 className="t-h2 text-fog mb-3">
-                Belum ada testimoni, jadilah yang pertama
+                Testimoni masih nol — dan itu jujur
               </h2>
               <p className="text-[15px] md:text-base leading-relaxed text-mute max-w-lg mx-auto">
-                DIKACODE baru aja buka jasa digital solution. Semua project dikerjain dengan
-                teliti dan didukung sampai beres, biar pengalaman kamu jadi cerita yang bisa
-                ditampilkan di halaman ini.
+                Web ini baru, jasa ini baru. Nol testimoni artinya belum ada
+                yang kecewa, tapi juga belum ada yang puas. Project kamu bisa
+                jadi cerita pertama di halaman ini.
               </p>
 
               <div className="mt-8">

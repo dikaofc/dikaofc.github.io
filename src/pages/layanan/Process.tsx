@@ -3,23 +3,23 @@ import Reveal from "../../components/Reveal";
 const steps = [
   {
     num: "01",
-    title: "Konsultasi",
-    desc: "Diskusikan kebutuhan dan konsep project.",
+    title: "Chat dulu",
+    desc: "Ceritain maumu via Telegram. Gratis, nggak wajib jadi. Kalau gw rasa nggak bisa, gw bilang langsung.",
   },
   {
     num: "02",
-    title: "Perencanaan",
-    desc: "Tentukan fitur, teknologi, dan struktur project.",
+    title: "Deal & DP 50%",
+    desc: "Sepakat scope, harga, dan deadline di awal. DP masuk, baru gw mulai ngoding.",
   },
   {
     num: "03",
-    title: "Development",
-    desc: "Project mulai dibuat dan dikembangkan.",
+    title: "Dikerjain + kabar",
+    desc: "Progress gw kabarin berkala. Revisi di tengah jalan boleh, selama masih masuk akal.",
   },
   {
     num: "04",
-    title: "Delivery",
-    desc: "Project diselesaikan, diuji, dan diserahkan.",
+    title: "Lunas & serah terima",
+    desc: "Testing bareng, pelunasan, terus source code + panduan diserahin. Garansi bug fix mulai jalan.",
   },
 ];
 

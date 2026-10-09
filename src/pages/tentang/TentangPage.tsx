@@ -50,7 +50,7 @@ export default function TentangPage() {
       <PageHero
         chip="Tentang Dikacode"
         title="Tentang Dikacode"
-        desc="Developer muda dari Indonesia yang fokus di AI, security automation, bug hunting, dan digital solution. Build, break, improve, dan bikin hal berguna dari nol."
+        desc="Anak SMK dari Kendal yang ngoding hampir tiap hari. Fokus: AI, security automation, bug hunting. Cara kerja gw: bongkar dulu, paham, baru benerin — bukan asal tambal."
         ctas={[
           { label: "Konsultasi sekarang", href: SITE.telegram, external: true, primary: true },
           { label: "Lihat layanan", href: "/layanan" },
@@ -67,14 +67,16 @@ export default function TentangPage() {
                   Orang biasa yang suka ngoding
                 </h2>
                 <p className="text-[15px] md:text-base leading-relaxed text-mute mb-4">
-                  DIKACODE itu bukan perusahaan besar, ini orang biasa yang serius bikin kode.
-                  Dari bot Telegram, AI gateway, sampai tools pentesting, semua dikerjain manual,
-                  diuji, dan dipoles sampai benar-benar jalan.
+                  DIKACODE itu cuma nama keren buat gw sendiri. Nggak ada tim,
+                  nggak ada kantor — adanya gw, laptop, dan begadang. Semua
+                  project di halaman ini gw kerjain sendiri, jadi kalau ada
+                  yang jelek, gw nggak bisa nyalahin siapa-siapa.
                 </p>
                 <p className="text-[15px] md:text-base leading-relaxed text-mute">
                   Prinsipnya sederhana:{" "}
                   <span className="text-fog font-medium">paham dulu sistemnya, baru diperbaiki.</span>{" "}
-                  Karena itu setiap project dikerjain dengan teliti dan didukung penuh sampai jadi.
+                  Tiap project gw kawal sampai beres — nama yang dipasang nama
+                  gw, bukan nama orang lain.
                 </p>
               </div>
             </Reveal>

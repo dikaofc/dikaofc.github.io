@@ -49,8 +49,10 @@ export default function Contact() {
             <p className="t-mono-label mb-3">Kontak</p>
             <h2 className="t-display text-fog mb-5">Mau chat?</h2>
             <p className="t-lead max-w-md">
-              Open for collab, project custom, atau sekadar diskusi soal AI,
-              bug, atau projek iseng. Butuh website, bot, atau tools?{" "}
+              Mau order, mau collab, atau cuma mau nanya-nanya dulu — semuanya
+              lewat channel di bawah. Yang bales gw langsung, bukan bot.
+              (Ironis: gw bikin bot buat orang, tapi chat orderan tetap gw
+              bales sendiri.) Butuh website, bot, atau tools?{" "}
               <a href="/layanan" className="text-accent underline underline-offset-4 hover:opacity-75">
                 Cek halaman layanan
               </a>
@@ -104,7 +106,7 @@ export default function Contact() {
         </div>
 
         <div className="mt-12 pt-5 flex flex-col md:flex-row md:items-center md:justify-between gap-2 font-mono text-xs font-medium text-mute" style={{ borderTop: "1px solid var(--c-line)" }}>
-          <span>LET'S BUILD SOMETHING USEFUL.</span>
+          <span>CHAT DIBALES MANUSIA, BUKAN BOT.</span>
           <span className="v-pill">DikaCode, Kendal</span>
         </div>
       </div>

@@ -2,6 +2,7 @@ import PageShell from "../../components/PageShell";
 import { SUBPAGE_NAV_LINKS, SUBPAGE_FOOTER_LINKS } from "../../lib/site";
 import LayananHero from "./LayananHero";
 import Services from "./Services";
+import Honest from "./Honest";
 import Benefits from "./Benefits";
 import Process from "./Process";
 import LayananCta from "./LayananCta";
@@ -11,6 +12,7 @@ export default function LayananPage() {
     <PageShell navLinks={SUBPAGE_NAV_LINKS} footerLinks={SUBPAGE_FOOTER_LINKS}>
       <LayananHero />
       <Services />
+      <Honest />
       <Benefits />
       <Process />
       <LayananCta />

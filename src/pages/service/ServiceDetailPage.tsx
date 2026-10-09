@@ -184,7 +184,8 @@ export default function ServiceDetailPage({ service }: Props) {
                   Siap mulai {titleCase(service.title)}?
                 </h2>
                 <p className="text-[15px] md:text-base leading-relaxed text-mute">
-                  Diskusikan kebutuhanmu langsung, konsultasi gratis, tanpa paksaan.
+                  Chat gratis. Ceritain maumu, nanti gw jawab bisa atau nggak,
+                  plus estimasi waktu dan biaya. Nggak jadi order pun nggak apa-apa.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                   <a

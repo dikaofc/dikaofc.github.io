@@ -10,8 +10,8 @@ export default function KontakPage() {
     <PageShell navLinks={SUBPAGE_NAV_LINKS} footerLinks={SUBPAGE_FOOTER_LINKS}>
       <PageHero
         chip="Kontak Dikacode"
-        title="Hubungi kami"
-        desc="Open untuk collab, project custom, atau sekadar diskusi. Pilih channel yang paling cocok, respons cepat."
+        title="Hubungi gw"
+        desc="Nggak ada CS, nggak ada admin — semua channel di bawah langsung ke gw. Paling cepat via Telegram."
         ctas={[
           { label: "Chat di Telegram", href: SITE.telegram, external: true, primary: true },
           { label: "Lihat layanan", href: "/layanan" },
@@ -30,8 +30,8 @@ export default function KontakPage() {
                   Respons cepat via Telegram
                 </h2>
                 <p className="text-[15px] md:text-base leading-relaxed text-mute">
-                  Balas pertanyaan, diskusi kebutuhan, sampai detail project, semua bisa lewat
-                  satu chat.
+                  Biasanya gw bales di hari yang sama, kecuali ketiduran.
+                  Semua omongan project tercatat rapi di satu chat.
                 </p>
                 <a
                   href={SITE.telegram}

@@ -84,6 +84,7 @@ export default function Footer({ links = DEFAULT_LINKS }: { links?: FooterLink[]
             </li>
             <li>CLASS: <span className="text-fog">XI</span></li>
             <li>JURUSAN: <span className="text-fog">DKV</span></li>
+            <li>UPDATE: <span className="text-fog">OKT 2026</span></li>
             <li>HOBY: <span className="text-fog">TIDUR</span></li>
           </ul>
         </div>
@@ -92,7 +93,7 @@ export default function Footer({ links = DEFAULT_LINKS }: { links?: FooterLink[]
       <div style={{ borderTop: "1px solid var(--c-line)" }}>
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 text-xs md:text-sm font-mono text-mute">
           <div>© {new Date().getFullYear()} dikaofc, DKV STUDENT</div>
-          <div>Dibuat dengan cinta dan kasih sayang</div>
+          <div>Design, code & copy: Dika — manual, bukan template</div>
         </div>
       </div>
     </footer>

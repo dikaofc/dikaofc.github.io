@@ -149,9 +149,10 @@ Data 4 layanan bersumber dari satu file: **`src/lib/services.ts`**. Alur section
 |---|---------|--------|
 | 1 | **Hero** | `Open jasa` + tagline + CTA *Konsultasi sekarang* / *Lihat layanan* + chip HUD |
 | 2 | **Layanan DIKACODE** | 4 kartu (`v-card`) — icon, nomor, fitur, platform chips, CTA *Pelajari layanan →* |
-| 3 | **Kenapa DIKACODE?** | 4 benefit: Aman terpercaya 🛡️, Cepat & efisien ⚡, Kualitas terjamin ✔️, Support responsif 🎧 |
-| 4 | **Alur Kerja** | Timeline 4 langkah: Konsultasi → Perencanaan → Development → Delivery |
-| 5 | **CTA** | Panel `v-card` → **@dikaacode** |
+| 3 | **Catatan jujur** | Yang *nggak* dikerjain: judi/slot/pinjol, phising/malware, nugasin full |
+| 4 | **Kenapa gw?** | 4 benefit: ngomong langsung sama yang ngoding, harga tertulis di web, dikerjain dari nol, garansi beneran |
+| 5 | **Alur Kerja** | 4 langkah konkret: Chat dulu → Deal & DP 50% → Dikerjain + kabar → Lunas & serah terima |
+| 6 | **CTA** | Panel `v-card` → **@dikaacode** |
 
 | Layanan | Halaman | Fitur utama |
 |---------|---------|-------------|
@@ -289,7 +290,7 @@ Selain itu:
 
 | Halaman | Komponen |
 |---------|----------|
-| `layanan/` | `LayananPage` → `LayananHero`, `Services`, `Benefits`, `Process`, `LayananCta` |
+| `layanan/` | `LayananPage` → `LayananHero`, `Services`, `Honest` (yang nggak dikerjain), `Benefits`, `Process`, `LayananCta` |
 | `service/` | `ServiceDetailPage` (layout detail bersama) + `WebsitePage`, `BotPage`, `ToolsPage`, `PerbaikanPage` |
 | `tentang/` | `TentangPage` (profil, journey, keahlian, motto) |
 | `proyek/` | `ProyekPage` (fetch `getRepos` live) + `ProjectDetailPage` (layout detail bersama) + 10 wrapper halaman detail |

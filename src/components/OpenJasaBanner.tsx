@@ -16,11 +16,12 @@ export default function OpenJasaBanner() {
           <div className="flex-1">
             <p className="t-mono-label mb-2">Open jasa</p>
             <h2 className="t-h2 text-fog">
-              Butuh solusi digital?
+              Butuh yang ngodingin?
             </h2>
             <p className="text-base leading-relaxed text-mute mt-2 max-w-xl">
-              Bangun, kembangkan, dan optimalkan, dari website, bot, tools, sampai perbaikan
-              sistem yang sudah ada.
+              Website, bot, tools, sampai benerin sistem yang rusak — ceritain
+              maumu, nanti gw kasih tau bisa atau nggak, berapa lama, dan
+              berapa biayanya.
             </p>
             <div className="flex flex-wrap gap-2 mt-4">
               {chips.map((c) => {

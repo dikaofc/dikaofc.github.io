@@ -14,7 +14,7 @@ export default function Services() {
           <p className="t-mono-label mb-3">Layanan Dikacode</p>
           <h2 className="t-h2 text-fog">Layanan Dikacode</h2>
           <p className="t-lead mt-3 !text-lg">
-            Solusi digital yang dibuat sesuai kebutuhan.
+            Empat hal yang gw kerjain tiap hari. Di luar ini? Tanya aja dulu, siapa tau bisa.
           </p>
         </Reveal>
 
