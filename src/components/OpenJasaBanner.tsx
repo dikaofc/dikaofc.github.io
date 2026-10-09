@@ -19,7 +19,7 @@ export default function OpenJasaBanner() {
               Butuh yang ngodingin?
             </h2>
             <p className="text-base leading-relaxed text-mute mt-2 max-w-xl">
-              Website, bot, tools, sampai benerin sistem yang rusak — ceritain
+              Website, bot, tools, sampai benerin sistem yang rusak, ceritain
               maumu, nanti gw kasih tau bisa atau nggak, berapa lama, dan
               berapa biayanya.
             </p>

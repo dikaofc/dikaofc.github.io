@@ -16,13 +16,26 @@ export default function SecurityShield() {
     return () => window.clearTimeout(toastTimer.current);
   }, [toast]);
 
+  // Anti framing: halaman tidak boleh di-embed (backup X-Frame-Options
+  // yang tidak tersedia di static hosting). Menggagalkan mirror/proxy iframe.
+  useEffect(() => {
+    try {
+      if (window.top !== window.self) {
+        window.top.location.href = window.location.href;
+      }
+    } catch {
+      // iframe sandboxed: abaikan, konten tetap di-render normal
+    }
+  }, []);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const k = e.key.toLowerCase();
+      const mod = e.ctrlKey || e.metaKey; // Ctrl (Win/Linux) + Cmd (macOS)
       const devtools =
         e.key === "F12" ||
-        (e.ctrlKey && e.shiftKey && ["i", "j", "c"].includes(k)) ||
-        (e.ctrlKey && k === "u");
+        (mod && e.shiftKey && ["i", "j", "c"].includes(k)) ||
+        (mod && ["u", "s", "p"].includes(k)); // view-source, save-page, print
       if (!devtools) return;
       e.preventDefault();
       setBlocked({
@@ -48,7 +61,10 @@ export default function SecurityShield() {
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) return;
+    // Deteksi docking DevTools hanya relevan di desktop. Skip di layar sentuh
+    // agar browser-chrome Android tidak memicu false positive.
+    const finePointer = window.matchMedia("(pointer: fine)").matches;
+    if (reduceMotion || !finePointer) return;
 
     let devtoolsOpen = false;
 
@@ -152,7 +168,7 @@ drwxr-xr-x 20 root root  4096 Aug 16 07:36 ..
 
 root@prank-server:~# cat flag.txt
 `}
-              <span className="inline-block bg-cta text-cta-text font-medium px-1">DIKACODE&#123;ini_bukan_flag_asli_goblok&#125;</span>
+              <span className="inline-block bg-cta text-cta-text font-medium px-1">DIKACODE&#123;ini_bukan_flag_asli&#125;</span>
               {`
 
 root@prank-server:~# whoami

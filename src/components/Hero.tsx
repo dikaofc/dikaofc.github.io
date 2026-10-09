@@ -97,7 +97,6 @@ export default function Hero({ user, loading }: Props) {
                   {user?.location ?? "Indonesia"} · dev
                 </div>
               </div>
-              <span className="v-pill">v2.0</span>
             </div>
           </div>
         </div>

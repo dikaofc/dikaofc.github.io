@@ -1,10 +1,10 @@
 # Contributing to dikaofc.github.io
 
-Terima kasih sudah mau berkontribusi! 🎉 Repo ini adalah website portfolio + jasa pribadi, tapi semua bentuk kontribusi — mulai dari laporan bug, saran desain, sampai pull request — sangat dihargai.
+Terima kasih sudah mau berkontribusi! Repo ini adalah website portfolio + jasa pribadi, tapi semua bentuk kontribusi, mulai dari laporan bug, saran desain, sampai pull request, sangat dihargai.
 
 ---
 
-## 📋 Daftar Isi
+## Daftar Isi
 
 - [Cara Berkontribusi](#cara-berkontribusi)
 - [Setup Development](#setup-development)
@@ -21,11 +21,11 @@ Terima kasih sudah mau berkontribusi! 🎉 Repo ini adalah website portfolio + j
 
 | Jenis | Cara |
 |-------|------|
-| 🐛 **Lapor bug** | Buka [Issues](https://github.com/dikaofc/dikaofc.github.io/issues) — jelaskan device/browser, langkah reproduksi, dan screenshot jika ada |
-| 💡 **Saran fitur/desain** | Buka Issue dengan label `enhancement` — deskripsikan masalah & solusi yang diusulkan |
-| 🛠️ **Pull request** | Fork repo → buat branch → commit → push → buat PR (detail di bawah) |
+| **Lapor bug** | Buka [Issues](https://github.com/dikaofc/dikaofc.github.io/issues), jelaskan device/browser, langkah reproduksi, dan screenshot jika ada |
+| **Saran fitur/desain** | Buka Issue dengan label `enhancement`, deskripsikan masalah & solusi yang diusulkan |
+| **Pull request** | Fork repo → buat branch → commit → push → buat PR (detail di bawah) |
 
-> **Penting:** bug mobile & aksesibilitas adalah prioritas utama — jangan ragu lapor walau kecil.
+> **Penting:** bug mobile & aksesibilitas adalah prioritas utama, jangan ragu lapor walau kecil.
 
 ---
 
@@ -127,44 +127,44 @@ feat(layanan): tambah kartu layanan tools
 - Stagger delay biar nggak serempak
 ```
 
-> Hindari commit besar yang campur banyak hal — pecah jadi beberapa commit kecil.
+> Hindari commit besar yang campur banyak hal, pecah jadi beberapa commit kecil.
 
 ---
 
 ## Code Style & Aturan
 
 ### React & TypeScript
-- **TypeScript strict** — selalu beri tipe pada props & state (`type Props = {...}`)
+- **TypeScript strict**, selalu beri tipe pada props & state (`type Props = {...}`)
 - Komponen **default export**, satu komponen per file
-- Reuse komponen existing (`PageShell`, `PageHero`, `Reveal`, `cn()`) — jangan re-implement
+- Reuse komponen existing (`PageShell`, `PageHero`, `Reveal`, `cn()`), jangan re-implement
 - Jangan pakai `any` tanpa alasan kuat
 - Semua halaman harus dibungkus `PageShell` (kecuali home yang memakai `App.tsx`)
 
 ### Tailwind & CSS
-- **Jangan hardcode warna** — selalu pakai token (`bg-panel`, `text-fog`, `text-mute`, `text-accent`, dst.)
+- **Jangan hardcode warna**, selalu pakai token (`bg-panel`, `text-fog`, `text-mute`, `text-accent`, dst.)
 - Prefer utility class yang sudah ada (`v-card`, `v-pill`, `v-border`, `btn btn-primary`, `t-h2`, `section`) daripada bikin style baru
 - Tambah utility CSS di `src/index.css`, bukan inline style berulang
-- Class warisan (`.nb-shadow*`, `.scanlines`, `.glow-*`, `.cta-panel`) dipertahankan sebagai **no-op** untuk markup lama — **jangan dipakai untuk komponen baru**
+- Class warisan (`.nb-shadow*`, `.scanlines`, `.glow-*`, `.cta-panel`) dipertahankan sebagai **no-op** untuk markup lama, **jangan dipakai untuk komponen baru**
 
-### 🚨 Mobile & Hover (aturan paling penting)
+### Mobile & Hover (aturan paling penting)
 - Semua efek hover yang mengubah layout (scale, translate, shadow) **harus aman di perangkat sentuh**. Di CSS, bungkus dengan media query:
   ```css
   @media (hover: hover) { .card:hover { /* … */ } }
   ```
 - Untuk utility Tailwind, gunakan varian hover hanya pada elemen yang tidak mengganggu di sentuh; beri `:active` sebagai feedback tekan (tetap jalan di semua device)
 - Section harus punya `overflow-hidden` untuk elemen absolut/dekoratif
-- Test di viewport mobile (320px–430px) — pastikan tidak ada horizontal overflow
+- Test di viewport mobile (320px–430px), pastikan tidak ada horizontal overflow
 
 ### Aksesibilitas
 - Elemen interaktif harus punya `aria-label` jika tidak ada teks visual
-- Jangan hapus ring `:focus-visible` global — itu untuk keyboard navigation
+- Jangan hapus ring `:focus-visible` global, itu untuk keyboard navigation
 - Kontras teks sekunder min. WCAG AA (`--c-mute` sudah diset sesuai)
-- Hormati `prefers-reduced-motion` — animasi harus mati otomatis
+- Hormati `prefers-reduced-motion`, animasi harus mati otomatis
 
 ### Performance
 - Animasi pakai **transform/opacity** (GPU-friendly), hindari `width/height/top/left`
 - Jangan tambah dependency berat untuk animasi sederhana yang bisa CSS
-- Tiap halaman di-build single-file — jaga bundle tetap ringan
+- Tiap halaman di-build single-file, jaga bundle tetap ringan
 
 ---
 
@@ -193,7 +193,7 @@ Semua warna diatur via CSS custom properties di `src/index.css` (`:root` untuk l
 | `section` / `section-divide` | Padding section + divider |
 | `t-display` / `t-h2` / `t-h3` / `t-lead` / `t-mono-label` | Skala tipografi |
 
-> Kalau butuh elevasi/border baru, pakai pola `v-card` (ring 1px + shadow tipis) — bukan shadow keras ala neo-brutalist.
+> Kalau butuh elevasi/border baru, pakai pola `v-card` (ring 1px + shadow tipis), bukan shadow keras ala neo-brutalist.
 
 ---
 
@@ -203,7 +203,7 @@ Semua warna diatur via CSS custom properties di `src/index.css` (`:root` untuk l
    ```bash
    git checkout -b feat/nama-fitur
    ```
-2. **Kerjakan perubahan** — ikuti aturan di atas
+2. **Kerjakan perubahan**, ikuti aturan di atas
 3. **Validasi lokal:**
    ```bash
    npx tsc --noEmit
@@ -218,7 +218,7 @@ Semua warna diatur via CSS custom properties di `src/index.css` (`:root` untuk l
 ### Setelah PR dibuat
 - Maintainer akan review dalam beberapa hari
 - Beri komentar balasan / resolve review yang diminta
-- Jangan squash commit sendiri — maintainer yang mengurus merge
+- Jangan squash commit sendiri, maintainer yang mengurus merge
 
 ---
 
@@ -237,4 +237,4 @@ Semua warna diatur via CSS custom properties di `src/index.css` (`:root` untuk l
 
 ---
 
-Terima kasih sudah berkontribusi! 💛 — **dikaofc**
+Terima kasih sudah berkontribusi! **dikaofc**

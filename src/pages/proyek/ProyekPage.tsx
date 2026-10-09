@@ -23,12 +23,13 @@ const PINNED = [
 export default function ProyekPage() {
   const [repos, setRepos] = useState<GhRepo[]>(FALLBACK_REPOS);
   const [loading, setLoading] = useState(true);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     let alive = true;
     getRepos()
       .then((r) => alive && setRepos(r))
-      .catch(() => {})
+      .catch(() => alive && setFailed(true))
       .finally(() => alive && setLoading(false));
     return () => {
       alive = false;
@@ -44,7 +45,7 @@ export default function ProyekPage() {
       <PageHero
         chip="Proyek Dikacode"
         title="Proyek unggulan"
-        desc="Kumpulan project yang gw kerjain serius — dan semuanya open source. Gw pakai sendiri sebelum berani nawarin ke orang."
+        desc="Kumpulan project yang gw kerjain serius, dan semuanya open source. Gw pakai sendiri sebelum berani nawarin ke orang."
         ctas={[
           { label: "Follow GitHub", href: SITE.github, external: true, primary: true },
           { label: "Lihat layanan", href: "/layanan" },
@@ -61,8 +62,32 @@ export default function ProyekPage() {
                 Ngambil data terbaru dari GitHub...
               </p>
             )}
+            {!loading && failed && (
+              <p className="font-mono text-xs text-faint mt-3">
+                Data GitHub gagal dimuat, yang tampil ini daftar simpanan.
+                Coba refresh untuk ambil data terbaru.
+              </p>
+            )}
           </Reveal>
 
+          {featured.length === 0 ? (
+            <Reveal>
+              <div className="v-card px-6 py-12 text-center">
+                <p className="text-[15px] leading-relaxed text-mute">
+                  Belum ada project yang bisa ditampilkan di sini.
+                </p>
+                <a
+                  href={SITE.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-5 text-sm font-medium text-accent hover:opacity-75"
+                >
+                  <ExternalLink size={15} strokeWidth={2} aria-hidden="true" />
+                  Lihat semua repository di GitHub
+                </a>
+              </div>
+            </Reveal>
+          ) : (
           <div className="grid md:grid-cols-2 gap-4">
             {featured.map((r, i) => {
               const slug = projectSlug(r.name);
@@ -132,7 +157,9 @@ export default function ProyekPage() {
               );
             })}
           </div>
+          )}
 
+          {featured.length > 0 && (
           <Reveal delay={60}>
             <div className="mt-8 text-center">
               <a
@@ -146,6 +173,7 @@ export default function ProyekPage() {
               </a>
             </div>
           </Reveal>
+          )}
         </div>
       </section>
     </PageShell>

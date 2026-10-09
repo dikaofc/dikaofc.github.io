@@ -1,4 +1,4 @@
--- hayoloo 😹
+-- hayoloo 
 
 CREATE DATABASE dikaofc_prod;
 USE dikaofc_prod;
@@ -23,5 +23,5 @@ CREATE TABLE flags (
 );
 
 INSERT INTO flags (value, description) VALUES
-  ('DIKACODE{goblok}', 'ngapain?'),
-  ('DIKACODE{hunter2}', 'asli ni awokawok');
+  ('DIKACODE{bukan_flag_asli}', 'ngapain?'),
+  ('DIKACODE{hunter2}', 'asli ni');

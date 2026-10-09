@@ -12,7 +12,7 @@ const noList = [
   },
   {
     title: "Nugasin full biar nggak belajar",
-    desc: "Dibantuin paham boleh. Dikerjain semua biar kamu santai — nggak.",
+    desc: "Dibantuin paham boleh. Dikerjain semua biar kamu santai, nggak.",
   },
 ];
 
@@ -28,7 +28,7 @@ export default function Honest() {
           <p className="t-mono-label mb-3">Catatan jujur</p>
           <h2 className="t-h2 text-fog">Yang nggak gw kerjain</h2>
           <p className="t-lead mt-3 !text-lg">
-            Biar jelas dari awal — hal di bawah ini jangan ditawarin, hemat waktu kita berdua.
+            Biar jelas dari awal, hal di bawah ini jangan ditawarin, hemat waktu kita berdua.
           </p>
         </Reveal>
 

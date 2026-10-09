@@ -19,7 +19,7 @@ export default function LayananCta() {
                 Punya project? Ceritain aja dulu.
               </h2>
               <p className="t-lead !text-lg">
-                Chat gratis, nggak wajib order. Paling banter gw jawab "nggak bisa" — jujur itu gratis.
+                Chat gratis, nggak wajib order. Paling banter gw jawab "nggak bisa", jujur itu gratis.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-1">
                 <a

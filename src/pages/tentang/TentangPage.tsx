@@ -1,4 +1,4 @@
-import { Bot, Code2, Shield, Terminal, Wrench, Sparkles, Send } from "lucide-react";
+import { Bot, Code2, Shield, Terminal, Wrench, Cpu, Send } from "lucide-react";
 import PageShell from "../../components/PageShell";
 import PageHero from "../../components/PageHero";
 import Reveal from "../../components/Reveal";
@@ -40,7 +40,7 @@ const skills = [
   { icon: Code2, title: "Web development", desc: "Website modern dengan React, Vite, dan Tailwind." },
   { icon: Shield, title: "Bug hunting dan security", desc: "Recon, pentesting, dan analisis keamanan sistem." },
   { icon: Terminal, title: "Tools dan CLI", desc: "Custom tools, utility software, dan CLI automation." },
-  { icon: Sparkles, title: "AI integration", desc: "AI gateway, LLM orchestration, dan API optimization." },
+  { icon: Cpu, title: "AI integration", desc: "AI gateway, LLM orchestration, dan API optimization." },
   { icon: Wrench, title: "Maintenance dan fix", desc: "Perbaikan bug, optimasi, dan pengembangan fitur." },
 ];
 
@@ -48,9 +48,9 @@ export default function TentangPage() {
   return (
     <PageShell navLinks={SUBPAGE_NAV_LINKS} footerLinks={SUBPAGE_FOOTER_LINKS}>
       <PageHero
-        chip="Tentang Dikacode"
+        chip="Profil"
         title="Tentang Dikacode"
-        desc="Anak SMK dari Kendal yang ngoding hampir tiap hari. Fokus: AI, security automation, bug hunting. Cara kerja gw: bongkar dulu, paham, baru benerin — bukan asal tambal."
+        desc="Anak SMK dari Kendal yang ngoding hampir tiap hari. Fokus: AI, security automation, bug hunting. Cara kerja gw: bongkar dulu, paham, baru benerin, bukan asal tambal."
         ctas={[
           { label: "Konsultasi sekarang", href: SITE.telegram, external: true, primary: true },
           { label: "Lihat layanan", href: "/layanan" },
@@ -68,14 +68,14 @@ export default function TentangPage() {
                 </h2>
                 <p className="text-[15px] md:text-base leading-relaxed text-mute mb-4">
                   DIKACODE itu cuma nama keren buat gw sendiri. Nggak ada tim,
-                  nggak ada kantor — adanya gw, laptop, dan begadang. Semua
+                  nggak ada kantor, adanya gw, laptop, dan begadang. Semua
                   project di halaman ini gw kerjain sendiri, jadi kalau ada
                   yang jelek, gw nggak bisa nyalahin siapa-siapa.
                 </p>
                 <p className="text-[15px] md:text-base leading-relaxed text-mute">
                   Prinsipnya sederhana:{" "}
                   <span className="text-fog font-medium">paham dulu sistemnya, baru diperbaiki.</span>{" "}
-                  Tiap project gw kawal sampai beres — nama yang dipasang nama
+                  Tiap project gw kawal sampai beres, nama yang dipasang nama
                   gw, bukan nama orang lain.
                 </p>
               </div>

@@ -91,6 +91,13 @@ img, svg, video {
   max-width: 100%;
 }
 
+/* Anti print-to-PDF dumping: hasil cetak dikosongkan */
+@media print {
+  body > #root {
+    display: none !important;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 76px;
@@ -260,67 +267,9 @@ body {
   outline-offset: 2px;
 }
 
-/* Retired decorative treatments: kept as no-ops so old markup stays valid */
-.dots-bg,
-.grid-bg,
-.hero-glow,
-.foot-glow {
-  background-image: none;
-}
-.stripe {
-  background: var(--c-panel-2);
-}
-.glow-neon,
-.glow-green,
-.glow-yellow {
-  box-shadow:
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px,
-    rgba(0, 0, 0, 0.04) 0px 2px 2px;
-}
-.text-glow-cyan,
-.text-glow-green,
-.text-glow-yellow {
-  text-shadow: none;
-}
-.scanlines::before,
-.scanlines::after {
-  display: none;
-}
-.cta-panel {
-  box-shadow:
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px,
-    rgba(0, 0, 0, 0.04) 0px 2px 2px,
-    rgba(0, 0, 0, 0.04) 0px 8px 8px -8px;
-  animation: none;
-}
-.marquee {
-  animation: marquee-scroll 22s linear infinite;
-}
-@keyframes marquee-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-.blink,
-.pulse-glow,
-.float,
-.type-cursor,
-.theme-icon-anim {
-  animation: none;
-}
-.type-cursor {
-  display: none;
-}
-.glitch:hover {
-  animation: none;
-}
-
 ::selection {
   background: var(--c-accent-soft);
   color: var(--c-fog);
-}
-
-.transition-trans-all {
-  transition: all 200ms ease;
 }
 
 @media (prefers-reduced-motion: reduce) {

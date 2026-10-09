@@ -1,9 +1,5 @@
-/**
- * Invisible-style watermark: a full-page tile of "dikacode" at ~3%
- * opacity. Imperceptible while browsing, but present in screenshots.
- * Color follows the theme (text-fog + currentColor) and the layer
- * sits above every section (z-[70]) without blocking interaction.
- */
+// Full-page tile of "dikacode" at ~3% opacity, above every section (z-[70])
+// without blocking interaction, so it lands in screenshots.
 export default function Watermark() {
   return (
     <svg

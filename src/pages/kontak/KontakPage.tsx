@@ -11,7 +11,7 @@ export default function KontakPage() {
       <PageHero
         chip="Kontak Dikacode"
         title="Hubungi gw"
-        desc="Nggak ada CS, nggak ada admin — semua channel di bawah langsung ke gw. Paling cepat via Telegram."
+        desc="Nggak ada CS, nggak ada admin, semua channel di bawah langsung ke gw. Paling cepat via Telegram."
         ctas={[
           { label: "Chat di Telegram", href: SITE.telegram, external: true, primary: true },
           { label: "Lihat layanan", href: "/layanan" },
@@ -25,7 +25,7 @@ export default function KontakPage() {
           <Reveal>
             <div className="v-card relative mx-auto max-w-2xl px-6 py-10 md:py-14">
               <div className="space-y-4">
-                <p className="t-mono-label">Respons cepat</p>
+                <p className="t-mono-label">Telegram</p>
                 <h2 className="t-h2 text-fog">
                   Respons cepat via Telegram
                 </h2>

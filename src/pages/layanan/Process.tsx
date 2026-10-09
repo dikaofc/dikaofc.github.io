@@ -31,16 +31,24 @@ export default function Process() {
       style={{ borderBottom: "1px solid var(--c-line)" }}
     >
       <div className="relative max-w-6xl mx-auto px-4 md:px-8 section">
-        <Reveal className="mb-8 max-w-xl">
-          <p className="t-mono-label mb-3">Alur kerja</p>
+        <Reveal className="mb-10 max-w-xl">
+          <p className="t-mono-label mb-3">Empat langkah</p>
           <h2 className="t-h2 text-fog">Alur kerja</h2>
+          <p className="t-lead mt-3 !text-lg">
+            Dari chat pertama sampai source code di tanganmu.
+          </p>
         </Reveal>
 
-        <ol className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <ol className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, i) => (
-            <Reveal key={s.num} delay={i * 60} className="h-full">
-              <li className="h-full v-card p-6">
-                <p className="font-mono text-sm font-medium text-accent mb-2">{s.num}</p>
+            <Reveal key={s.num} delay={i * 70} className="h-full">
+              <li className="relative h-full pl-5" style={{ borderLeft: "1px solid var(--c-line)" }}>
+                <span
+                  className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full"
+                  style={{ background: "var(--c-accent)" }}
+                  aria-hidden="true"
+                />
+                <p className="font-mono text-sm font-medium text-accent mb-1">{s.num}</p>
                 <h3 className="font-display font-semibold text-base text-fog mb-1.5">{s.title}</h3>
                 <p className="text-sm leading-relaxed text-mute">{s.desc}</p>
               </li>

@@ -9,7 +9,7 @@ Disallow: /config.php
 Disallow: /.env
 Disallow: /database.sql
 
-# AI & search crawlers — explicitly welcome so content is citable
+# AI & search crawlers: explicitly welcome so content is citable
 User-agent: GPTBot
 User-agent: OAI-SearchBot
 User-agent: ChatGPT-User

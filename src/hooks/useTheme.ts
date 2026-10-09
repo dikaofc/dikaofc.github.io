@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export const THEME_KEY = "dika-theme";
 export const THEME_COLORS = { dark: "#000000", light: "#ffffff" } as const;
 
-/** visitor's choice ,  "system" follows the OS preference */
+/** visitor's choice, "system" follows the OS preference */
 export type ThemeChoice = "system" | "light" | "dark";
 export type ResolvedTheme = "light" | "dark";
 

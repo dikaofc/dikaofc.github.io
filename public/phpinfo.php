@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="robots" content="noindex" />
-<title>phpinfo() — dikaofc</title>
+<title>phpinfo(): dikaofc</title>
 <style>
   body { background: #fff; font-family: monospace; margin: 0; padding: 1rem; }
   h1 { background: #0a0c11; color: #ffe600; padding: .6rem 1rem; margin: 0; font-size: 1.1rem; }
@@ -27,7 +27,7 @@
   <tr><th>magic_quotes_gpc</th><td>Off</td></tr>
 </table>
 <p style="font-size:.75rem; color:#666">
-  awokawok kasian lu bro😹
+  awokawok kasian lu bro
 </p>
 </body>
 </html>

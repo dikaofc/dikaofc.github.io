@@ -1,6 +1,6 @@
 // scripts/seo-pages.mjs
 // Inject SEO meta + JSON-LD + static fallback content into every subpage index.html.
-// Idempotent — safe to re-run. Run: node scripts/seo-pages.mjs
+// Idempotent, safe to re-run. Run: node scripts/seo-pages.mjs
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -35,25 +35,25 @@ const NAV_HTML = [
   .map(([h, l]) => `<a href="${h}">${l}</a>`)
   .join(" · ");
 
-const FOOTER_HTML = `<p>DikaCode — Digital Solution &amp; Code. Developer muda dari Indonesia yang fokus di AI, security automation, dan bug hunting.</p><p>Telegram <a href="https://t.me/dikaacode">@dikaacode</a> · Email <a href="mailto:dikasukasukaa@gmail.com">dikasukasukaa@gmail.com</a> · GitHub <a href="https://github.com/dikaofc">dikaofc</a></p><p>© 2026 DikaOfc. Lokasi: Kendal, Jawa Tengah, Indonesia.</p>`;
+const FOOTER_HTML = `<p>DikaCode, Digital Solution &amp; Code. Developer muda dari Indonesia yang fokus di AI, security automation, dan bug hunting.</p><p>Telegram <a href="https://t.me/dikaacode">@dikaacode</a> · Email <a href="mailto:dikasukasukaa@gmail.com">dikasukasukaa@gmail.com</a> · GitHub <a href="https://github.com/dikaofc">dikaofc</a></p><p>© 2026 DikaOfc. Lokasi: Kendal, Jawa Tengah, Indonesia.</p>`;
 
 const FALLBACK_CSS = `<style>.static-fallback{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:56rem;margin:0 auto;padding:2.5rem 1.25rem;line-height:1.75;background:var(--c-panel,#fff);color:var(--c-fog,#171717)}.static-fallback h1{font-size:2rem;line-height:1.2;margin:.5rem 0 1rem;letter-spacing:-.02em}.static-fallback h2{font-size:1.35rem;margin:2rem 0 .75rem}.static-fallback h3{font-size:1.05rem;margin:1.25rem 0 .35rem}.static-fallback p{margin:.6rem 0;color:var(--c-mute,#4d4d4d)}.static-fallback a{color:inherit;text-decoration:underline;text-underline-offset:3px}.static-fallback ul,.static-fallback dl,.static-fallback ol{margin:.6rem 0;padding-left:1.1rem}.static-fallback li{margin:.35rem 0}.static-fallback nav{margin-bottom:1.5rem;font-size:.85rem}.static-fallback footer{margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid var(--c-line,#ebebeb);font-size:.85rem}</style>`;
 
-// ---------- shared content data ----------
+// Shared content data
 
 const SERVICES = [
   {
     href: "/layanan/website",
     name: "Jasa Pembuatan Website",
     short: "Landing page, company profile, portfolio, dan website custom yang responsif dan cepat.",
-    para: "Website adalah wajah digital pertama yang dilihat orang tentang kamu atau bisnismu. DIKACODE bikin website dari nol — bukan template tempelan — dengan struktur yang rapi, tampilan modern, dan performa yang beneran cepat.",
+    para: "Website adalah wajah digital pertama yang dilihat orang tentang kamu atau bisnismu. DIKACODE bikin website dari nol, bukan template tempelan, dengan struktur yang rapi, tampilan modern, dan performa yang beneran cepat.",
     features: ["Landing Page", "Company Profile", "Portfolio", "Custom Website", "Responsive Design", "Performance Optimization"],
   },
   {
     href: "/layanan/bot",
     name: "Jasa Pembuatan Bot",
-    short: "Bot custom untuk Telegram, WhatsApp, dan Discord — automation, komunitas, dan bisnis.",
-    para: "Bot adalah asisten digital yang kerja terus tanpa capek: balas pesan otomatis, kelola komunitas, jalankan perintah, sampai integrasi dengan API dan database. DIKACODE bikin bot custom sesuai kebutuhanmu — bukan sekadar bot template.",
+    short: "Bot custom untuk Telegram, WhatsApp, dan Discord, automation, komunitas, dan bisnis.",
+    para: "Bot adalah asisten digital yang kerja terus tanpa capek: balas pesan otomatis, kelola komunitas, jalankan perintah, sampai integrasi dengan API dan database. DIKACODE bikin bot custom sesuai kebutuhanmu, bukan sekadar bot template.",
     features: ["Custom Commands", "Automation", "API Integration", "Database", "Admin System"],
     platforms: ["Telegram", "WhatsApp", "Discord"],
   },
@@ -68,22 +68,22 @@ const SERVICES = [
     href: "/layanan/perbaikan",
     name: "Perbaikan & Pengembangan",
     short: "Bug fix, error fix, maintenance, optimasi, dan penambahan fitur untuk sistem yang sudah ada.",
-    para: "Website error, bot nggak jalan, sistem lemot, atau butuh fitur baru? DIKACODE bisa masuk ke project yang sudah ada — dari project lama yang ditinggal, sampai sistem produksi yang butuh perbaikan.",
+    para: "Website error, bot nggak jalan, sistem lemot, atau butuh fitur baru? DIKACODE bisa masuk ke project yang sudah ada, dari project lama yang ditinggal, sampai sistem produksi yang butuh perbaikan.",
     features: ["Bug Fix", "Error Fix", "Maintenance", "Feature Development", "Optimization", "Refactoring"],
   },
 ];
 
 const PROJECTS = [
-  { slug: "dikaroute", name: "DikaRoute", tag: "AI gateway ringan dan cepat — multi-provider routing, fallback otomatis, kompresi, dan caching.", tech: ["TypeScript", "Node.js", "OpenAI API"], para: "DikaRoute adalah AI gateway berarsitektur performa yang kompatibel dengan OpenAI. Satu endpoint, banyak provider — request otomatis dirouting ke provider yang tersedia, dan kalau satu provider mati atau rate-limited, sistem langsung fallback ke provider lain." },
-  { slug: "pentesterbot", name: "PentesterBot", tag: "Bot Telegram untuk automation pentesting — recon, perintah, dan workflow vulnerability scanning.", tech: ["JavaScript", "Node.js", "Telegram Bot API"], para: "PentesterBotTelegram membungkus tools pentesting ke dalam satu bot Telegram yang bisa dijalankan langsung dari chat: perintah recon otomatis, eksekusi tools, sampai workflow vulnerability scanning yang terstruktur." },
-  { slug: "remoteuniversal", name: "RemoteUniversalDevice", tag: "Aplikasi Android universal remote untuk mengontrol smart TV dan perangkat pintar lainnya.", tech: ["Kotlin", "Android"], para: "RemoteUniversalDevice adalah aplikasi Android native yang mengubah HP menjadi remote universal: kontrol smart TV dan perangkat pintar yang kompatibel — tanpa perlu remote fisik tambahan." },
-  { slug: "website", name: "dikaofc.github.io", tag: "Website portfolio ini sendiri — Vite + React + Tailwind, single-file build, dan multi-page.", tech: ["React", "TypeScript", "Vite", "Tailwind CSS"], para: "Website yang sedang kamu buka ini adalah proyek open source: portfolio DIKACODE dengan tiap halaman di-build sebagai satu file HTML single-file, dengan clean URL tanpa ekstensi." },
-  { slug: "obitobuff", name: "ObitoBuff CLI", tag: "AI coding agent CLI yang jalan 100% di model kamu sendiri — sub-agents, file finding, bash, dan code review.", tech: ["TypeScript", "Bun", "OpenAI-compatible API"], para: "Obitobuff adalah AI coding agent terminal: TypeScript monorepo dengan sub-agents khusus untuk file finding, editing, bash, research, dan code review — 100% local, tanpa backend." },
-  { slug: "agentbuff", name: "AgentBuff", tag: "AI coding agent untuk Android yang jalan langsung di Termux.", tech: ["TypeScript", "Termux", "Node.js"], para: "AgentBuff (DikaBuff Agent CLI) adalah AI coding agent versi Android — dioptimalkan untuk jalan langsung di Termux, dengan command yang ringkas dan hemat resource." },
-  { slug: "telegrambot-ai", name: "TelegramBot AI", tag: "Userbot Telegram yang membalas chat otomatis pakai AI — belajar gaya bahasa, punya memori, dan agent tools.", tech: ["Python", "Telethon", "OpenAI-compatible API"], para: "telegrambot-ai adalah userbot Telegram (Telethon) yang membalas chat otomatis pakai AI. Ia belajar gaya bahasa kamu, punya memori jangka panjang, dan bisa transkripsi voice note lalu membalas pakai suara." },
-  { slug: "pentesterbot-website", name: "PentesterBot Website", tag: "Website resmi PentesterBot v2 — UI Fluid Glass ala iOS dengan data nyata dari source project bot.", tech: ["React", "Vite", "TypeScript", "Express"], para: "Website resmi untuk agent pentest & bug bounty di Telegram — UI Fluid Glass iOS-inspired dengan server Express yang menyajikan data nyata dari source project bot." },
-  { slug: "dikaroute-website", name: "DikaRoute Website", tag: "Website resmi + dokumentasi lengkap untuk DikaRoute — Unified AI Gateway & Intelligent Model Router.", tech: ["React", "TypeScript", "Tailwind CSS v4", "Framer Motion"], para: "Website lengkap untuk DikaRoute dengan hero animasi + terminal live, marquee provider, fitur, pipeline routing, dan 8 halaman dokumentasi dengan sidebar & TOC." },
-  { slug: "freebuff-patch", name: "Freebuff Patch", tag: "Patch & toolkit biar Freebuff jalan di Android/Termux — glibc no-proot, hemat context, anti-limit.", tech: ["Shell", "Termux", "glibc", "Node.js"], para: "Freebuff rilis sebagai ELF GNU/glibc yang tidak bisa jalan langsung di Termux tanpa proot. freebuffPatchAndroid berisi satu perintah untuk memperbaiki semuanya — glibc no-proot, hemat context, anti-limit." },
+  { slug: "dikaroute", name: "DikaRoute", tag: "AI gateway ringan dan cepat, multi-provider routing, fallback otomatis, kompresi, dan caching.", tech: ["TypeScript", "Node.js", "OpenAI API"], para: "DikaRoute adalah AI gateway berarsitektur performa yang kompatibel dengan OpenAI. Satu endpoint, banyak provider, request otomatis dirouting ke provider yang tersedia, dan kalau satu provider mati atau rate-limited, sistem langsung fallback ke provider lain." },
+  { slug: "pentesterbot", name: "PentesterBot", tag: "Bot Telegram untuk automation pentesting, recon, perintah, dan workflow vulnerability scanning.", tech: ["JavaScript", "Node.js", "Telegram Bot API"], para: "PentesterBotTelegram membungkus tools pentesting ke dalam satu bot Telegram yang bisa dijalankan langsung dari chat: perintah recon otomatis, eksekusi tools, sampai workflow vulnerability scanning yang terstruktur." },
+  { slug: "remoteuniversal", name: "RemoteUniversalDevice", tag: "Aplikasi Android universal remote untuk mengontrol smart TV dan perangkat pintar lainnya.", tech: ["Kotlin", "Android"], para: "RemoteUniversalDevice adalah aplikasi Android native yang mengubah HP menjadi remote universal: kontrol smart TV dan perangkat pintar yang kompatibel, tanpa perlu remote fisik tambahan." },
+  { slug: "website", name: "dikaofc.github.io", tag: "Website portfolio ini sendiri, Vite + React + Tailwind, single-file build, dan multi-page.", tech: ["React", "TypeScript", "Vite", "Tailwind CSS"], para: "Website yang sedang kamu buka ini adalah proyek open source: portfolio DIKACODE dengan tiap halaman di-build sebagai satu file HTML single-file, dengan clean URL tanpa ekstensi." },
+  { slug: "obitobuff", name: "ObitoBuff CLI", tag: "AI coding agent CLI yang jalan 100% di model kamu sendiri, sub-agents, file finding, bash, dan code review.", tech: ["TypeScript", "Bun", "OpenAI-compatible API"], para: "Obitobuff adalah AI coding agent terminal: TypeScript monorepo dengan sub-agents khusus untuk file finding, editing, bash, research, dan code review, 100% local, tanpa backend." },
+  { slug: "agentbuff", name: "AgentBuff", tag: "AI coding agent untuk Android yang jalan langsung di Termux.", tech: ["TypeScript", "Termux", "Node.js"], para: "AgentBuff (DikaBuff Agent CLI) adalah AI coding agent versi Android, dioptimalkan untuk jalan langsung di Termux, dengan command yang ringkas dan hemat resource." },
+  { slug: "telegrambot-ai", name: "TelegramBot AI", tag: "Userbot Telegram yang membalas chat otomatis pakai AI, belajar gaya bahasa, punya memori, dan agent tools.", tech: ["Python", "Telethon", "OpenAI-compatible API"], para: "telegrambot-ai adalah userbot Telegram (Telethon) yang membalas chat otomatis pakai AI. Ia belajar gaya bahasa kamu, punya memori jangka panjang, dan bisa transkripsi voice note lalu membalas pakai suara." },
+  { slug: "pentesterbot-website", name: "PentesterBot Website", tag: "Website resmi PentesterBot v2, UI Fluid Glass ala iOS dengan data nyata dari source project bot.", tech: ["React", "Vite", "TypeScript", "Express"], para: "Website resmi untuk agent pentest & bug bounty di Telegram, UI Fluid Glass iOS-inspired dengan server Express yang menyajikan data nyata dari source project bot." },
+  { slug: "dikaroute-website", name: "DikaRoute Website", tag: "Website resmi + dokumentasi lengkap untuk DikaRoute, Unified AI Gateway & Intelligent Model Router.", tech: ["React", "TypeScript", "Tailwind CSS v4", "Framer Motion"], para: "Website lengkap untuk DikaRoute dengan hero animasi + terminal live, marquee provider, fitur, pipeline routing, dan 8 halaman dokumentasi dengan sidebar & TOC." },
+  { slug: "freebuff-patch", name: "Freebuff Patch", tag: "Patch & toolkit biar Freebuff jalan di Android/Termux, glibc no-proot, hemat context, anti-limit.", tech: ["Shell", "Termux", "glibc", "Node.js"], para: "Freebuff rilis sebagai ELF GNU/glibc yang tidak bisa jalan langsung di Termux tanpa proot. freebuffPatchAndroid berisi satu perintah untuk memperbaiki semuanya, glibc no-proot, hemat context, anti-limit." },
 ];
 
 const FAQS = [
@@ -98,13 +98,13 @@ const FAQS = [
 ];
 
 const PACKAGES = [
-  ["Paket website — mulai Rp150rb", "Landing Page dan Company Profile, Portfolio dan Personal Website, Custom Website, Responsive dan Fast, Revisi sampai sesuai."],
-  ["Paket bot — mulai Rp100rb", "Untuk Telegram, WhatsApp, atau Discord. Custom Commands, Automation Workflow, API Integration, Database dan Admin System."],
-  ["Paket tools — mulai Rp150rb", "Tools custom sesuai kebutuhan kamu. Custom Tools dan Scripts, CLI Tools, Utility Software, Workflow Automation."],
-  ["Maintenance — mulai Rp50rb/bulan", "Untuk sistem atau bot yang sudah jalan. Bug dan Error Fix, Maintenance Rutin, Optimasi Performa, Penambahan Fitur."],
+  ["Paket website, mulai Rp150rb", "Landing Page dan Company Profile, Portfolio dan Personal Website, Custom Website, Responsive dan Fast, Revisi sampai sesuai."],
+  ["Paket bot, mulai Rp100rb", "Untuk Telegram, WhatsApp, atau Discord. Custom Commands, Automation Workflow, API Integration, Database dan Admin System."],
+  ["Paket tools, mulai Rp150rb", "Tools custom sesuai kebutuhan kamu. Custom Tools dan Scripts, CLI Tools, Utility Software, Workflow Automation."],
+  ["Maintenance, mulai Rp50rb/bulan", "Untuk sistem atau bot yang sudah jalan. Bug dan Error Fix, Maintenance Rutin, Optimasi Performa, Penambahan Fitur."],
 ];
 
-// ---------- builders ----------
+// Builders
 
 function orgSchema() {
   return {
@@ -168,7 +168,7 @@ function extrasFor(urlPath, h1, desc) {
       crumb: "Layanan",
       trail: [["Layanan", "/layanan"]],
       schemaExtra: [],
-      body: `<h2>4 Layanan DIKACODE</h2>${li(SERVICES.map((s) => `<h3>${s.name}</h3><p>${s.short}</p><a href="${s.href}">Pelajari layanan</a>`))}<h2>Kenapa DIKACODE?</h2><p>Aman terpercaya, cepat dan efisien, kualitas terjamin, dan support responsif. Konsultasi gratis via <a href="https://t.me/dikaacode">@dikaacode</a>.</p>`,
+      body: `<h2>4 Layanan DIKACODE</h2>${li(SERVICES.map((s) => `<h3>${s.name}</h3><p>${s.short}</p><a href="${s.href}">Pelajari layanan</a>`))}<h2>Kenapa DIKACODE?</h2><p>Satu orang ngerjain dari awal sampai beres, harga ditulis di halaman harga, dan garansi bug fix beneran jalan. Konsultasi gratis via <a href="https://t.me/dikaacode">@dikaacode</a>.</p>`,
     };
   }
   const svc = SERVICES.find((s) => urlPath === s.href.slice(1));
@@ -185,7 +185,7 @@ function extrasFor(urlPath, h1, desc) {
       crumb: "Tentang",
       trail: [["Tentang", "/tentang"]],
       schemaExtra: [{ "@type": "Person", "@id": `${SITE}/#person`, name: "DikaOfc", alternateName: "DikaCode", jobTitle: "Full-stack Developer & AI Engineer", url: `${SITE}/tentang`, email: "dikasukasukaa@gmail.com", worksFor: { "@id": ORG_ID }, sameAs: ["https://github.com/dikaofc", "https://t.me/dikaacode"] }],
-      body: `<h2>Siapa DIKACODE?</h2><p>DIKACODE itu bukan perusahaan besar — ini orang biasa yang serius bikin kode. Dari bot Telegram, AI gateway, sampai tools pentesting, semua dikerjain manual, diuji, dan dipoles sampai benar-benar jalan. Prinsipnya: paham dulu sistemnya, baru diperbaiki.</p><h2>Fakta singkat</h2>${li(["Nama: DIKACODE (DikaOfc)", "Status: SMK Bhinneka, jurusan DKV, kelas XI", "Domisili: Kendal, Jawa Tengah, Indonesia", "Fokus: AI, security automation, bug hunting, digital solution"])}<h2>Keahlian</h2><p>Bot dan automation, web development (React, Vite, Tailwind), bug hunting dan security, tools dan CLI, AI integration, maintenance dan fix.</p>`,
+      body: `<h2>Siapa DIKACODE?</h2><p>DIKACODE itu bukan perusahaan besar, ini orang biasa yang serius bikin kode. Dari bot Telegram, AI gateway, sampai tools pentesting, semua dikerjain manual, diuji, dan dipoles sampai benar-benar jalan. Prinsipnya: paham dulu sistemnya, baru diperbaiki.</p><h2>Fakta singkat</h2>${li(["Nama: DIKACODE (DikaOfc)", "Status: SMK Bhinneka, jurusan DKV, kelas XI", "Domisili: Kendal, Jawa Tengah, Indonesia", "Fokus: AI, security automation, bug hunting, digital solution"])}<h2>Keahlian</h2><p>Bot dan automation, web development (React, Vite, Tailwind), bug hunting dan security, tools dan CLI, AI integration, maintenance dan fix.</p>`,
     };
   }
   if (urlPath === "proyek") {
@@ -218,7 +218,7 @@ function extrasFor(urlPath, h1, desc) {
       crumb: "Kontak",
       trail: [["Kontak", "/kontak"]],
       schemaExtra: [],
-      body: `<h2>Semua channel</h2><ul><li>GitHub: <a href="https://github.com/dikaofc">@dikaofc</a></li><li>Website: <a href="https://obitoglory.tech">obitoglory.tech</a></li><li>Telegram: <a href="https://t.me/dikaacode">@dikaacode</a></li><li>Email: <a href="mailto:dikasukasukaa@gmail.com">dikasukasukaa@gmail.com</a></li><li>Layanan: <a href="/layanan">Open Jasa, Digital Solution</a></li></ul><p>Respons cepat via Telegram — balas pertanyaan, diskusi kebutuhan, sampai detail project, semua bisa lewat satu chat.</p>`,
+      body: `<h2>Semua channel</h2><ul><li>GitHub: <a href="https://github.com/dikaofc">@dikaofc</a></li><li>Website: <a href="https://obitoglory.tech">obitoglory.tech</a></li><li>Telegram: <a href="https://t.me/dikaacode">@dikaacode</a></li><li>Email: <a href="mailto:dikasukasukaa@gmail.com">dikasukasukaa@gmail.com</a></li><li>Layanan: <a href="/layanan">Open Jasa, Digital Solution</a></li></ul><p>Respons cepat via Telegram, balas pertanyaan, diskusi kebutuhan, sampai detail project, semua bisa lewat satu chat.</p>`,
     };
   }
   if (urlPath === "testimoni") {
@@ -226,7 +226,7 @@ function extrasFor(urlPath, h1, desc) {
       crumb: "Testimoni",
       trail: [["Testimoni", "/testimoni"]],
       schemaExtra: [],
-      body: `<h2>Belum ada testimoni — jadilah yang pertama</h2><p>DIKACODE baru aja buka jasa digital solution. Semua project dikerjain dengan teliti dan didukung sampai beres. <a href="https://t.me/dikaacode">Mulai project via Telegram</a></p>`,
+      body: `<h2>Belum ada testimoni, jadilah yang pertama</h2><p>DIKACODE baru aja buka jasa digital solution. Semua project dikerjain dengan teliti dan didukung sampai beres. <a href="https://t.me/dikaacode">Mulai project via Telegram</a></p>`,
     };
   }
   if (urlPath === "faq") {

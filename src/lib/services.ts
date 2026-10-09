@@ -24,7 +24,7 @@ export const SERVICES: ServiceDetail[] = [
     title: "JASA PEMBUATAN WEBSITE",
     short: "Website profesional, responsif, cepat, modern, dan sesuai kebutuhan bisnis maupun personal.",
     long: [
-      "Website adalah wajah digital pertama yang dilihat orang tentang kamu atau bisnismu. DIKACODE bikin website dari nol ,  bukan template tempelan ,  dengan struktur yang rapi, tampilan modern, dan performa yang beneran cepat.",
+      "Website adalah wajah digital pertama yang dilihat orang tentang kamu atau bisnismu. DIKACODE bikin website dari nol, bukan template tempelan, dengan struktur yang rapi, tampilan modern, dan performa yang beneran cepat.",
       "Setiap halaman dibangun custom sesuai kebutuhan: dari landing page satu halaman sampai company profile multi-halaman. Semua responsive di HP, tablet, dan desktop, plus dioptimalkan biar loading tetap ringan.",
     ],
     features: [
@@ -63,8 +63,8 @@ export const SERVICES: ServiceDetail[] = [
     title: "JASA PEMBUATAN BOT",
     short: "Bot custom untuk automation, komunitas, bisnis, dan berbagai kebutuhan digital.",
     long: [
-      "Bot adalah asisten digital yang kerja terus tanpa capek: balas pesan otomatis, kelola komunitas, jalankan perintah, sampai integrasi dengan API dan database. DIKACODE bikin bot custom sesuai kebutuhanmu ,  bukan sekadar bot template.",
-      "Dari bot Telegram untuk komunitas, bot WhatsApp untuk bisnis, sampai bot Discord untuk server ,  semuanya dibangun dengan sistem admin yang mudah diatur dan siap jalan 24/7.",
+      "Bot adalah asisten digital yang kerja terus tanpa capek: balas pesan otomatis, kelola komunitas, jalankan perintah, sampai integrasi dengan API dan database. DIKACODE bikin bot custom sesuai kebutuhanmu, bukan sekadar bot template.",
+      "Dari bot Telegram untuk komunitas, bot WhatsApp untuk bisnis, sampai bot Discord untuk server, semuanya dibangun dengan sistem admin yang mudah diatur dan siap jalan 24/7.",
     ],
     features: [
       "Custom Commands",
@@ -103,7 +103,7 @@ export const SERVICES: ServiceDetail[] = [
     short: "Tools custom untuk mempermudah pekerjaan, automation, produktivitas, dan kebutuhan khusus.",
     long: [
       "Punya pekerjaan yang berulang-ulang dan manual? Tools custom bisa memangkasnya jadi satu perintah. DIKACODE bikin tools sesuai alur kerjamu: script CLI, utility software, sampai workflow automation.",
-      "Tidak perlu beli software mahal dengan fitur yang nggak kamu pakai. Tools dibangun khusus untuk kebutuhanmu ,  simpel, cepat, dan pas dengan cara kerjamu.",
+      "Tidak perlu beli software mahal dengan fitur yang nggak kamu pakai. Tools dibangun khusus untuk kebutuhanmu, simpel, cepat, dan pas dengan cara kerjamu.",
     ],
     features: [
       "Custom Tools",
@@ -141,8 +141,8 @@ export const SERVICES: ServiceDetail[] = [
     title: "PERBAIKAN & PENGEMBANGAN",
     short: "Perbaikan bug, error, maintenance, optimasi, dan penambahan fitur untuk sistem yang sudah ada.",
     long: [
-      "Website error, bot nggak jalan, sistem lemot, atau butuh fitur baru? DIKACODE bisa masuk ke project yang sudah ada ,  dari project lama yang ditinggal, sampai sistem produksi yang butuh perbaikan.",
-      "Setiap masalah didiagnosa dulu sampai ketemu akar penyebabnya, baru diperbaiki ,  bukan cuma ditambal. Setelah beres, sistem diuji dan dioptimasi biar nggak gampang rusak lagi.",
+      "Website error, bot nggak jalan, sistem lemot, atau butuh fitur baru? DIKACODE bisa masuk ke project yang sudah ada, dari project lama yang ditinggal, sampai sistem produksi yang butuh perbaikan.",
+      "Setiap masalah didiagnosa dulu sampai ketemu akar penyebabnya, baru diperbaiki, bukan cuma ditambal. Setelah beres, sistem diuji dan dioptimasi biar nggak gampang rusak lagi.",
     ],
     features: [
       "Bug Fix",

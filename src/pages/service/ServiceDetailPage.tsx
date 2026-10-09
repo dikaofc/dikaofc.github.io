@@ -106,11 +106,16 @@ export default function ServiceDetailPage({ service }: Props) {
             <h2 className="t-h2 text-fog">Cara kerjanya</h2>
           </Reveal>
 
-          <ol className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <ol className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
             {service.process.map((s, i) => (
               <Reveal key={s.num} delay={i * 60} className="h-full">
-                <li className="h-full v-card p-6">
-                  <p className="font-mono text-sm font-medium text-accent mb-2">{s.num}</p>
+                <li className="relative h-full pl-5" style={{ borderLeft: "1px solid var(--c-line)" }}>
+                  <span
+                    className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full"
+                    style={{ background: "var(--c-accent)" }}
+                    aria-hidden="true"
+                  />
+                  <p className="font-mono text-sm font-medium text-accent mb-1">{s.num}</p>
                   <h3 className="font-display font-semibold text-base text-fog mb-1.5">{titleCase(s.title)}</h3>
                   <p className="text-sm leading-relaxed text-mute">{s.desc}</p>
                 </li>

@@ -82,9 +82,9 @@ export default function HargaPage() {
   return (
     <PageShell navLinks={SUBPAGE_NAV_LINKS} footerLinks={SUBPAGE_FOOTER_LINKS}>
       <PageHero
-        chip="Harga dan paket"
+        chip="Harga"
         title="Paket harga"
-        desc="Angka di bawah ini patokan, bukan harga mati. Nego boleh banget — gw lebih suka project jalan daripada gagal gara-gara harga."
+        desc="Angka di bawah ini patokan, bukan harga mati. Nego boleh banget, gw lebih suka project jalan daripada gagal gara-gara harga."
         ctas={[
           { label: "Tanya harga", href: SITE.telegram, external: true, primary: true },
           { label: "Lihat layanan", href: "/layanan" },
@@ -148,7 +148,7 @@ export default function HargaPage() {
               </h2>
               <p className="text-[15px] md:text-base leading-relaxed text-mute max-w-xl mx-auto">
                 Ceritain budget kamu, nanti gw bilang dapat apa aja dengan
-                budget segitu. Kalau nggak masuk, gw bilang langsung — nggak
+                budget segitu. Kalau nggak masuk, gw bilang langsung, nggak
                 bakal gw akalin biar jadi.
               </p>
               <a

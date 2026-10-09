@@ -49,7 +49,7 @@ export default function Contact() {
             <p className="t-mono-label mb-3">Kontak</p>
             <h2 className="t-display text-fog mb-5">Mau chat?</h2>
             <p className="t-lead max-w-md">
-              Mau order, mau collab, atau cuma mau nanya-nanya dulu — semuanya
+              Mau order, mau collab, atau cuma mau nanya-nanya dulu, semuanya
               lewat channel di bawah. Yang bales gw langsung, bukan bot.
               (Ironis: gw bikin bot buat orang, tapi chat orderan tetap gw
               bales sendiri.) Butuh website, bot, atau tools?{" "}

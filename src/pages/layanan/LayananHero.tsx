@@ -3,8 +3,6 @@ import Reveal from "../../components/Reveal";
 
 const TELEGRAM = "https://t.me/dikaacode";
 
-const HUD_CHIPS = ["WEB", "BOT", "TOOLS", "AUTOMATION", "MAINTENANCE"];
-
 export default function LayananHero() {
   return (
     <section
@@ -49,16 +47,6 @@ export default function LayananHero() {
           </Reveal>
 
           <Reveal delay={320}>
-            <div className="flex flex-wrap gap-1.5 pt-1">
-              {HUD_CHIPS.map((chip) => (
-                <span key={chip} className="v-pill">
-                  {chip}
-                </span>
-              ))}
-            </div>
-          </Reveal>
-
-          <Reveal delay={400}>
             <p className="font-mono text-sm text-mute">
               Telegram: <span className="text-fog font-medium">@dikaacode</span>
             </p>

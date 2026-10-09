@@ -37,7 +37,7 @@ export default function App() {
         if (!alive) return;
         setUser(u);
       } catch {
-        // keep fallback silently
+        // GitHub unavailable: keep the honest fallback profile shown
       } finally {
         if (alive) setLoading(false);
       }

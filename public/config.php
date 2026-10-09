@@ -12,8 +12,8 @@ return [
         'email' => 'root@dikaofc.tech',
     ],
     'api' => [
-        'key' => 'sk-jembut-memek-7f4a9c2d1e8b0a3f',
-        'secret' => 'memek_bapaklu_awokawok',
+        'key' => 'sk-palsu-7f4a9c2d1e8b0a3f',
+        'secret' => 'bukan_secret_asli',
     ],
     'debug' => true,
 ];

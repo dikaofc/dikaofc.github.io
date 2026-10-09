@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="robots" content="noindex" />
-<title>cmd — /var/www/html</title>
+<title>cmd: /var/www/html</title>
 <style>
   body { background: #0a0c11; color: #22d3ee; font-family: monospace; margin: 0; padding: 1rem; min-height: 100vh; }
   .prompt { color: #ffe600; }
@@ -17,11 +17,11 @@
   <div><span class="prompt">www-data@prank-server:/var/www/html$</span> <span id="cmd">id</span></div>
   <div class="out">uid=33(www-data) gid=33(www-data) groups=33(www-data)</div>
   <div><span class="prompt">www-data@prank-server:/var/www/html$</span> <span id="cmd2">ls -la /</span></div>
-  <div class="out">drwxr-xr-x  20 root root  4096  <- kena prank 😹</div>
+  <div class="out">drwxr-xr-x  20 root root  4096  <- kena prank </div>
   <div><span class="prompt">www-data@prank-server:/var/www/html$</span> <input placeholder="ketik perintah apa aja..." /></div>
   <div class="hint">
     <strong>DIKACODE</strong>
-    Selamat, kamu kena prank. 🫵😹<br />
+    Selamat, kamu kena prank. <br />
     <span style="color:#ffe600">HTTP 200 · dikacode</span>
   </div>
 </div>

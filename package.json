@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node node_modules/vite/bin/vite.js build && npm run build:pages",
+    "build": "node scripts/seo-pages.mjs && node node_modules/vite/bin/vite.js build && npm run build:pages",
     "build:pages": "node scripts/build-pages.mjs",
     "preview": "node scripts/preview.mjs"
   },
