@@ -71,7 +71,7 @@ export default function ProjectDetailPage({ project }: Props) {
                         href={l.href}
                         target={l.external ? "_blank" : undefined}
                         rel={l.external ? "noopener noreferrer" : undefined}
-                        className="group flex items-center justify-between gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium text-fog bg-panel-2 transition-colors hover:text-accent min-h-[44px]"
+                        className="group flex items-center justify-between gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium text-fog bg-panel-2 transition-colors hover:text-accent-ink min-h-[44px]"
                       >
                         {l.label}
                         <ExternalLink

@@ -73,6 +73,7 @@
   --color-faint: var(--c-faint);
   --color-cream: var(--c-card);
   --color-accent: var(--c-accent);
+  --color-accent-ink: var(--c-accent-ink);
 
   --color-paper: var(--c-cta);
   --color-orange: var(--c-accent);

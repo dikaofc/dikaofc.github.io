@@ -115,7 +115,7 @@ export default function ServiceDetailPage({ service }: Props) {
                     style={{ background: "var(--c-accent)" }}
                     aria-hidden="true"
                   />
-                  <p className="font-mono text-sm font-medium text-accent mb-1">{s.num}</p>
+                  <p className="font-mono text-sm font-medium text-accent-ink mb-1">{s.num}</p>
                   <h3 className="font-display font-semibold text-base text-fog mb-1.5">{titleCase(s.title)}</h3>
                   <p className="text-sm leading-relaxed text-mute">{s.desc}</p>
                 </li>

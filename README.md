@@ -228,7 +228,7 @@ Selain itu:
 - **Watermark** tak terlihat (`Watermark.tsx`) + sisipan `- dikacode` saat teks di-copy (`App.tsx`).
 - `public/robots.txt` (Disallow honeypot + allowlist crawler AI) + `public/sitemap.xml` (25 URL) + `public/llms.txt`.
 
-> **Batasan jujur:** semua di atas adalah lapisan client-side. `curl`, `wget`, atau HTTrack tidak menjalankan JavaScript, jadi tidak tersentuh trik apapun di sini — HTML/CSS/JS statis pada dasarnya selalu bisa diunduh. Yang benar-benar menghentikan dumper adalah **filter level jaringan**: pasang domain di belakang **Cloudflare gratis** → aktifkan **Bot Fight Mode** + 1–2 **Firewall Rule** (block UA `HTTrack|wget|curl|python-requests|scrapy|aria2|sqlmap|nikto`) + **Rate Limiting** + **ScrapeShield hotlink protection**. Header keamanan `vercel.json` juga bisa dipasang ulang via Cloudflare Transform Rules karena GitHub Pages tidak mengirimnya.
+> **Batasan jujur:** semua di atas adalah lapisan client-side. `curl`, `wget`, atau HTTrack tidak menjalankan JavaScript, jadi tidak tersentuh trik apapun di sini, HTML/CSS/JS statis pada dasarnya selalu bisa diunduh. Yang benar-benar menghentikan dumper adalah **filter level jaringan**: pasang domain di belakang **Cloudflare gratis** → aktifkan **Bot Fight Mode** + 1–2 **Firewall Rule** (block UA `HTTrack|wget|curl|python-requests|scrapy|aria2|sqlmap|nikto`) + **Rate Limiting** + **ScrapeShield hotlink protection**. Header keamanan `vercel.json` juga bisa dipasang ulang via Cloudflare Transform Rules karena GitHub Pages tidak mengirimnya.
 
 ---
 

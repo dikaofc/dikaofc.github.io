@@ -166,7 +166,7 @@ export default function ProyekPage() {
                 href={SITE.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:opacity-75"
+                className="inline-flex items-center gap-2 text-sm font-medium text-accent-ink hover:opacity-75"
               >
                 <ExternalLink size={15} strokeWidth={2} aria-hidden="true" />
                 Lihat semua repository di GitHub

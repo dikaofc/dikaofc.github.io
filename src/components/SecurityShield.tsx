@@ -20,7 +20,7 @@ export default function SecurityShield() {
   // yang tidak tersedia di static hosting). Menggagalkan mirror/proxy iframe.
   useEffect(() => {
     try {
-      if (window.top !== window.self) {
+      if (window.top && window.top !== window.self) {
         window.top.location.href = window.location.href;
       }
     } catch {

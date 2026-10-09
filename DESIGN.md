@@ -1,4 +1,4 @@
-# DESIGN.md — DikaCode
+# DESIGN.md: DikaCode
 
 Direction for the DikaCode site. This is the source of identity; `antislop.md`
 is the filter applied on top. `antislop.md` removes what should not be there,
@@ -57,12 +57,12 @@ and the active FAQ item only, never spread across every element.
 
 `Dial: ENERGY 2 / RHYTHM 2 / MOTION 2`
 
-- **ENERGY 2** — confident and clear, closer to Stripe than to an agency site.
+- **ENERGY 2**: confident and clear, closer to Stripe than to an agency site.
   One focal point per screen; the rest defers.
-- **RHYTHM 2** — consistent sections with deliberate breaks. Not every section
+- **RHYTHM 2**: consistent sections with deliberate breaks. Not every section
   is an eyebrow plus a card grid; the split layouts and the honest notes break
   the pattern on purpose.
-- **MOTION 2** — scroll-reveal and hover transitions, matched to purpose. No
+- **MOTION 2**: scroll-reveal and hover transitions, matched to purpose. No
   endless decorative loops beyond the hero typewriter, which carries the bio.
 
 ## Identity motif

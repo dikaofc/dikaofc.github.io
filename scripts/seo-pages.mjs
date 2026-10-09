@@ -265,7 +265,7 @@ function process(file, urlPath) {
   }
   const rawTitle = titleM[1];
   const rawDesc = descM[1];
-  const h1 = decode(rawTitle).split(/[,·—|\-]/)[0].trim();
+  const h1 = decode(rawTitle).split(/[,·|\-]/)[0].trim();
   const url = `${SITE}/${urlPath}`;
   const ex = extrasFor(urlPath, rawTitle, rawDesc);
 
