@@ -1,17 +1,16 @@
-# 🚀 dikaofc.github.io — Portfolio Neo-Brutalist
+# 🚀 dikaofc.github.io — Portfolio & Jasa DIKACODE
 
 [![Deploy Status](https://github.com/dikaofc/dikaofc.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/dikaofc/dikaofc.github.io/actions/workflows/deploy.yml)
-[![GitHub Pages](https://img.shields.io/github/deployments/dikaofc/dikaofc.github.io/github-pages?label=Pages&logo=github&color=%23ffe600&labelColor=%230a0c11)](https://github.com/dikaofc/dikaofc.github.io/deployments)
+[![GitHub Pages](https://img.shields.io/github/deployments/dikaofc/dikaofc.github.io/github-pages?label=Pages&logo=github&labelColor=%23000)](https://github.com/dikaofc/dikaofc.github.io/deployments)
 [![React](https://img.shields.io/badge/React-19.2.6-61DAFB?logo=react&logoColor=white)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Vite](https://img.shields.io/badge/Vite-7.3.2-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1.17-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
-[![Three.js](https://img.shields.io/badge/Three.js-0.185.1-000000?logo=three.js&logoColor=white)](https://threejs.org)
-[![License](https://img.shields.io/github/license/dikaofc/dikaofc.github.io?color=%23FFDE4D&labelColor=%230a0c11)](https://github.com/dikaofc/dikaofc.github.io/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/dikaofc/dikaofc.github.io?color=%23000)](https://github.com/dikaofc/dikaofc.github.io/blob/main/LICENSE)
 
-Portfolio website pribadi dengan visual **Cyberpunk × Neo-Brutalism** — dibangun dengan **Vite + React 19 + TypeScript + Tailwind CSS v4 + Three.js**.
+Website portfolio + jasa pribadi **DikaCode (DikaOfc / ObitoGlory)** — dibangun dengan **Vite + React 19 + TypeScript + Tailwind CSS v4**, memakai **visual language ala Vercel** (kanvas bersih, border tipis sebagai "shadow", tipografi Geist yang rapat).
 
-> **Live:** [dikaofc.github.io](https://dikaofc.github.io) · [Layanan](https://dikaofc.github.io/layanan) · [Halaman 3D](https://dikaofc.github.io/portofolio)
+> **Live:** [obitoglory.tech](https://obitoglory.tech) · [Layanan](https://obitoglory.tech/layanan) · [Halaman 3D](https://obitoglory.tech/portofolio)
 
 ---
 
@@ -20,13 +19,13 @@ Portfolio website pribadi dengan visual **Cyberpunk × Neo-Brutalism** — diban
 - [✨ Fitur](#-fitur)
 - [🛠️ Tech Stack](#️-tech-stack)
 - [🚀 Cara Menjalankan](#-cara-menjalankan)
-- [🎛️ Cara Tuning `--c-shadow-offset`](#️-cara-tuning---c-shadow-offset)
+- [🧩 Arsitektur Multi-Page](#-arsitektur-multi-page)
 - [📄 Halaman](#-halaman)
-- [🛠️ Halaman Layanan](#️-halaman-layanan)
-- [📸 Screenshot](#-screenshot)
-- [📁 Struktur Project](#-struktur-project)
+- [🎨 Design Tokens & Styling](#-design-tokens--styling)
 - [🌓 Theme System](#-theme-system)
-- [🐾 Mascot Family](#-mascot-family)
+- [🛡️ Fitur "Keamanan" & Anti-Scraper](#️-fitur-keamanan--anti-scraper)
+- [📁 Struktur Project](#-struktur-project)
+- [📸 Screenshot](#-screenshot)
 - [🚢 Deployment](#-deployment)
 - [🌐 Connect](#-connect)
 
@@ -36,20 +35,19 @@ Portfolio website pribadi dengan visual **Cyberpunk × Neo-Brutalism** — diban
 
 | | Fitur | Detail |
 |---|-------|--------|
-| 🖥️ | **3D Hero** | Logo SMK 3D (Three.js) — mouse parallax, idle float, satellite cyan + partikel, pause render saat off-screen (IntersectionObserver), DPR clamp |
-| 🎛️ | **Theme System** | Auto / Light / Dark — tersimpan di `localStorage`, sinkron antar-tab (event `storage`), ikon toggle sun↔moon morph, menghormati `prefers-color-scheme` |
-| ⌨️ | **Typewriter** | Bio hero mengetik khas terminal dengan block cursor hijau |
-| 🐾 | **Mascot Family** | "Diko & friends" (Robot, Cat, Bug, Spark) — 100% CSS shapes, `aria-hidden`, mati saat `prefers-reduced-motion` |
-| 🎯 | **Featured Repo** | DikaRoute tampil menonjol dengan scanline sweep + neon glow |
-| 🖼️ | **Halaman 3D Kedua** | `/portofolio` (3D logo SMK drag-to-rotate) — theme konsisten & sinkron dengan main site |
-| 📄 | **Multi-Page (23 halaman)** | MPA single-file — setiap halaman di-build sendiri via `scripts/build-pages.mjs` + `vite.page.config.ts` (tanpa dependency router) |
-| 🛠️ | **Halaman Layanan** | Glass cards + digital globe 3D (Three.js), benefits, alur kerja, CTA panel futuristic |
-| 🔗 | **Detail Per-Layanan** | `/layanan/{website,bot,tools,perbaikan}` — overview, fitur, alur pengerjaan, deliverables, related services |
-| 💰 | **Halaman Harga** | Paket open jasa (website/bot/tools/maintenance) + nego custom |
-| 📝 | **Halaman FAQ** | Accordion aksesibel (`aria-expanded`) — 8 pertanyaan umum |
-| 🔍 | **Live GitHub Data** | Stats & repos di-fetch realtime dari GitHub API, dengan fallback saat offline |
-| 💧 | **Invisible Watermark** | Teks yang di-copy otomatis disisipkan `— dikacode` |
-| 📱 | **Mobile-First** | Hover di-scope `pointer-fine` (anti sticky-hover Android), scrollbar disembunyikan, ring `:focus-visible` kuning, dukungan `prefers-reduced-motion` |
+| 🖥️ | **Hero + Typewriter** | Bio hero diketik gaya terminal (`Typewriter`), plus kartu statistik (repos/followers/following) dari GitHub |
+| 🎛️ | **Theme System** | Auto / Light / Dark — tersimpan di `localStorage`, sinkron antar-tab (event `storage`), menghormati `prefers-color-scheme`, anti-flash (script inline sebelum first paint) |
+| 🔍 | **Live GitHub Data** | Stats & repos di-fetch realtime dari GitHub API dengan cache localStorage (stale-while-revalidate) + `FALLBACK_*` saat offline/rate-limited |
+| 📄 | **Multi-Page (22 halaman)** | MPA single-file — tiap halaman di-build sendiri via `scripts/build-pages.mjs` + `vite.page.config.ts` (tanpa router library) |
+| 🧭 | **Clean URLs** | Tiap halaman jadi `<nama>/index.html` → URL `/<nama>` tanpa `.html`, jalan native di GitHub Pages, Vercel, dan dev server |
+| 🛠️ | **Halaman Layanan** | 4 layanan + halaman detail per-layanan (`/layanan/{website,bot,tools,perbaikan}`) |
+| 💰 | **Halaman Harga** | Paket open jasa (website/bot/tools/maintenance) + opsi nego custom |
+| 📝 | **Halaman FAQ** | Accordion aksesibel (`aria-expanded` / `aria-controls`) — 8 pertanyaan umum |
+| 🗂️ | **Detail Per-Proyek** | `/proyek/<slug>` — 10 halaman detail dari satu sumber data (`src/lib/projects.ts`) |
+| 🧊 | **Halaman 3D** | `/portofolio` — halaman statis (Three.js dari CDN) dengan logo SMK drag-to-rotate, theme sinkron dengan main site |
+| 💧 | **Watermark Tak Terlihat** | Tile SVG "dikacode" ~3% opacity (masuk screenshot) + teks yang di-copy disisipi `— dikacode` |
+| 🛡️ | **SecurityShield** | Prank DevTools/bot/VPN — lihat [bagian khusus](#️-fitur-keamanan--anti-scraper) |
+| 📱 | **Mobile-First & A11y** | Ring `:focus-visible`, hover di-scope `@media (hover: hover)`, dukungan `prefers-reduced-motion`, target sentuh ≥44px |
 
 ---
 
@@ -60,11 +58,12 @@ Portfolio website pribadi dengan visual **Cyberpunk × Neo-Brutalism** — diban
 | Framework | [React 19](https://react.dev) + [Vite 7](https://vitejs.dev) |
 | Language | TypeScript 5.9 (strict) |
 | Styling | [Tailwind CSS v4](https://tailwindcss.com) + CSS custom properties (design tokens) |
-| 3D | [Three.js](https://threejs.org) (vanilla, tanpa react-three-fiber) |
+| Fonts | Geist + Geist Mono (Google Fonts) |
 | Icons | lucide-react + react-icons |
 | Utilities | clsx + tailwind-merge (`cn()`) |
 | Build | `vite-plugin-singlefile` **multi-page** → satu file HTML per halaman (`npm run build` = home + `scripts/build-pages.mjs`) |
-| Deploy | GitHub Actions → GitHub Pages |
+| 3D | Three.js **hanya** di `/portofolio` (statis, dari CDN) |
+| Deploy | GitHub Actions → GitHub Pages (juga siap Vercel) |
 
 ---
 
@@ -85,157 +84,151 @@ npm install
 npm run dev          # dev server → http://localhost:5173 (termasuk /layanan, /tentang, dst.)
 npm run build        # production build → dist/ (home + SEMUA subhalaman)
 npm run build:pages  # build ulang subhalaman saja (tanpa home)
-npm run preview      # preview hasil build
+npm run preview      # preview hasil build (server clean-URL aware)
 ```
 
 > Typecheck manual: `npx tsc --noEmit`
->
-> Menambah halaman baru? Cukup buat `<nama>.html` + `src/main-<nama>.tsx` + `src/pages/<nama>/`, lalu tambahkan nama ke `PAGES` di `scripts/build-pages.mjs`.
 
 ---
 
-## 🎛️ Cara Tuning `--c-shadow-offset`
+## 🧩 Arsitektur Multi-Page
 
-Semua shadow neobrutal (kartu, chip, CTA, tombol) diturunkan dari **satu variabel knob**:
+Site ini **bukan SPA**. Setiap halaman adalah entry React sendiri yang di-build menjadi **satu file HTML mandiri** (React + CSS ter-inline), lalu diletakkan di `<nama>/index.html` sehingga URL-nya bersih (`/layanan`, bukan `/layanan.html`).
 
-```css
-/* di src/index.css — bagian :root */
---c-shadow-offset: 6px;   /* ← ganti ke 4 / 6 / 8 untuk menebal/menipis */
-```
+| Bagian | Peran |
+|--------|-------|
+| `index.html` + `src/main.tsx` + `src/App.tsx` | Home |
+| `<nama>/index.html` + `src/main-<nama>.tsx` | Entry tiap subhalaman |
+| `src/pages/<nama>/…` | Komponen halaman |
+| `vite.config.ts` | Build home (singlefile) + plugin dev `cleanUrls()` (`appType: "mpa"`) |
+| `vite.page.config.ts` | Build generik subhalaman via env `PAGE=<nama>` (`emptyOutDir: false` agar tidak menghapus hasil home) |
+| `scripts/build-pages.mjs` | Loop `PAGES` → build tiap subhalaman |
+| `scripts/preview.mjs` | Server preview yang sadar clean URL (karena `vite preview` biasa fallback ke `index.html` root) |
 
-Ubah satu baris itu, **semua shadow di seluruh website ikut berubah**. Knob yang sama juga ada di `public/portofolio/index.html` untuk halaman 3D.
-
-### Turunan Otomatis
-
-| Shadow | Kalkulasi | @ 4px | @ 6px | @ 8px | Dipakai oleh |
-|--------|-----------|-------|-------|-------|--------------|
-| **base** | `--c-shadow-offset` | 4px | 6px | 8px | `.nb-shadow` (kartu, chip, CTA) |
-| **sm** | `× 2/3` | ≈ 2.7px | 4px | ≈ 5.3px | `.nb-shadow-sm` (chip kecil, badge) |
-| **lg** | `× 4/3` | ≈ 5.3px | 8px | ≈ 10.7px | `.nb-shadow-lg` (kartu besar) |
-| **hover** | `× 5/3` | ≈ 6.7px | 10px | ≈ 13.3px | `.nb-press:hover` (grow saat hover) |
-| **press** | `÷ 3` | ≈ 1.3px | 2px | ≈ 2.7px | `.nb-press:active` (saat ditekan) |
-
-### Contoh CSS (sudah memakai var)
-
-```css
-.nb-shadow    { box-shadow: var(--c-shadow-offset) var(--c-shadow-offset) 0 0 var(--c-shadow); }
-.nb-shadow-sm { box-shadow: var(--c-shadow-offset-sm) var(--c-shadow-offset-sm) 0 0 var(--c-shadow); }
-.nb-shadow-lg { box-shadow: var(--c-shadow-offset-lg) var(--c-shadow-offset-lg) 0 0 var(--c-shadow); }
-
-.nb-press:active {
-  transform: translate(3px, 3px);
-  box-shadow: var(--c-shadow-offset-press) var(--c-shadow-offset-press) 0 0 var(--c-shadow), 0 0 18px rgba(255, 230, 0, .45);
-}
-@media (hover: hover) {
-  .nb-press:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: var(--c-shadow-offset-hover) var(--c-shadow-offset-hover) 0 0 var(--c-shadow);
-  }
-}
-```
-
-### Warna Shadow
-
-Ketebalan (`offset`) dan warna (`--c-shadow`) adalah token terpisah:
-
-| Tema | `--c-shadow` |
-|------|--------------|
-| Dark (default) | `#ffe600` (kuning neon) |
-| Light (original) | `#000000` (hitam keras) |
-
-> Ada juga varian berwarna konstan `.nb-shadow-orange/pink/blue/neon` dan `.nb-press-{color}:hover` — di light mode semuanya override jadi hitam agar sesuai look original.
-
-### Design Tokens Lainnya
-
-| Token | Dark (default) | Light (original) | Fungsi |
-|-------|----------------|------------------|--------|
-| `--c-panel` | `#0a0c11` | `#ffffff` | Background section |
-| `--c-panel-2` | `#0d1018` | `#f2f1ec` | Section alternatif (ritme) |
-| `--c-card` | `#12151d` | `#ffffff` | Surface kartu |
-| `--c-line` | `#222735` | `#d6d5de` | Border tipis / divider |
-| `--c-fog` | `#eef0f6` | `#000000` | Teks utama + border tebal |
-| `--c-mute` | `#a3a9b8` | `#4f4f5c` | Teks sekunder (WCAG AA) |
-| `--c-ink` | `#0a0a0a` | `#0a0a0a` | Teks di atas chip kuning |
-| `--color-paper` | `#ffe600` | `#FFDE4D` | Kuning signature |
-
-Semua token didefinisikan di `src/index.css` (`:root` untuk dark, `[data-theme="light"]` untuk light). **Jangan hardcode warna di komponen — selalu pakai token.**
+**Menambah halaman baru:** buat `<nama>/index.html` + `src/main-<nama>.tsx` + `src/pages/<nama>/`, lalu tambahkan `"<nama>"` ke array `PAGES` di `scripts/build-pages.mjs` dan daftarkan link di `src/lib/site.ts`.
 
 ---
 
 ## 📄 Halaman
 
-Website ini **multi-page (MPA)** — tiap halaman di-build menjadi satu file HTML single-file yang mandiri (React + CSS ter-inline). Tidak ada router library; navigasi antar-halaman memakai link biasa, jadi semua path jalan tanpa 404 di GitHub Pages.
+Website ini **multi-page (22 halaman)** — tiap halaman di-build menjadi satu file HTML single-file yang mandiri. Tidak ada router library; navigasi antar-halaman memakai link biasa.
 
 | Path | Halaman | Isi |
 |------|---------|-----|
-| `/` | Home | Landing portfolio: 3D hero, repos live GitHub, stack, kontak |
+| `/` | Home | Landing: hero + typewriter, banner open jasa, repos live GitHub, stack, kontak |
 | `/tentang` | Tentang | Profil, fakta, perjalanan, keahlian, motto |
-| `/layanan` | Layanan | 4 layanan (glass cards) + digital globe 3D, benefits, alur kerja, CTA |
+| `/layanan` | Layanan | 4 layanan, benefits, alur kerja, CTA |
 | `/layanan/website` | Detail: Website | Overview, fitur, alur, deliverables, layanan terkait |
 | `/layanan/bot` | Detail: Bot | + platform Telegram / WhatsApp / Discord |
 | `/layanan/tools` | Detail: Tools | |
 | `/layanan/perbaikan` | Detail: Perbaikan | Bug fix, maintenance, optimasi |
 | `/proyek` | Proyek | Showcase proyek unggulan — data live dari GitHub API |
 | `/proyek/dikaroute` | Detail: DikaRoute | AI gateway multi-provider — routing, fallback, kompresi, caching |
-| `/proyek/pentesterbot` | Detail: PentesterBot | Bot Telegram automation pentesting — recon & vulnerability scanning |
+| `/proyek/pentesterbot` | Detail: PentesterBot | Bot Telegram automation pentesting |
 | `/proyek/remoteuniversal` | Detail: RemoteUniversal | Aplikasi Android universal remote untuk smart TV |
-| `/proyek/website` | Detail: dikaofc.github.io | Portfolio ini sendiri — Vite + React + Tailwind, multi-page |
-| `/proyek/obitobuff` | Detail: ObitoBuff CLI | AI coding agent CLI local-only — sub-agents, file finding, bash, research, code review |
-| `/proyek/agentbuff` | Detail: AgentBuff | AI coding agent untuk Android (Termux) — DikaBuff Agent CLI |
-| `/proyek/telegrambot-ai` | Detail: TelegramBot AI | Userbot Telegram auto-reply AI — belajar gaya bahasa, memori, agent tools |
-| `/proyek/pentesterbot-website` | Detail: PentesterBot Website | Website resmi PentesterBot v2 — Fluid Glass UI + data nyata dari bot |
-| `/proyek/dikaroute-website` | Detail: DikaRoute Website | Website resmi + 8 halaman docs untuk DikaRoute |
-| `/proyek/freebuff-patch` | Detail: Freebuff Patch | Patch & toolkit Freebuff di Android/Termux — no-proot, anti-limit |
+| `/proyek/website` | Detail: dikaofc.github.io | Portfolio ini sendiri |
+| `/proyek/obitobuff` | Detail: ObitoBuff CLI | AI coding agent CLI local-only |
+| `/proyek/agentbuff` | Detail: AgentBuff | AI coding agent untuk Android (Termux) |
+| `/proyek/telegrambot-ai` | Detail: TelegramBot AI | Userbot Telegram auto-reply AI |
+| `/proyek/pentesterbot-website` | Detail: PentesterBot Website | Website resmi PentesterBot v2 |
+| `/proyek/dikaroute-website` | Detail: DikaRoute Website | Website resmi + docs DikaRoute |
+| `/proyek/freebuff-patch` | Detail: Freebuff Patch | Patch & toolkit Freebuff di Android/Termux |
 | `/harga` | Harga | Paket open jasa + nego custom |
 | `/kontak` | Kontak | Semua channel kontak + panel Telegram |
-| `/testimoni` | Testimoni | Empty state "jadilah yang pertama" (siap diisi klien) |
+| `/testimoni` | Testimoni | Empty state "jadilah yang pertama" |
 | `/faq` | FAQ | Accordion pertanyaan umum |
 | `/portofolio` | 3D Version | Halaman 3D statis (logo SMK drag-to-rotate) |
 
 > Semua URL **tanpa ekstensi** — tiap halaman di-build sebagai `<nama>/index.html`, jadi `/layanan` jalan natively di GitHub Pages, Vercel, dan dev server tanpa rewrite.
 
----
+### Halaman Layanan
 
-## 🛠️ Halaman Layanan
-
-Halaman bisnis utama DIKACODE — visual **futuristic digital agency** (dark navy + glassmorphism + cyan/ice-blue glow + aksen gold tipis). Semua data layanan bersumber dari satu file: `src/lib/services.ts`.
-
-### Alur Section
+Data 4 layanan bersumber dari satu file: **`src/lib/services.ts`**. Alur section `/layanan`:
 
 | # | Section | Konten |
 |---|---------|--------|
-| 1 | **Hero** | `OPEN JASA` + tagline `DIGITAL SOLUTION & CODE`, CTA *Konsultasi Sekarang* / *Lihat Layanan*, dan **digital globe 3D** (wireframe cyan, orbit ring gold, partikel) |
-| 2 | **Layanan DIKACODE** | 4 kartu glass (Website, Bot, Tools, Perbaikan) — icon, ghost number, fitur list, platform chips (Telegram/WhatsApp/Discord), CTA *Pelajari Layanan →* |
-| 3 | **Kenapa DIKACODE?** | 4 benefit: Aman Terpercaya 🛡️, Cepat & Efisien ⚡, Kualitas Terjamin ✔️, Support Responsif 🎧 |
+| 1 | **Hero** | `Open jasa` + tagline + CTA *Konsultasi sekarang* / *Lihat layanan* + chip HUD |
+| 2 | **Layanan DIKACODE** | 4 kartu (`v-card`) — icon, nomor, fitur, platform chips, CTA *Pelajari layanan →* |
+| 3 | **Kenapa DIKACODE?** | 4 benefit: Aman terpercaya 🛡️, Cepat & efisien ⚡, Kualitas terjamin ✔️, Support responsif 🎧 |
 | 4 | **Alur Kerja** | Timeline 4 langkah: Konsultasi → Perencanaan → Development → Delivery |
-| 5 | **CTA** | Glass command panel dengan pulse glow — `SIAP MEMBANGUN SOLUSI DIGITALMU?` → **@dikaacode** |
-
-### 4 Layanan & Halaman Detailnya
+| 5 | **CTA** | Panel `v-card` → **@dikaacode** |
 
 | Layanan | Halaman | Fitur utama |
 |---------|---------|-------------|
-| Jasa Pembuatan Website | `/layanan/website` | Landing page, company profile, portfolio, custom website, responsive, performance optimization |
-| Jasa Pembuatan Bot | `/layanan/bot` | Telegram / WhatsApp / Discord, custom commands, automation, API integration, database, admin system |
-| Jasa Pembuatan Tools | `/layanan/tools` | Custom tools, CLI tools, utility software, workflow automation |
+| Jasa Pembuatan Website | `/layanan/website` | Landing page, company profile, portfolio, custom, responsive, performance |
+| Jasa Pembuatan Bot | `/layanan/bot` | Telegram / WhatsApp / Discord, custom commands, automation, API, database, admin |
+| Jasa Pembuatan Tools | `/layanan/tools` | Custom tools, CLI, utility software, workflow automation |
 | Perbaikan & Pengembangan | `/layanan/perbaikan` | Bug fix, error fix, maintenance, optimasi, refactoring |
 
-Setiap halaman detail (`/layanan/<nama>`) berisi: **Overview** (paragraf panjang), **Fitur** grid, **Alur Pengerjaan** timeline, **Cocok Untuk** chips, **Yang Kamu Dapat** (deliverables), **Layanan Terkait**, dan **CTA Telegram** — semua di-render oleh satu komponen bersama `src/pages/service/ServiceDetailPage.tsx`.
+Tiap halaman detail (`/layanan/<nama>`) berisi **Overview**, **Fitur**, **Alur Pengerjaan**, **Cocok Untuk**, **Yang Kamu Dapat**, **Layanan Terkait**, dan **CTA Telegram** — di-render oleh satu komponen bersama `src/pages/service/ServiceDetailPage.tsx`. Halaman detail proyek memakai pola serupa via `src/pages/proyek/ProjectDetailPage.tsx`.
 
 ---
 
-## 📸 Screenshot
+## 🎨 Design Tokens & Styling
 
-Screenshot halaman utama & layanan diambil dari browser lalu disimpan di `docs/screenshots/`.
+Semua warna diatur via CSS custom properties di `src/index.css` (`:root` untuk light, `[data-theme="dark"]` untuk dark). **Jangan hardcode warna di komponen — selalu pakai token.**
 
-![Halaman Layanan — DIKACODE](/docs/screenshots/layanan.png)
+### Token Utama
 
-*`/layanan` — glass cards, digital globe 3D (Three.js), neon cyan, CTA command panel.*
+| Token | Light | Dark | Fungsi |
+|-------|-------|------|--------|
+| `--c-panel` | `#ffffff` | `#000000` | Background utama |
+| `--c-panel-2` | `#fafafa` | `#0a0a0a` | Section alternatif (ritme) |
+| `--c-card` | `#ffffff` | `#0a0a0a` | Surface kartu |
+| `--c-line` | `#ebebeb` | `#262626` | Border tipis / divider |
+| `--c-fog` | `#171717` | `#ededed` | Teks utama |
+| `--c-mute` | `#4d4d4d` | `#a1a1a1` | Teks sekunder |
+| `--c-faint` | `#666666` | `#888888` | Teks tersier / label mono |
+| `--c-accent` | `#0070f3` | `#3291ff` | Aksen / link |
+| `--c-cta` | `#171717` | `#ededed` | Tombol primer |
+| `--c-cta-text` | `#ffffff` | `#000000` | Teks tombol primer |
 
-![Halaman Detail Bot — DIKACODE](/docs/screenshots/layanan-bot.png)
+### Utility Class (di `src/index.css`)
 
-*`/layanan/bot` — detail per-layanan: overview, fitur, alur pengerjaan, deliverables.*
+| Class | Fungsi |
+|-------|--------|
+| `v-border` | Ring 1px sebagai "border" (shadow layer) |
+| `v-card` | Surface kartu (ring + whisper elevation) |
+| `v-pill` | Chip/pill aksen (bg accent-soft, teks accent) |
+| `btn` / `btn-primary` / `btn-secondary` | Tombol dasar / primer / sekunder |
+| `section` / `section-divide` | Padding section + divider atas |
+| `t-display` / `t-h2` / `t-h3` / `t-lead` / `t-mono-label` | Skala tipografi display |
+| `font-display` / `font-body` / `font-mono` | Font Geist / Geist Mono |
+| `marquee` | Animasi marquee (dipakai bila perlu) |
 
-> **Cara menambah screenshot:** buka halaman di browser (dev atau live) → screenshot penuh halaman → simpan sebagai `docs/screenshots/<nama>.png` (mis. `layanan.png`). File yang belum ada akan tampil sebagai gambar kosong sampai diisi.
+> Ada beberapa class "warisan" (`.nb-shadow*`, `.scanlines`, `.glow-*`, `.cta-panel`, dll) yang sengaja dipertahankan sebagai **no-op** agar markup lama tetap valid — tapi **jangan dipakai untuk komponen baru**.
+
+---
+
+## 🌓 Theme System
+
+- **Pilihan pengguna:** `system` → `light` → `dark` (cycle), disimpan di `localStorage["dika-theme"]`
+- **Default:** `system` — mengikuti OS (`prefers-color-scheme`); fallback CSS `:root` adalah light
+- **Anti-flash:** script inline di tiap `<nama>/index.html` menerapkan tema sebelum first paint
+- **Sinkron antar-tab:** listener event `storage` — ganti tema di satu tab, tab lain ikut
+- **Meta theme-color:** ikut tema (`#000000` dark / `#ffffff` light)
+- **Ikon:** SVG sun / moon / monitor yang morph, menandakan mode aktif
+- Halaman `/portofolio` memakai key `localStorage` yang **sama**, jadi tema tetap konsisten
+
+---
+
+## 🛡️ Fitur "Keamanan" & Anti-Scraper
+
+Semua ini **bagian dari desain (edukasi + anti-bot)**, bukan celah asli. Komponen `src/components/SecurityShield.tsx`:
+
+| Deteksi | Perilaku |
+|---------|----------|
+| **DevTools** | Blokir F12 / Ctrl+Shift+I/J/C / Ctrl+U, deteksi selisih ukuran window, dan timing `debugger` → tampilkan modal "Akses dibatasi" |
+| **Bot / scraper** | Deteksi `navigator.webdriver`, pola UA headless (HeadlessChrome, Puppeteer, curl, dll) → tampilkan **halaman prank terminal palsu** (HTTP 200, isi lelucon) |
+| **VPN / proxy** | Bandingkan offset UTC dari `ipwho.is` dengan timezone browser; selisih ≥2 jam → peringatan |
+
+Selain itu:
+
+- **Decoy / honeypot** di `public/`: `.env`, `config.php`, `database.sql`, `wp-login.php`, `phpinfo.php`, `shell.php`, `admin/`, `prank.html` — semuanya pura-pura "bocor", isinya lelucon.
+- `vercel.json` me-rewrite path sensitif (`/admin`, `/\.env`, `/wp-login\.php`, dst.) ke `prank.html` dengan status **200**.
+- **Security headers** di `vercel.json`: `X-Content-Type-Options`, `X-Frame-Options: DENY`, `Referrer-Policy`, `Permissions-Policy`, dan `Content-Security-Policy`.
+- **Watermark** tak terlihat (`Watermark.tsx`) + sisipan `— dikacode` saat teks di-copy (`App.tsx`).
+- `public/robots.txt` (Disallow honeypot) + `public/sitemap.xml` (25 URL).
 
 ---
 
@@ -245,31 +238,32 @@ Screenshot halaman utama & layanan diambil dari browser lalu disimpan di `docs/s
 ├── index.html                        # Entry home + inline theme script (anti-flash)
 ├── tentang/  layanan/  proyek/  harga/  kontak/  testimoni/  faq/
 │   └── index.html                    # tiap folder = 1 halaman → URL /<nama>
-├── layanan/website/  layanan/bot/  layanan/tools/  layanan/perbaikan/
-│   └── index.html                    # halaman detail layanan → URL /layanan/<nama>
-├── proyek/dikaroute/  proyek/pentesterbot/  proyek/remoteuniversal/  proyek/website/
-│   └── index.html                    # halaman detail proyek → URL /proyek/<nama>
-├── proyek/obitobuff/  proyek/agentbuff/  proyek/telegrambot-ai/
-├── proyek/pentesterbot-website/  proyek/dikaroute-website/  proyek/freebuff-patch/
-│   └── index.html                    # halaman detail proyek lain → URL /proyek/<nama>
+├── layanan/{website,bot,tools,perbaikan}/index.html   # → URL /layanan/<nama>
+├── proyek/<slug>/index.html          # 10 detail proyek → URL /proyek/<slug>
 ├── public/
-│   ├── portofolio/                   # Halaman 3D kedua (logo SMK 3D) → /portofolio
-│   ├── 404.html                      # Halaman 404 kustom
+│   ├── portofolio/index.html         # Halaman 3D kedua (logo SMK 3D) → /portofolio
+│   ├── 404.html  prank.html          # Halaman 404 & prank
+│   ├── .env  config.php  database.sql  wp-login.php  phpinfo.php  shell.php  admin/
+│   │                                 # Decoy / honeypot (isi lelucon)
+│   ├── robots.txt  sitemap.xml
 │   └── LOGO-SMK-BHINNEKA-remove-bg-io.png
 ├── scripts/
-│   └── build-pages.mjs               # Build semua subhalaman (loop PAGE env)
-├── vite.config.ts                    # Build home (singlefile)
+│   ├── build-pages.mjs               # Build semua subhalaman (loop PAGES)
+│   └── preview.mjs                   # Preview server clean-URL aware
+├── vite.config.ts                    # Build home (singlefile) + dev cleanUrls()
 ├── vite.page.config.ts               # Build generik subhalaman (env PAGE=<nama>)
+├── vercel.json                       # Routes + security headers (Vercel)
 ├── src/
 │   ├── main.tsx                      # React entry home
-│   ├── main-<nama>.tsx               # React entry tiap subhalaman
+│   ├── main-<nama>.tsx               # React entry tiap subhalaman (21 file)
 │   ├── App.tsx                       # Root home: theme, GitHub data, copy-watermark
-│   ├── index.css                     # Design tokens, utilities, keyframes, .cta-panel
+│   ├── index.css                     # Design tokens, utilities, keyframes
 │   ├── hooks/useTheme.ts             # Theme state bersama (system/light/dark)
 │   ├── lib/
 │   │   ├── github.ts                 # GitHub API client + FALLBACK data
-│   │   ├── site.ts                   # SITE constants + nav/footer links semua halaman
-│   │   └── services.ts               # Single source of truth: data 4 layanan
+│   │   ├── site.ts                   # SITE constants + nav/footer links
+│   │   ├── services.ts               # Single source of truth: data 4 layanan
+│   │   └── projects.ts               # Single source of truth: 10 proyek + slug map
 │   ├── utils/cn.ts                   # clsx + tailwind-merge helper
 │   ├── components/                   # Komponen bersama (dipakai semua halaman)
 │   └── pages/<nama>/                 # Komponen spesifik per halaman
@@ -280,27 +274,26 @@ Screenshot halaman utama & layanan diambil dari browser lalu disimpan di `docs/s
 
 | Komponen | Peran |
 |----------|-------|
+| `PageShell.tsx` | Layout bersama subhalaman: Watermark + SecurityShield + Nav + main + Footer + back-to-top |
 | `Nav.tsx` | Navbar sticky + theme toggle (links configurable per halaman) |
 | `Footer.tsx` | Footer (nav links configurable) + link halaman 3D |
-| `PageShell.tsx` | Layout bersama subhalaman: Watermark + Nav + main + Footer + back-to-top |
-| `PageHero.tsx` | Header futuristic (chip, title display, desc, CTA) |
-| `Hero.tsx` · `Hero3D.tsx` | Hero home + 3D logo (Three.js) |
-| `Typewriter.tsx` | Efek ketik terminal di hero home |
-| `Mascot.tsx` | Keluarga mascot (diko/cat/bug/spark) |
-| `Repos.tsx` · `RepoCard.tsx` | Grid repo + kartu repo (featured scanline) |
-| `Stack.tsx` · `Contact.tsx` | Section tech stack & kontak (Contact di-reuse halaman /kontak) |
+| `PageHero.tsx` | Header halaman (chip, title display, desc, CTA) + `Reveal` |
+| `Hero.tsx` · `Typewriter.tsx` | Hero home + efek ketik terminal |
+| `Repos.tsx` · `RepoCard.tsx` | Grid repo (pinned + filter/cari) + kartu repo |
+| `Stack.tsx` · `Contact.tsx` | Section tech stack & kontak (Contact di-reuse halaman `/kontak`) |
+| `OpenJasaBanner.tsx` | Banner CTA "Open Jasa" di home |
 | `Reveal.tsx` | Scroll-reveal (IntersectionObserver) |
 | `Watermark.tsx` | Watermark tile transparan |
-| `OpenJasaBanner.tsx` | Banner CTA "Open Jasa" di home |
+| `SecurityShield.tsx` | Prank DevTools / bot / VPN |
 
 ### Struktur per Halaman (`src/pages/`)
 
 | Halaman | Komponen |
 |---------|----------|
-| `layanan/` | `LayananPage` → `LayananHero` (+`DigitalCore` globe 3D), `Services`, `Benefits`, `Process`, `LayananCta` |
+| `layanan/` | `LayananPage` → `LayananHero`, `Services`, `Benefits`, `Process`, `LayananCta` |
 | `service/` | `ServiceDetailPage` (layout detail bersama) + `WebsitePage`, `BotPage`, `ToolsPage`, `PerbaikanPage` |
 | `tentang/` | `TentangPage` (profil, journey, keahlian, motto) |
-| `proyek/` | `ProyekPage` (fetch `getRepos` live dari GitHub) + `ProjectDetailPage` (layout detail bersama untuk 10 proyek) |
+| `proyek/` | `ProyekPage` (fetch `getRepos` live) + `ProjectDetailPage` (layout detail bersama) + 10 wrapper halaman detail |
 | `harga/` | `HargaPage` (4 paket + CTA nego) |
 | `kontak/` | `KontakPage` (hero + reuse `Contact`) |
 | `testimoni/` | `TestimoniPage` (empty state) |
@@ -316,39 +309,35 @@ Screenshot halaman utama & layanan diambil dari browser lalu disimpan di `docs/s
 
 ---
 
-## 🌓 Theme System
+## 📸 Screenshot
 
-- **Pilihan pengguna:** `system` → `light` → `dark` (cycle), disimpan di `localStorage["dika-theme"]`
-- **Default:** `system` — mengikuti OS (`prefers-color-scheme`) dan **live-update** saat OS berubah
-- **Anti-flash:** script inline di `index.html` menerapkan tema sebelum first paint
-- **Sinkron antar-tab:** listener event `storage` — ganti tema di satu tab, tab lain ikut
-- **Meta theme-color:** ikut tema (`#0a0c11` dark / `#ffffff` light)
-- **Ikon:** SVG sun & moon yang **morph** (rotate + scale + fade), bukan sekadar rotate
+Screenshot halaman diambil dari browser lalu disimpan di `docs/screenshots/`.
 
----
+![Halaman Layanan — DIKACODE](/docs/screenshots/layanan.png)
 
-## 🐾 Mascot Family
+*`/layanan` — kartu layanan, benefit, alur kerja, CTA.*
 
-| Variant | Lokasi | Animasi |
-|---------|--------|---------|
-| `diko` (Robot 🤖) | Hero | float, blink, wave |
-| `cat` (Kucing 🐱) | Hero + Contact | bob, tail-wag |
-| `bug` (Serangga 🐛) | Repos | hop, antenna |
-| `spark` (✦) | Stack | twinkle |
+![Halaman Detail Bot — DIKACODE](/docs/screenshots/layanan-bot.png)
 
-Semua mascot `aria-hidden` + `pointer-events-none`, dan mati otomatis saat `prefers-reduced-motion`.
+*`/layanan/bot` — detail per-layanan: overview, fitur, alur pengerjaan, deliverables.*
+
+> **Cara menambah screenshot:** buka halaman di browser (dev atau live) → screenshot penuh halaman → simpan sebagai `docs/screenshots/<nama>.png` (mis. `layanan.png`). File yang belum ada akan tampil sebagai gambar kosong sampai diisi. Lihat `docs/screenshots/README.md`.
 
 ---
 
 ## 🚢 Deployment
 
+### GitHub Pages
 Push ke `main` memicu `.github/workflows/deploy.yml`:
 
 1. `npm ci` → `npm run build` (produksi `dist/`)
 2. Upload artifact Pages
 3. `actions/deploy-pages` → deploy ke GitHub Pages
 
-**Setup sekali saja** di repo (Settings → Pages → **Build and deployment → Source → GitHub Actions**), setelah itu setiap push otomatis live di `https://dikaofc.github.io`.
+**Setup sekali saja** di repo (Settings → Pages → **Build and deployment → Source → GitHub Actions**), setelah itu setiap push otomatis live.
+
+### Vercel
+`vercel.json` sudah disiapkan (static build + clean-URL routes + security headers + rewrite honeypot).
 
 > `dist/` dan `node_modules/` di-gitignore — jangan pernah commit hasil build.
 
@@ -361,11 +350,11 @@ Push ke `main` memicu `.github/workflows/deploy.yml`:
 | GitHub | [github.com/dikaofc](https://github.com/dikaofc) |
 | npm | [npmjs.com/~dikaofc](https://www.npmjs.com/~dikaofc) |
 | Telegram | [t.me/dikaacode](https://t.me/dikaacode) |
-| Website | [dikaofc.github.io](https://dikaofc.github.io) |
+| Website | [obitoglory.tech](https://obitoglory.tech) |
 | Donate | [Saweria](https://saweria.co/dikatech) |
 
 ---
 
-**Last Updated:** August 16, 2026 · **License:** MIT & Open Source · **[Cara Berkontribusi](CONTRIBUTING.md)**
+**Last Updated:** 2026 · **License:** MIT & Open Source · **[Cara Berkontribusi](CONTRIBUTING.md)**
 
 ⭐ Star repo ini kalau bermanfaat!

@@ -25,6 +25,27 @@ export default function Footer({ links = DEFAULT_LINKS }: { links?: FooterLink[]
           <p className="text-sm leading-relaxed text-mute max-w-xs">
             Developer muda dari Indonesia. Fokus di AI, security automation, bug hunting, dan lain nya.
           </p>
+          <ul className="mt-4 grid gap-1.5 font-mono text-xs text-mute">
+            <li>
+              Telegram:{" "}
+              <a href="https://t.me/dikaacode" target="_blank" rel="noopener noreferrer" className="text-fog hover:opacity-75">
+                @dikaacode
+              </a>
+            </li>
+            <li>
+              Email:{" "}
+              <a href="mailto:dikasukasukaa@gmail.com" className="text-fog hover:opacity-75">
+                dikasukasukaa@gmail.com
+              </a>
+            </li>
+            <li>
+              GitHub:{" "}
+              <a href="https://github.com/dikaofc" target="_blank" rel="noopener noreferrer" className="text-fog hover:opacity-75">
+                github.com/dikaofc
+              </a>
+            </li>
+            <li>Lokasi: Kendal, Jawa Tengah, ID</li>
+          </ul>
         </div>
 
         <nav aria-label="Navigasi footer">

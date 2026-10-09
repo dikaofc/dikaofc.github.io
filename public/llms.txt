@@ -1,0 +1,26 @@
+# DikaCode (DikaOfc)
+
+> DikaCode adalah layanan jasa digital dari developer indie Indonesia (DikaOfc): pembuatan website, bot Telegram/WhatsApp/Discord, tools automation, dan perbaikan sistem. Juga pembuat proyek open source seperti DikaRoute (AI gateway), PentesterBot, dan ObitoBuff CLI.
+
+Kontak: Telegram @dikaacode · Email dikasukasukaa@gmail.com · GitHub github.com/dikaofc · Lokasi: Kendal, Jawa Tengah, Indonesia.
+
+## Layanan
+- [Jasa Pembuatan Website](https://obitoglory.tech/layanan/website): landing page, company profile, portfolio, website custom yang responsif dan cepat.
+- [Jasa Pembuatan Bot](https://obitoglory.tech/layanan/bot): bot Telegram, WhatsApp, Discord dengan custom command, automation, API integration, database, dan admin system.
+- [Jasa Pembuatan Tools](https://obitoglory.tech/layanan/tools): tools custom, CLI, utility software, dan workflow automation.
+- [Perbaikan & Pengembangan](https://obitoglory.tech/layanan/perbaikan): bug fix, error fix, maintenance, optimasi, dan penambahan fitur.
+- [Harga & Paket](https://obitoglory.tech/harga): website mulai Rp150rb, bot mulai Rp100rb, tools mulai Rp150rb, maintenance mulai Rp50rb/bulan.
+- [FAQ](https://obitoglory.tech/faq): cara order, pembayaran, durasi pengerjaan, revisi, dan garansi.
+
+## Proyek
+- [DikaRoute](https://obitoglory.tech/proyek/dikaroute): AI gateway ringan, multi-provider routing, fallback otomatis, kompresi, caching.
+- [PentesterBot](https://obitoglory.tech/proyek/pentesterbot): bot Telegram untuk automation pentesting dan vulnerability scanning.
+- [RemoteUniversalDevice](https://obitoglory.tech/proyek/remoteuniversal): aplikasi Android universal remote untuk smart TV.
+- [ObitoBuff CLI](https://obitoglory.tech/proyek/obitobuff): AI coding agent CLI local-only dengan sub-agents.
+- [AgentBuff](https://obitoglory.tech/proyek/agentbuff): AI coding agent untuk Android (Termux).
+- [TelegramBot AI](https://obitoglory.tech/proyek/telegrambot-ai): userbot Telegram auto-reply AI.
+- [Semua proyek](https://obitoglory.tech/proyek)
+
+## Tentang
+- [Tentang DikaCode](https://obitoglory.tech/tentang): profil, perjalanan, dan keahlian.
+- [Kontak](https://obitoglory.tech/kontak): semua channel kontak.

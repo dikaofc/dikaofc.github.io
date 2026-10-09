@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
-
-# Honeypot / decoy paths — keep crawlers (and scanners) away
 Disallow: /admin
 Disallow: /portofolio
 Disallow: /prank.html
@@ -9,5 +7,23 @@ Disallow: /wp-login.php
 Disallow: /phpinfo.php
 Disallow: /shell.php
 Disallow: /config.php
+Disallow: /.env
+Disallow: /database.sql
+
+# AI & search crawlers — explicitly welcome so content is citable
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Googlebot
+User-agent: Bingbot
+Allow: /
+Disallow: /admin
+Disallow: /portofolio
+Disallow: /prank.html
 
 Sitemap: https://obitoglory.tech/sitemap.xml

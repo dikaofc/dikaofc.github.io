@@ -1,6 +1,6 @@
 # Contributing to dikaofc.github.io
 
-Terima kasih sudah mau berkontribusi! 🎉 Repo ini adalah portfolio website pribadi, tapi semua bentuk kontribusi — mulai dari laporan bug, saran desain, sampai pull request — sangat dihargai.
+Terima kasih sudah mau berkontribusi! 🎉 Repo ini adalah website portfolio + jasa pribadi, tapi semua bentuk kontribusi — mulai dari laporan bug, saran desain, sampai pull request — sangat dihargai.
 
 ---
 
@@ -8,10 +8,10 @@ Terima kasih sudah mau berkontribusi! 🎉 Repo ini adalah portfolio website pri
 
 - [Cara Berkontribusi](#cara-berkontribusi)
 - [Setup Development](#setup-development)
-- [Struktur Project](#struktur-project)
+- [Arsitektur & Struktur Project](#arsitektur--struktur-project)
 - [Konvensi Commit](#konvensi-commit)
 - [Code Style & Aturan](#code-style--aturan)
-- [Design Tokens & Shadow](#design-tokens--shadow)
+- [Design Tokens & Styling](#design-tokens--styling)
 - [Proses Pull Request](#proses-pull-request)
 - [Checklist Sebelum Submit](#checklist-sebelum-submit)
 
@@ -43,9 +43,10 @@ git clone https://github.com/dikaofc/dikaofc.github.io.git
 cd dikaofc.github.io
 npm install
 
-npm run dev        # dev server → http://localhost:5173 (HMR aktif)
-npm run build      # production build → dist/
-npm run preview    # preview hasil build
+npm run dev          # dev server → http://localhost:5173 (HMR aktif, termasuk /layanan dst.)
+npm run build        # production build → dist/ (home + semua subhalaman)
+npm run build:pages  # build ulang subhalaman saja
+npm run preview      # preview hasil build (server clean-URL aware)
 ```
 
 ### Typecheck
@@ -57,24 +58,47 @@ npx tsc --noEmit
 
 ---
 
-## Struktur Project
+## Arsitektur & Struktur Project
+
+Site ini **multi-page (MPA)**, bukan SPA. Setiap halaman adalah entry React sendiri yang di-build menjadi **satu file HTML mandiri** (React + CSS ter-inline) lalu diletakkan di `<nama>/index.html` agar URL bersih (`/layanan`, tanpa `.html`). Tidak ada router library.
 
 ```
-├── index.html                 # HTML entry + inline theme script (anti-flash)
+├── index.html                 # Entry home + inline theme script (anti-flash)
+├── <nama>/index.html          # Entry tiap subhalaman (→ URL /<nama>)
+├── scripts/
+│   ├── build-pages.mjs        # Loop PAGES → build semua subhalaman
+│   └── preview.mjs            # Preview server clean-URL aware
+├── vite.config.ts             # Build home (singlefile) + plugin dev cleanUrls()
+├── vite.page.config.ts        # Build generik subhalaman (env PAGE=<nama>)
 ├── public/
-│   ├── portofolio.html        # Halaman 3D kedua (logo SMK 3D + theme toggle)
-│   └── LOGO-SMK-BHINNEKA-*.png
+│   ├── portofolio/index.html  # Halaman 3D statis (Three.js dari CDN)
+│   └── …                      # 404, prank, decoy/honeypot, robots, sitemap
 ├── src/
-│   ├── main.tsx               # React entry
-│   ├── App.tsx                # Root: theme state, GitHub data, copy-watermark
+│   ├── main.tsx               # React entry home
+│   ├── main-<nama>.tsx        # React entry tiap subhalaman
+│   ├── App.tsx                # Root home: theme, GitHub data, copy-watermark
 │   ├── index.css              # Design tokens, utilities, keyframes
-│   ├── lib/github.ts          # GitHub API client + FALLBACK data
+│   ├── hooks/useTheme.ts      # Theme state bersama (system/light/dark)
+│   ├── lib/
+│   │   ├── github.ts          # GitHub API client + FALLBACK data
+│   │   ├── site.ts            # SITE constants + nav/footer links
+│   │   ├── services.ts        # Data 4 layanan (single source of truth)
+│   │   └── projects.ts        # Data 10 proyek + slug map (single source of truth)
 │   ├── utils/cn.ts            # clsx + tailwind-merge helper
-│   └── components/            # Nav, Hero, Hero3D, Typewriter, Mascot,
-│                              # Repos, RepoCard, Stack, Contact, Footer,
-│                              # Watermark, Reveal
-└── .github/workflows/deploy.yml  # CI/CD → GitHub Pages
+│   ├── components/            # Komponen bersama semua halaman
+│   └── pages/<nama>/          # Komponen spesifik per halaman
+└── .github/workflows/deploy.yml   # CI/CD → GitHub Pages
 ```
+
+### Menambah Halaman Baru
+
+1. Buat `<nama>/index.html` (salin dari halaman lain, ganti `<title>`, `description`, dan path entry)
+2. Buat `src/main-<nama>.tsx` + `src/pages/<nama>/<Nama>Page.tsx`
+3. Tambahkan `"<nama>"` ke array `PAGES` di `scripts/build-pages.mjs`
+4. Tambahkan link di `src/lib/site.ts` (`SUBPAGE_NAV_LINKS` / `SUBPAGE_FOOTER_LINKS`)
+5. Jalankan `npm run build` → URL `/<nama>` langsung tersedia
+
+> **Data konten:** jangan hardcode daftar layanan/proyek di komponen. Tambahkan ke `src/lib/services.ts` atau `src/lib/projects.ts` supaya halaman daftar & detail ikut sinkron otomatis.
 
 ---
 
@@ -91,16 +115,16 @@ Gunakan **Conventional Commits** singkat:
 | `feat` | `feat: tambah theme toggle di mobile` |
 | `fix` | `fix: perbaiki overflow kartu di Android` |
 | `style` | `style: rapikan spacing heading` |
-| `perf` | `perf: pause render Hero3D saat off-screen` |
-| `docs` | `docs: update README knob shadow` |
-| `refactor` | `refactor: pisahkan Mascot jadi komponen reusable` |
+| `perf` | `perf: cache respons GitHub API di localStorage` |
+| `docs` | `docs: update struktur halaman di README` |
+| `refactor` | `refactor: pisahkan Services jadi komponen reusable` |
 | `chore` | `chore: update dependency` |
 
 Contoh lengkap:
 ```
-feat(mascot): tambah varian spark di section Stack
+feat(layanan): tambah kartu layanan tools
 
-- Tambah animasi twinkle
+- Ambil data dari src/lib/services.ts
 - Stagger delay biar nggak serempak
 ```
 
@@ -113,26 +137,22 @@ feat(mascot): tambah varian spark di section Stack
 ### React & TypeScript
 - **TypeScript strict** — selalu beri tipe pada props & state (`type Props = {...}`)
 - Komponen **default export**, satu komponen per file
-- Reuse komponen existing (`Reveal`, `Mascot`, `cn()`) — jangan re-implement
+- Reuse komponen existing (`PageShell`, `PageHero`, `Reveal`, `cn()`) — jangan re-implement
 - Jangan pakai `any` tanpa alasan kuat
+- Semua halaman harus dibungkus `PageShell` (kecuali home yang memakai `App.tsx`)
 
 ### Tailwind & CSS
-- **Jangan hardcode warna** — selalu pakai token (`bg-panel`, `text-fog`, `bg-paper`, `nb-border-thick`, dll)
-- Tambah utility CSS di `src/index.css`, bukan inline style
-- Pakai kelas `nb-shadow-*` / `nb-press` untuk elemen neobrutal
+- **Jangan hardcode warna** — selalu pakai token (`bg-panel`, `text-fog`, `text-mute`, `text-accent`, dst.)
+- Prefer utility class yang sudah ada (`v-card`, `v-pill`, `v-border`, `btn btn-primary`, `t-h2`, `section`) daripada bikin style baru
+- Tambah utility CSS di `src/index.css`, bukan inline style berulang
+- Class warisan (`.nb-shadow*`, `.scanlines`, `.glow-*`, `.cta-panel`) dipertahankan sebagai **no-op** untuk markup lama — **jangan dipakai untuk komponen baru**
 
 ### 🚨 Mobile & Hover (aturan paling penting)
-- **Semua efek hover yang mengubah layout** (scale, translate, shadow) harus di-scope:
-  ```tsx
-  // ✅ BENER — hover hanya aktif di device bermouse
-  className="pointer-fine:hover:scale-105 active:scale-95"
+- Semua efek hover yang mengubah layout (scale, translate, shadow) **harus aman di perangkat sentuh**. Di CSS, bungkus dengan media query:
+  ```css
+  @media (hover: hover) { .card:hover { /* … */ } }
   ```
-  ```tsx
-  // ❌ SALAH — hover menyangkut di Android & bisa nembus layar
-  className="hover:scale-105"
-  ```
-- CSS-level hover (`.nb-press:hover`, `.card-glow:hover`) **harus dibungkus** `@media (hover: hover)`
-- `:active` (press feedback) **tetap jalan di semua device** — jangan dibungkus media query
+- Untuk utility Tailwind, gunakan varian hover hanya pada elemen yang tidak mengganggu di sentuh; beri `:active` sebagai feedback tekan (tetap jalan di semua device)
 - Section harus punya `overflow-hidden` untuk elemen absolut/dekoratif
 - Test di viewport mobile (320px–430px) — pastikan tidak ada horizontal overflow
 
@@ -145,40 +165,36 @@ feat(mascot): tambah varian spark di section Stack
 ### Performance
 - Animasi pakai **transform/opacity** (GPU-friendly), hindari `width/height/top/left`
 - Jangan tambah dependency berat untuk animasi sederhana yang bisa CSS
-- Hero3D (Three.js): jangan naikkan DPR > 2, jangan tambah geometri berat
+- Tiap halaman di-build single-file — jaga bundle tetap ringan
 
 ---
 
-## Design Tokens & Shadow
+## Design Tokens & Styling
 
-Semua warna & shadow diatur via CSS custom properties di `src/index.css`.
+Semua warna diatur via CSS custom properties di `src/index.css` (`:root` untuk light, `[data-theme="dark"]` untuk dark).
 
 ### Token utama
 | Token | Fungsi |
 |-------|--------|
-| `--c-panel` / `--c-panel-2` | Background section |
+| `--c-panel` / `--c-panel-2` | Background utama / section alternatif |
 | `--c-card` | Surface kartu |
-| `--c-fog` | Teks utama + border tebal |
-| `--c-mute` | Teks sekunder |
-| `--c-ink` | Teks di atas chip kuning |
-| `--color-paper` | Kuning signature |
-| `--c-shadow` | Warna shadow (kuning dark / hitam light) |
+| `--c-line` | Border tipis / divider |
+| `--c-fog` | Teks utama |
+| `--c-mute` / `--c-faint` | Teks sekunder / tersier |
+| `--c-accent` | Aksen / link |
+| `--c-cta` / `--c-cta-text` | Tombol primer + teksnya |
 
-### Knob `--c-shadow-offset`
-Semua shadow neobrutal diturunkan dari **satu variabel**:
+### Utility class
+| Class | Fungsi |
+|-------|--------|
+| `v-border` | Ring 1px sebagai "border" (shadow layer) |
+| `v-card` | Surface kartu (ring + whisper elevation) |
+| `v-pill` | Chip/pill aksen |
+| `btn` / `btn-primary` / `btn-secondary` | Tombol |
+| `section` / `section-divide` | Padding section + divider |
+| `t-display` / `t-h2` / `t-h3` / `t-lead` / `t-mono-label` | Skala tipografi |
 
-```css
---c-shadow-offset: 6px;   /* base — ubah ke 4/6/8 untuk menebal/menipis */
-```
-
-| Turunan | Kalkulasi |
-|---------|-----------|
-| `sm` | `× 2/3` |
-| `lg` | `× 4/3` |
-| `hover` | `× 5/3` |
-| `press` | `÷ 3` |
-
-> Kalau menambah shadow baru di JSX, **gunakan var turunan** (`var(--c-shadow-offset-lg)`, dst) — bukan angka hardcode. Knob yang sama ada di `public/portofolio.html` — jika mengubah di satu file, sesuaikan yang lain.
+> Kalau butuh elevasi/border baru, pakai pola `v-card` (ring 1px + shadow tipis) — bukan shadow keras ala neo-brutalist.
 
 ---
 
@@ -213,10 +229,11 @@ Semua shadow neobrutal diturunkan dari **satu variabel**:
 - [ ] Build sukses (`npm run build`)
 - [ ] Tidak ada `console.log` debug yang tertinggal
 - [ ] Tidak ada warna hardcode (pakai token)
-- [ ] Hover di-scope `pointer-fine` / `@media (hover: hover)`
+- [ ] Efek hover aman di perangkat sentuh
 - [ ] Tidak ada overflow horizontal di mobile (320px–430px)
 - [ ] `prefers-reduced-motion` tetap berfungsi
 - [ ] Ring `:focus-visible` tidak dihapus
+- [ ] Halaman baru sudah terdaftar di `PAGES` (`scripts/build-pages.mjs`) & `src/lib/site.ts`
 - [ ] Versi dependency baru (jika ada) dicatat di PR
 
 ---
