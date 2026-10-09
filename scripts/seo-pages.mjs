@@ -6,7 +6,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const SITE = "https://obitoglory.tech";
+const SITE = "https://www.obitoglory.tech";
 const OG_IMAGE = `${SITE}/dikacode.svg`;
 const ORG_ID = `${SITE}/#organization`;
 const DATE_PUBLISHED = "2026-01-15";
@@ -178,7 +178,7 @@ function extrasFor(urlPath, h1, desc) {
       crumb: "Layanan",
       trail: [["Layanan", "/layanan"], [h1, `/${urlPath}`]],
       schemaExtra: [{ "@type": "Service", name: decode(h1), description: decode(desc), url: `${SITE}/${urlPath}`, provider: { "@id": ORG_ID }, areaServed: "ID" }],
-      body: `<p>${svc.para}</p><h2>Yang termasuk</h2>${li(svc.features)}${svc.platforms ? `<h2>Platform</h2><p>${svc.platforms.join(", ")}</p>` : ""}<p>Konsultasi gratis, tanpa paksaan: <a href="https://t.me/dikaacode">@dikaacode</a>. <a href="/layanan">Lihat semua layanan</a> · <a href="/harga">Lihat harga</a></p>`,
+      body: `<p>${svc.para}</p><h2>Yang termasuk</h2>${li(svc.features)}${svc.platforms ? `<h2>Platform</h2><p>${svc.platforms.join(", ")}</p>` : ""}<p>Chat dulu aja, gratis dan nggak wajib order: <a href="https://t.me/dikaacode">@dikaacode</a>. <a href="/layanan">Lihat semua layanan</a> · <a href="/harga">Lihat harga</a></p>`,
     };
   }
   if (urlPath === "tentang") {
@@ -219,7 +219,7 @@ function extrasFor(urlPath, h1, desc) {
       crumb: "Kontak",
       trail: [["Kontak", "/kontak"]],
       schemaExtra: [],
-      body: `<h2>Semua channel</h2><ul><li>GitHub: <a href="https://github.com/dikaofc">@dikaofc</a></li><li>Website: <a href="https://obitoglory.tech">obitoglory.tech</a></li><li>Telegram: <a href="https://t.me/dikaacode">@dikaacode</a></li><li>Email: <a href="mailto:dikasukasukaa@gmail.com">dikasukasukaa@gmail.com</a></li><li>Layanan: <a href="/layanan">Open Jasa, Digital Solution</a></li></ul><p>Respons cepat via Telegram, balas pertanyaan, diskusi kebutuhan, sampai detail project, semua bisa lewat satu chat.</p>`,
+      body: `<h2>Semua channel</h2><ul><li>GitHub: <a href="https://github.com/dikaofc">@dikaofc</a></li><li>Website: <a href="https://www.obitoglory.tech">obitoglory.tech</a></li><li>Telegram: <a href="https://t.me/dikaacode">@dikaacode</a></li><li>Email: <a href="mailto:dikasukasukaa@gmail.com">dikasukasukaa@gmail.com</a></li><li>Layanan: <a href="/layanan">Open Jasa, Digital Solution</a></li></ul><p>Respons cepat via Telegram, balas pertanyaan, diskusi kebutuhan, sampai detail project, semua bisa lewat satu chat.</p>`,
     };
   }
   if (urlPath === "testimoni") {

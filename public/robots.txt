@@ -24,4 +24,4 @@ Allow: /
 Disallow: /admin
 Disallow: /prank.html
 
-Sitemap: https://obitoglory.tech/sitemap.xml
+Sitemap: https://www.obitoglory.tech/sitemap.xml

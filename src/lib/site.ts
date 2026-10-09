@@ -6,7 +6,7 @@ export const SITE = {
   telegram: "https://t.me/dikaacode",
   telegramHandle: "@dikaacode",
   github: "https://github.com/dikaofc",
-  website: "https://obitoglory.tech",
+  website: "https://www.obitoglory.tech",
   email: "dikasukasukaa@gmail.com",
 } as const;
 

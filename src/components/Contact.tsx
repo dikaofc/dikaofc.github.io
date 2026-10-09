@@ -13,7 +13,7 @@ const links = [
   {
     label: "Website",
     handle: "obitoglory.tech",
-    url: "https://obitoglory.tech",
+    url: "https://www.obitoglory.tech",
     icon: Globe2,
   },
   {
