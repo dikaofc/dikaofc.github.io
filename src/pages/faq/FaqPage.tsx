@@ -64,7 +64,7 @@ function FaqItem({
         id={`faq-button-${index}`}
         className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left min-h-[44px]"
       >
-        <span className="flex items-center gap-3">
+        <span className="flex items-center gap-3 min-w-0">
           <span
             className={cn(
               "font-mono text-xs",

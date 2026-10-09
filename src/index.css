@@ -87,6 +87,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+img, svg, video {
+  max-width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 76px;

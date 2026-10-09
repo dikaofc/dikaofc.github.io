@@ -22,7 +22,7 @@ export default function ServiceDetailPage({ service }: Props) {
       <PageHero
         chip={`Layanan ${service.num}`}
         title={
-          <span className="inline-flex items-center gap-3">
+          <span className="inline-flex flex-wrap items-center gap-3">
             <Icon size={32} strokeWidth={2} aria-hidden="true" className="text-faint" />
             {titleCase(service.title)}
           </span>

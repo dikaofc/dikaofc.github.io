@@ -26,7 +26,7 @@ export default function PageHero({ chip, title, desc, ctas, children }: Props) {
           </Reveal>
 
           <Reveal delay={80}>
-            <h1 className="t-display text-fog">
+            <h1 className="t-display text-fog break-words">
               {title}
             </h1>
           </Reveal>

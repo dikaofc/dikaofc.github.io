@@ -77,10 +77,10 @@ export default function ProyekPage() {
                 >
                   <div className="flex items-start justify-between gap-3 mb-3">
                     <div className="flex items-center gap-3">
-                      <span className="grid place-items-center w-10 h-10 rounded-md bg-panel-2 text-fog">
+                      <span className="grid place-items-center w-10 h-10 shrink-0 rounded-md bg-panel-2 text-fog">
                         <BookOpen size={20} strokeWidth={2} aria-hidden="true" />
                       </span>
-                      <h3 className="font-display font-semibold text-lg text-fog leading-snug break-words">
+                      <h3 className="font-display font-semibold text-lg text-fog leading-snug break-words min-w-0">
                         {r.name}
                       </h3>
                     </div>

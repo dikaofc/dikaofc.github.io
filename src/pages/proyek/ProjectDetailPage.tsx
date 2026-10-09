@@ -18,7 +18,7 @@ export default function ProjectDetailPage({ project }: Props) {
       <PageHero
         chip="Proyek"
         title={
-          <span className="inline-flex items-center gap-3">
+          <span className="inline-flex flex-wrap items-center gap-3">
             <Icon size={32} strokeWidth={2} aria-hidden="true" className="text-faint" />
             {project.name}
           </span>
