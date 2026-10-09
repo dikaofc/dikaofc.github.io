@@ -299,8 +299,13 @@ function process(file, urlPath) {
   const block = headBlock({ url, title: rawTitle, desc: rawDesc, schema });
   html = html.replace("</head>", `    ${block}\n  </head>`);
 
-  // inject static body once (React replaces #root on load)
-  if (html.includes('<div id="root"></div>')) {
+  // inject static body (React replaces #root on load). Selalu render ulang
+  // isi #root supaya perubahan konten ikut ter-refresh, bukan cuma saat kosong.
+  const rootRe = /<div id="root">[\s\S]*<\/div>\s*(?=<script type="module")/;
+  const body = `<div id="root">${wrapBody(ex.crumb, h1, rawDesc, ex.body)}</div>\n    `;
+  if (rootRe.test(html)) {
+    html = html.replace(rootRe, body);
+  } else if (html.includes('<div id="root"></div>')) {
     html = html.replace('<div id="root"></div>', `<div id="root">${wrapBody(ex.crumb, h1, rawDesc, ex.body)}</div>`);
   }
 
