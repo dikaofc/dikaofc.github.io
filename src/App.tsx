@@ -62,7 +62,7 @@ export default function App() {
       <a
         href="#home"
         aria-label="Kembali ke atas"
-        className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40 grid place-items-center w-11 h-11 rounded-full bg-cta text-cta-text text-lg transition-opacity hover:opacity-85"
+        className="fixed back-top z-40 grid place-items-center w-11 h-11 rounded-full bg-cta text-cta-text text-lg transition-opacity hover:opacity-85"
       >
         ↑
       </a>

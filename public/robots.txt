@@ -1,7 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /admin
-Disallow: /portofolio
 Disallow: /prank.html
 Disallow: /wp-login.php
 Disallow: /phpinfo.php
@@ -23,7 +22,6 @@ User-agent: Googlebot
 User-agent: Bingbot
 Allow: /
 Disallow: /admin
-Disallow: /portofolio
 Disallow: /prank.html
 
 Sitemap: https://obitoglory.tech/sitemap.xml

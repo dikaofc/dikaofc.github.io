@@ -114,17 +114,17 @@ export const PROJECTS: ProjectDetail[] = [
       "Website portfolio ini sendiri ,  Vite + React + Tailwind, single-file build, dan multi-page.",
     long: [
       "Website yang sedang kamu buka ini adalah proyek open source: portfolio DIKACODE dengan visual neo-brutalist × cyberpunk, lengkap dengan halaman layanan, proyek, harga, FAQ, dan halaman 3D.",
-      "Dibangun dengan Vite + React 19 + TypeScript + Tailwind CSS v4 + Three.js. Tiap halaman di-build sebagai satu file HTML single-file, dengan clean URL tanpa ekstensi ,  semua berjalan di GitHub Pages.",
+      "Dibangun dengan Vite + React 19 + TypeScript + Tailwind CSS v4. Tiap halaman di-build sebagai satu file HTML single-file, dengan clean URL tanpa ekstensi ,  semua berjalan di GitHub Pages.",
     ],
     topics: ["portfolio", "react", "vite", "tailwind"],
     highlights: [
-      "Multi-page (23 halaman)",
-      "3D hero dengan Three.js",
+      "Multi-page (22 halaman)",
+      "Typewriter terminal + scroll-reveal",
       "Theme system (auto/light/dark)",
       "Clean URLs tanpa .html",
       "Deploy otomatis via GitHub Actions",
     ],
-    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Three.js"],
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
     links: [
       { label: "Live Website", href: "https://dikaofc.github.io", external: true },
       { label: "GitHub Repo", href: "https://github.com/dikaofc/dikaofc.github.io", external: true },

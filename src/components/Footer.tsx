@@ -23,7 +23,8 @@ export default function Footer({ links = DEFAULT_LINKS }: { links?: FooterLink[]
             <span className="font-display text-xl">dikacode</span>
           </div>
           <p className="text-sm leading-relaxed text-mute max-w-xs">
-            Developer muda dari Indonesia. Fokus di AI, security automation, bug hunting, dan lain nya.
+            Developer muda dari Indonesia. Fokus di AI, security automation,
+            bug hunting — dan tidur.
           </p>
           <ul className="mt-4 grid gap-1.5 font-mono text-xs text-mute">
             <li>
@@ -58,41 +59,39 @@ export default function Footer({ links = DEFAULT_LINKS }: { links?: FooterLink[]
                 </a>
               </li>
             ))}
-            <li>
-              <a href="/portofolio" className="text-mute transition-colors hover:text-fog">
-                3D Version
-              </a>
-            </li>
           </ul>
         </nav>
 
         <div>
-          <div className="t-mono-label mb-4">Info</div>
-          <ul className="grid gap-2 font-mono text-sm text-fog">
-            <li className="flex items-center gap-2">
-              <img
-                src="/LOGO-SMK-BHINNEKA-remove-bg-io.png"
-                alt="Logo SMK Bhinneka"
-                width={28}
-                height={28}
-                loading="lazy"
-                className="w-7 h-7 object-contain"
-              />
-              <span>
-                SMK: <span className="text-fog">BHINNEKA</span>
-              </span>
+          <div className="t-mono-label mb-4">Layanan</div>
+          <ul className="grid gap-2 text-sm font-medium text-fog">
+            <li>
+              <a href="/layanan/website" className="text-mute transition-colors hover:text-fog">
+                Website
+              </a>
             </li>
-            <li>CLASS: <span className="text-fog">XI</span></li>
-            <li>JURUSAN: <span className="text-fog">DKV</span></li>
-            <li>UPDATE: <span className="text-fog">OKT 2026</span></li>
-            <li>HOBY: <span className="text-fog">TIDUR</span></li>
+            <li>
+              <a href="/layanan/bot" className="text-mute transition-colors hover:text-fog">
+                Bot
+              </a>
+            </li>
+            <li>
+              <a href="/layanan/tools" className="text-mute transition-colors hover:text-fog">
+                Tools
+              </a>
+            </li>
+            <li>
+              <a href="/layanan/perbaikan" className="text-mute transition-colors hover:text-fog">
+                Perbaikan
+              </a>
+            </li>
           </ul>
         </div>
       </div>
 
       <div style={{ borderTop: "1px solid var(--c-line)" }}>
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 text-xs md:text-sm font-mono text-mute">
-          <div>© {new Date().getFullYear()} dikaofc, DKV STUDENT</div>
+          <div>© {new Date().getFullYear()} dikaofc — Kendal, ID</div>
           <div>Design, code & copy: Dika — manual, bukan template</div>
         </div>
       </div>

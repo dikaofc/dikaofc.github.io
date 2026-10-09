@@ -10,7 +10,7 @@
 
 Website portfolio + jasa pribadi **DikaCode (DikaOfc / ObitoGlory)** — dibangun dengan **Vite + React 19 + TypeScript + Tailwind CSS v4**, memakai **visual language ala Vercel** (kanvas bersih, border tipis sebagai "shadow", tipografi Geist yang rapat).
 
-> **Live:** [obitoglory.tech](https://obitoglory.tech) · [Layanan](https://obitoglory.tech/layanan) · [Halaman 3D](https://obitoglory.tech/portofolio)
+> **Live:** [obitoglory.tech](https://obitoglory.tech) · [Layanan](https://obitoglory.tech/layanan)
 
 ---
 
@@ -44,7 +44,6 @@ Website portfolio + jasa pribadi **DikaCode (DikaOfc / ObitoGlory)** — dibangu
 | 💰 | **Halaman Harga** | Paket open jasa (website/bot/tools/maintenance) + opsi nego custom |
 | 📝 | **Halaman FAQ** | Accordion aksesibel (`aria-expanded` / `aria-controls`) — 8 pertanyaan umum |
 | 🗂️ | **Detail Per-Proyek** | `/proyek/<slug>` — 10 halaman detail dari satu sumber data (`src/lib/projects.ts`) |
-| 🧊 | **Halaman 3D** | `/portofolio` — halaman statis (Three.js dari CDN) dengan logo SMK drag-to-rotate, theme sinkron dengan main site |
 | 💧 | **Watermark Tak Terlihat** | Tile SVG "dikacode" ~3% opacity (masuk screenshot) + teks yang di-copy disisipi `— dikacode` |
 | 🛡️ | **SecurityShield** | Prank DevTools/bot/VPN — lihat [bagian khusus](#️-fitur-keamanan--anti-scraper) |
 | 📱 | **Mobile-First & A11y** | Ring `:focus-visible`, hover di-scope `@media (hover: hover)`, dukungan `prefers-reduced-motion`, target sentuh ≥44px |
@@ -62,7 +61,6 @@ Website portfolio + jasa pribadi **DikaCode (DikaOfc / ObitoGlory)** — dibangu
 | Icons | lucide-react + react-icons |
 | Utilities | clsx + tailwind-merge (`cn()`) |
 | Build | `vite-plugin-singlefile` **multi-page** → satu file HTML per halaman (`npm run build` = home + `scripts/build-pages.mjs`) |
-| 3D | Three.js **hanya** di `/portofolio` (statis, dari CDN) |
 | Deploy | GitHub Actions → GitHub Pages (juga siap Vercel) |
 
 ---
@@ -137,7 +135,6 @@ Website ini **multi-page (22 halaman)** — tiap halaman di-build menjadi satu f
 | `/kontak` | Kontak | Semua channel kontak + panel Telegram |
 | `/testimoni` | Testimoni | Empty state "jadilah yang pertama" |
 | `/faq` | FAQ | Accordion pertanyaan umum |
-| `/portofolio` | 3D Version | Halaman 3D statis (logo SMK drag-to-rotate) |
 
 > Semua URL **tanpa ekstensi** — tiap halaman di-build sebagai `<nama>/index.html`, jadi `/layanan` jalan natively di GitHub Pages, Vercel, dan dev server tanpa rewrite.
 
@@ -209,7 +206,6 @@ Semua warna diatur via CSS custom properties di `src/index.css` (`:root` untuk l
 - **Sinkron antar-tab:** listener event `storage` — ganti tema di satu tab, tab lain ikut
 - **Meta theme-color:** ikut tema (`#000000` dark / `#ffffff` light)
 - **Ikon:** SVG sun / moon / monitor yang morph, menandakan mode aktif
-- Halaman `/portofolio` memakai key `localStorage` yang **sama**, jadi tema tetap konsisten
 
 ---
 
@@ -242,12 +238,11 @@ Selain itu:
 ├── layanan/{website,bot,tools,perbaikan}/index.html   # → URL /layanan/<nama>
 ├── proyek/<slug>/index.html          # 10 detail proyek → URL /proyek/<slug>
 ├── public/
-│   ├── portofolio/index.html         # Halaman 3D kedua (logo SMK 3D) → /portofolio
 │   ├── 404.html  prank.html          # Halaman 404 & prank
 │   ├── .env  config.php  database.sql  wp-login.php  phpinfo.php  shell.php  admin/
 │   │                                 # Decoy / honeypot (isi lelucon)
 │   ├── robots.txt  sitemap.xml
-│   └── LOGO-SMK-BHINNEKA-remove-bg-io.png
+│   └── dikacode.svg                      # Brand mark netral (SVG)
 ├── scripts/
 │   ├── build-pages.mjs               # Build semua subhalaman (loop PAGES)
 │   └── preview.mjs                   # Preview server clean-URL aware

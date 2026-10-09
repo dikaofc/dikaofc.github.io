@@ -89,6 +89,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 76px;
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
 }
@@ -222,6 +223,24 @@ body {
 }
 .btn-secondary:active {
   transform: translateY(1px);
+}
+
+/* tactile press feedback on touch (iOS-like) + safe-area aware back-to-top */
+@media (hover: none) {
+  .btn:active,
+  a.v-card:active {
+    transform: scale(0.98);
+  }
+}
+.back-top {
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  right: calc(1rem + env(safe-area-inset-right, 0px));
+}
+@media (min-width: 768px) {
+  .back-top {
+    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+    right: calc(1.5rem + env(safe-area-inset-right, 0px));
+  }
 }
 
 .section {

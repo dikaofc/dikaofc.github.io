@@ -71,8 +71,7 @@ Site ini **multi-page (MPA)**, bukan SPA. Setiap halaman adalah entry React send
 ├── vite.config.ts             # Build home (singlefile) + plugin dev cleanUrls()
 ├── vite.page.config.ts        # Build generik subhalaman (env PAGE=<nama>)
 ├── public/
-│   ├── portofolio/index.html  # Halaman 3D statis (Three.js dari CDN)
-│   └── …                      # 404, prank, decoy/honeypot, robots, sitemap
+│   └── …                      # 404, prank, decoy/honeypot, robots, sitemap, brand SVG
 ├── src/
 │   ├── main.tsx               # React entry home
 │   ├── main-<nama>.tsx        # React entry tiap subhalaman

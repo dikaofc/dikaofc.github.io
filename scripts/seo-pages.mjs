@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = "https://obitoglory.tech";
-const OG_IMAGE = `${SITE}/LOGO-SMK-BHINNEKA-remove-bg-io.png`;
+const OG_IMAGE = `${SITE}/dikacode.svg`;
 const ORG_ID = `${SITE}/#organization`;
 const DATE_PUBLISHED = "2026-01-15";
 const DATE_MODIFIED = "2026-10-09";
